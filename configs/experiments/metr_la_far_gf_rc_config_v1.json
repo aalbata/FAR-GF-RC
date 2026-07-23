@@ -1,0 +1,50 @@
+{
+ "architecture": {
+  "decoder_hidden_dimension": 64,
+  "dropout": 0.1,
+  "elapsed_gap_cap_steps": 288,
+  "forecast_log_scale_maximum": 3.0,
+  "forecast_log_scale_minimum": -6.0,
+  "graph_layers": 2,
+  "latent_dimension": 64,
+  "reliability_hidden_dimension": 32,
+  "sensor_embedding_dimension": 16,
+  "temporal_gru_layers": 1
+ },
+ "dataset": "METR-LA",
+ "description": "Failure-Aware Reliability-Calibrated Graph Forecaster with Robust Failure Curriculum.",
+ "future_calendar_feature_dimension": 4,
+ "future_calendar_feature_order": [
+  "time_of_day_sin",
+  "time_of_day_cos",
+  "day_of_week_sin",
+  "day_of_week_cos"
+ ],
+ "history_feature_dimension": 7,
+ "history_feature_order": [
+  "normalized_traffic_value",
+  "corrupted_observation_mask",
+  "corrupted_elapsed_gap_normalized",
+  "time_of_day_sin",
+  "time_of_day_cos",
+  "day_of_week_sin",
+  "day_of_week_cos"
+ ],
+ "input_steps": 12,
+ "method_components": [
+  "failure_aware_input_encoding",
+  "mask_and_elapsed_gap_reliability_estimation",
+  "physical_graph_message_passing",
+  "adaptive_functional_graph_message_passing",
+  "reliability_gated_graph_aggregation",
+  "multi_horizon_forecasting_head",
+  "history_reconstruction_head",
+  "forecast_scale_head_for_later_calibration"
+ ],
+ "model_name": "FAR-GF-RC",
+ "num_sensors": 207,
+ "output_steps": 12,
+ "portability_note": "Paths rewritten project-root-relative from the frozen original in configs/frozen/.",
+ "training_status": "architecture_frozen_before_proposed_model_training",
+ "version": "v1"
+}

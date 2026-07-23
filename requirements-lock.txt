@@ -1,0 +1,12 @@
+# Exact versions from the frozen experimental environment
+# (data/metadata/environment_lock.json + environment_report.json;
+#  Windows 10, Python 3.11.1, CUDA 12.1, RTX 3060)
+torch==2.5.1+cu121   # pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+numpy==2.4.4
+pandas==3.0.3
+scipy==1.17.1
+h5py==3.16.0
+scikit-learn==1.8.0
+matplotlib==3.10.9
+PyYAML==6.0.3
+pytest>=8            # tests only; version not pinned by the frozen run

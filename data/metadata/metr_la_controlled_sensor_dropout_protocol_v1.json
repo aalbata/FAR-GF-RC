@@ -1,0 +1,265 @@
+{
+    "canonical_physical_graph_policy": {
+        "future_model_graph_role": "The processed weighted physical graph W is retained for the proposed graph forecaster and graph-aware ablation studies.",
+        "spatial_failure_cluster_role": "Not used directly for cluster growth because its 34.56% undirected support density is too broad for strictly local outage construction."
+    },
+    "clean_test_evidence_policy": {
+        "canonical_block_start_sha256": "7e62e646f73be23f53e155e3e8efbf7ba1a6b79475234fc65ccdf82d9a7deee1",
+        "canonical_bootstrap_random_seed": 20260629,
+        "canonical_bootstrap_resamples": 2000,
+        "canonical_seed_draw_sha256": "c7037c35e693d55ef0077d16e65e297ca1de0717bd4648bc6a1dd6151807329d",
+        "canonical_temporal_block_length_days": 3,
+        "canonical_temporal_draw_sha256": "2f020427b8049d69ca70033e1513f3dd56e4e5adb09a26d1521346799e010bb4",
+        "clean_baseline_bootstrap_plan_retained": true,
+        "clean_test_evidence_is_sealed": true,
+        "clean_test_evidence_overwrite_prohibited": true,
+        "clean_test_evidence_relabel_as_corrupted_prohibited": true
+    },
+    "dataset_geometry": {
+        "input_duration_minutes": 60,
+        "input_steps": 12,
+        "output_duration_minutes": 60,
+        "output_steps": 12,
+        "sampling_interval_minutes": 5,
+        "sensor_count": 207,
+        "time_steps": 34272
+    },
+    "dataset_name": "METR-LA",
+    "intervention_scope": {
+        "calendar_features_modified": false,
+        "elapsed_since_observed_recomputation": "Required after combining native and artificial missingness.",
+        "future_target_masks_modified": false,
+        "future_target_values_modified": false,
+        "hidden_input_value_placeholder": 0.0,
+        "model_invariant_scenario_policy": "Each split-scenario corruption realization will be generated once and reused unchanged across all future model comparisons.",
+        "modified_tensor_region": "Historical model-input context only.",
+        "native_missingness_modified": false,
+        "train_only_scaler_refit": false
+    },
+    "native_observation_policy": {
+        "artificial_dropout_eligibility": "Only positions that are true in the native observation mask and belong to the historical input context are eligible for artificial removal.",
+        "native_mask_complement_mismatch_count": 0,
+        "native_missing_entries": 575302,
+        "native_missing_mask_key": "native_missing_mask",
+        "native_observation_mask_key": "native_observation_mask",
+        "native_observed_entries": 6519002,
+        "observation_semantics": "A true entry is naturally observed and usable under the native availability convention."
+    },
+    "protocol_freeze_date": "2026-07-01",
+    "protocol_id": "metr_la_controlled_sensor_dropout_protocol_v1",
+    "protocol_version": 1,
+    "randomness_policy": {
+        "deterministic_cluster_growth": "Spatial cluster expansion uses breadth-first search. At each expansion, neighbours are visited in ascending geographic distance, then ascending graph-position index to resolve ties deterministically.",
+        "root_seed": 20260701,
+        "seed_derivation": "SHA-256 over protocol ID, root seed, split name, and scenario ID; first eight digest bytes reduced modulo 2^32-1, with zero replaced by one.",
+        "split_scenario_seeds": {
+            "calibration": {
+                "clean_native": null,
+                "iid_random_10pct": 3335386424,
+                "iid_random_30pct": 2242698315,
+                "iid_random_50pct": 398078450,
+                "spatial_knn4_cluster_10_full_history": 1724103099,
+                "spatial_knn4_cluster_20_full_history": 3476944623,
+                "spatial_knn4_cluster_5_full_history": 2472317166,
+                "temporal_tail_25pct_sensors_3steps": 40956729,
+                "temporal_tail_50pct_sensors_6steps": 3407674138,
+                "temporal_tail_75pct_sensors_12steps": 1797552264
+            },
+            "selection": {
+                "clean_native": null,
+                "iid_random_10pct": 2457004575,
+                "iid_random_30pct": 2753382968,
+                "iid_random_50pct": 1226627187,
+                "spatial_knn4_cluster_10_full_history": 2085424504,
+                "spatial_knn4_cluster_20_full_history": 1124078871,
+                "spatial_knn4_cluster_5_full_history": 4180733430,
+                "temporal_tail_25pct_sensors_3steps": 1865410097,
+                "temporal_tail_50pct_sensors_6steps": 234783310,
+                "temporal_tail_75pct_sensors_12steps": 3895328740
+            },
+            "test": {
+                "clean_native": null,
+                "iid_random_10pct": 922825601,
+                "iid_random_30pct": 2501262878,
+                "iid_random_50pct": 2753698848,
+                "spatial_knn4_cluster_10_full_history": 2053426217,
+                "spatial_knn4_cluster_20_full_history": 634735808,
+                "spatial_knn4_cluster_5_full_history": 3593019608,
+                "temporal_tail_25pct_sensors_3steps": 3327115680,
+                "temporal_tail_50pct_sensors_6steps": 647989568,
+                "temporal_tail_75pct_sensors_12steps": 2375607501
+            },
+            "train": {
+                "clean_native": null,
+                "iid_random_10pct": 1987667320,
+                "iid_random_30pct": 2379623288,
+                "iid_random_50pct": 2852209252,
+                "spatial_knn4_cluster_10_full_history": 3262051301,
+                "spatial_knn4_cluster_20_full_history": 3533646254,
+                "spatial_knn4_cluster_5_full_history": 3664723160,
+                "temporal_tail_25pct_sensors_3steps": 1237728622,
+                "temporal_tail_50pct_sensors_6steps": 3510559521,
+                "temporal_tail_75pct_sensors_12steps": 1191142846
+            }
+        },
+        "test_target_independence": "Scenario randomness must be derived without reading future target values or target masks."
+    },
+    "scenario_family_algorithms": {
+        "iid_random": {
+            "mask_interpretation": "Sampling is conditional on native availability. Existing native-missing positions are preserved and are never counted as artificially removed.",
+            "removed_cell_count_rule": "n_remove = floor(rate * n_eligible + 0.5), where n_eligible is the count of native-observed historical input cells in the window.",
+            "sampling_rule": "For each window, uniformly sample without replacement from native-observed historical positions."
+        },
+        "spatial_cluster_outage": {
+            "cluster_graph": "Symmetric geographic k-nearest-neighbour graph with k=4.",
+            "cluster_growth_rule": "Use deterministic breadth-first growth until the requested connected cluster size is reached.",
+            "cluster_seed_rule": "Sample one graph-position seed uniformly from all 207 sensors.",
+            "outage_interval_rule": "Remove only native-observed entries for every cluster sensor across all 12 historical input steps."
+        },
+        "temporal_tail_outage": {
+            "affected_sensor_count_rule": "n_affected = floor(fraction * n_eligible_sensors + 0.5).",
+            "outage_interval_rule": "For each selected sensor, remove only native-observed entries in the final L historical steps, where L is the scenario outage length. The outage terminates immediately before the forecast origin.",
+            "target_sensor_rule": "Eligible sensors have at least one native-observed cell in the selected historical tail interval."
+        }
+    },
+    "scenarios": [
+        {
+            "artificial_dropout_applied": false,
+            "description": "Native observation availability only. No artificial dropout.",
+            "family": "clean_reference",
+            "scenario_id": "clean_native",
+            "severity_rank": 0
+        },
+        {
+            "conditional_dropout_rate": 0.1,
+            "description": "Uniform random removal of exactly 10% of native-observed historical cells per window.",
+            "family": "iid_random",
+            "scenario_id": "iid_random_10pct",
+            "severity_rank": 1
+        },
+        {
+            "conditional_dropout_rate": 0.3,
+            "description": "Uniform random removal of exactly 30% of native-observed historical cells per window.",
+            "family": "iid_random",
+            "scenario_id": "iid_random_30pct",
+            "severity_rank": 2
+        },
+        {
+            "conditional_dropout_rate": 0.5,
+            "description": "Uniform random removal of exactly 50% of native-observed historical cells per window.",
+            "family": "iid_random",
+            "scenario_id": "iid_random_50pct",
+            "severity_rank": 3
+        },
+        {
+            "affected_sensor_fraction": 0.25,
+            "description": "A 15-minute outage ending at the forecast origin for 25% of eligible sensors.",
+            "family": "temporal_tail_outage",
+            "outage_length_minutes": 15,
+            "outage_length_steps": 3,
+            "scenario_id": "temporal_tail_25pct_sensors_3steps",
+            "severity_rank": 1
+        },
+        {
+            "affected_sensor_fraction": 0.5,
+            "description": "A 30-minute outage ending at the forecast origin for 50% of eligible sensors.",
+            "family": "temporal_tail_outage",
+            "outage_length_minutes": 30,
+            "outage_length_steps": 6,
+            "scenario_id": "temporal_tail_50pct_sensors_6steps",
+            "severity_rank": 2
+        },
+        {
+            "affected_sensor_fraction": 0.75,
+            "description": "A 60-minute outage ending at the forecast origin for 75% of eligible sensors.",
+            "family": "temporal_tail_outage",
+            "outage_length_minutes": 60,
+            "outage_length_steps": 12,
+            "scenario_id": "temporal_tail_75pct_sensors_12steps",
+            "severity_rank": 3
+        },
+        {
+            "cluster_size_sensors": 5,
+            "description": "A connected geographic-kNN4 sensor cluster of 5 sensors is unavailable throughout the full 60-minute historical input context.",
+            "family": "spatial_cluster_outage",
+            "outage_length_minutes": 60,
+            "outage_length_steps": 12,
+            "scenario_id": "spatial_knn4_cluster_5_full_history",
+            "severity_rank": 1
+        },
+        {
+            "cluster_size_sensors": 10,
+            "description": "A connected geographic-kNN4 sensor cluster of 10 sensors is unavailable throughout the full 60-minute historical input context.",
+            "family": "spatial_cluster_outage",
+            "outage_length_minutes": 60,
+            "outage_length_steps": 12,
+            "scenario_id": "spatial_knn4_cluster_10_full_history",
+            "severity_rank": 2
+        },
+        {
+            "cluster_size_sensors": 20,
+            "description": "A connected geographic-kNN4 sensor cluster of 20 sensors is unavailable throughout the full 60-minute historical input context.",
+            "family": "spatial_cluster_outage",
+            "outage_length_minutes": 60,
+            "outage_length_steps": 12,
+            "scenario_id": "spatial_knn4_cluster_20_full_history",
+            "severity_rank": 3
+        }
+    ],
+    "scientific_firewall": {
+        "calibration_scoring_performed": false,
+        "checkpoint_loading_performed": false,
+        "current_configuration_used": false,
+        "model_inference_performed": false,
+        "synthetic_dropout_masks_generated": false,
+        "test_predictions_generated": false,
+        "training_performed": false
+    },
+    "source_provenance": {
+        "canonical_bootstrap_plan_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_gru_five_seed_clean_test_hierarchical_ci_replicates.npz",
+        "canonical_bootstrap_plan_sha256": "66fc0e07a732cf1085480ffb4d0d8dcab072d234c10086822c1ce15c0bd1fd2f",
+        "canonical_physical_graph_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\metr_la_physical_graph_W.npz",
+        "canonical_physical_graph_sha256": "31b16002de2f6f1d374dca6f3a4c909d557dd72c6060f35ee65cca22e33c8592",
+        "graph_source_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\raw\\METRLA\\W_metrla.csv",
+        "graph_source_sha256": "b09f1dcf65882af702e28baa51440cc233d587a9847e2f6c7a453d137ad3b60a",
+        "native_mask_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\metr_la_native_observation_mask.npz",
+        "native_mask_sha256": "70e6684b434461d6388553add88ad17df2b59822926d01897087cd21d218069f",
+        "sensor_location_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\raw\\METRLA\\graph_sensor_locations.csv",
+        "sensor_location_sha256": "6c5e1b3d2a9462d2dbf7f8031fa62fd5e16c6000e4a1cbe8c0023c55ccc8c5c0",
+        "test_cohort_manifest_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\metadata\\metr_la_ms_tcn_v2_clean_test_cohort_manifest.npz",
+        "test_cohort_manifest_sha256": "e581b56f1f417c9a1d3aa32099e0a92ed07f8d1e6e83b8e02e7c417f94030cbf"
+    },
+    "spatial_failure_topology": {
+        "construction": {
+            "distance_metric": "haversine_kilometres",
+            "earth_radius_km": 6371.0088,
+            "k_neighbours": 4,
+            "self_loops": false,
+            "symmetrisation": "An undirected local edge exists when either sensor selects the other among its k nearest geographic neighbours.",
+            "tie_break_rule": "Stable ascending geographic-distance order, then ascending graph-position index."
+        },
+        "purpose": "Failure-cluster generation only. It must not replace the canonical physical graph W used by the future graph-based forecasting model.",
+        "topology_name": "geographic_symmetric_knn_k4",
+        "verified_properties": {
+            "connected_component_count": 1,
+            "degree_max": 9,
+            "degree_median": 4.0,
+            "degree_min": 4,
+            "edge_distance_median_km": 0.7059187736836794,
+            "edge_distance_p90_km": 1.7170476201284044,
+            "isolated_sensor_count": 0,
+            "largest_component_size": 207,
+            "sensor_count": 207,
+            "support_matrix_sha256": "f36cbd7f742f43532f34d393d50cae1cf953cd8f72606a467ba120f43e68d75d",
+            "undirected_edge_count": 502
+        }
+    },
+    "status": "frozen_protocol_specification_only; no_synthetic_masks_generated",
+    "test_cohort_pairing_policy": {
+        "primary_generation_cohort": "primary_native_outage_aware",
+        "primary_window_count": 6313,
+        "secondary_policy": "The secondary cohort must reuse the exact corruption realizations generated for the primary windows. It must be obtained only by selecting the existing ordered primary-window subset indicated by secondary_flags_for_primary. Independent secondary dropout regeneration is prohibited.",
+        "secondary_reporting_cohort": "secondary_high_availability_95pct",
+        "secondary_window_count": 4771
+    }
+}

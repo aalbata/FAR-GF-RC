@@ -1,0 +1,206 @@
+{
+    "created_at": "2026-06-29T14:05:43",
+    "dataset_name": "METR-LA",
+    "input_steps": 12,
+    "output_steps": 12,
+    "calibration_window_count": 1702,
+    "minimum_required_calibration_labels_per_sensor_horizon": 100,
+    "minimum_observed_calibration_labels_per_sensor_horizon": 681,
+    "maximum_observed_calibration_labels_per_sensor_horizon": 1524,
+    "sensor_horizon_pairs_total": 2484,
+    "sensor_horizon_pairs_below_minimum": 0,
+    "calibration_label_sufficiency_passed": true,
+    "high_availability_thresholds_audited_percent": [
+        75.0,
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ],
+    "recommended_secondary_test_threshold_percent": 99.0,
+    "recommended_secondary_test_window_count": 791,
+    "calibration_sensor_horizon_csv": "C:\\Users\\student\\traffic_robust_forecasting\\data\\metadata\\metr_la_calibration_sensor_horizon_coverage.csv",
+    "high_availability_anchor_file": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\metr_la_high_availability_cohort_anchors.npz",
+    "cohort_summary": [
+        {
+            "split": "train",
+            "minimum_input_and_target_availability_percent": 75.0,
+            "all_windows": 23967,
+            "high_availability_scored_windows": 22228,
+            "cohort_fraction_of_all_windows_percent": 92.74418992781742,
+            "minimum_input_availability_in_cohort_percent": 75.3220611916264,
+            "minimum_target_availability_in_cohort_percent": 75.0
+        },
+        {
+            "split": "train",
+            "minimum_input_and_target_availability_percent": 90.0,
+            "all_windows": 23967,
+            "high_availability_scored_windows": 21749,
+            "cohort_fraction_of_all_windows_percent": 90.74560854508282,
+            "minimum_input_availability_in_cohort_percent": 90.01610305958133,
+            "minimum_target_availability_in_cohort_percent": 90.01610305958133
+        },
+        {
+            "split": "train",
+            "minimum_input_and_target_availability_percent": 95.0,
+            "all_windows": 23967,
+            "high_availability_scored_windows": 19022,
+            "cohort_fraction_of_all_windows_percent": 79.36746359577754,
+            "minimum_input_availability_in_cohort_percent": 95.00805152979066,
+            "minimum_target_availability_in_cohort_percent": 95.00805152979066
+        },
+        {
+            "split": "train",
+            "minimum_input_and_target_availability_percent": 99.0,
+            "all_windows": 23967,
+            "high_availability_scored_windows": 8579,
+            "cohort_fraction_of_all_windows_percent": 35.79505152918596,
+            "minimum_input_availability_in_cohort_percent": 99.03381642512076,
+            "minimum_target_availability_in_cohort_percent": 99.03381642512076
+        },
+        {
+            "split": "train",
+            "minimum_input_and_target_availability_percent": 100.0,
+            "all_windows": 23967,
+            "high_availability_scored_windows": 956,
+            "cohort_fraction_of_all_windows_percent": 3.9888179580256184,
+            "minimum_input_availability_in_cohort_percent": 100.0,
+            "minimum_target_availability_in_cohort_percent": 100.0
+        },
+        {
+            "split": "model_selection",
+            "minimum_input_and_target_availability_percent": 75.0,
+            "all_windows": 1703,
+            "high_availability_scored_windows": 1703,
+            "cohort_fraction_of_all_windows_percent": 100.0,
+            "minimum_input_availability_in_cohort_percent": 80.59581320450886,
+            "minimum_target_availability_in_cohort_percent": 80.59581320450886
+        },
+        {
+            "split": "model_selection",
+            "minimum_input_and_target_availability_percent": 90.0,
+            "all_windows": 1703,
+            "high_availability_scored_windows": 1654,
+            "cohort_fraction_of_all_windows_percent": 97.12272460364063,
+            "minimum_input_availability_in_cohort_percent": 91.98872785829307,
+            "minimum_target_availability_in_cohort_percent": 91.98872785829307
+        },
+        {
+            "split": "model_selection",
+            "minimum_input_and_target_availability_percent": 95.0,
+            "all_windows": 1703,
+            "high_availability_scored_windows": 1543,
+            "cohort_fraction_of_all_windows_percent": 90.60481503229595,
+            "minimum_input_availability_in_cohort_percent": 95.04830917874396,
+            "minimum_target_availability_in_cohort_percent": 95.00805152979066
+        },
+        {
+            "split": "model_selection",
+            "minimum_input_and_target_availability_percent": 99.0,
+            "all_windows": 1703,
+            "high_availability_scored_windows": 581,
+            "cohort_fraction_of_all_windows_percent": 34.11626541397534,
+            "minimum_input_availability_in_cohort_percent": 99.03381642512076,
+            "minimum_target_availability_in_cohort_percent": 99.03381642512076
+        },
+        {
+            "split": "model_selection",
+            "minimum_input_and_target_availability_percent": 100.0,
+            "all_windows": 1703,
+            "high_availability_scored_windows": 52,
+            "cohort_fraction_of_all_windows_percent": 3.0534351145038165,
+            "minimum_input_availability_in_cohort_percent": 100.0,
+            "minimum_target_availability_in_cohort_percent": 100.0
+        },
+        {
+            "split": "calibration",
+            "minimum_input_and_target_availability_percent": 75.0,
+            "all_windows": 1702,
+            "high_availability_scored_windows": 1450,
+            "cohort_fraction_of_all_windows_percent": 85.19388954171563,
+            "minimum_input_availability_in_cohort_percent": 81.52173913043478,
+            "minimum_target_availability_in_cohort_percent": 82.0450885668277
+        },
+        {
+            "split": "calibration",
+            "minimum_input_and_target_availability_percent": 90.0,
+            "all_windows": 1702,
+            "high_availability_scored_windows": 1417,
+            "cohort_fraction_of_all_windows_percent": 83.25499412455935,
+            "minimum_input_availability_in_cohort_percent": 90.70048309178745,
+            "minimum_target_availability_in_cohort_percent": 90.29790660225443
+        },
+        {
+            "split": "calibration",
+            "minimum_input_and_target_availability_percent": 95.0,
+            "all_windows": 1702,
+            "high_availability_scored_windows": 1381,
+            "cohort_fraction_of_all_windows_percent": 81.13983548766157,
+            "minimum_input_availability_in_cohort_percent": 95.00805152979066,
+            "minimum_target_availability_in_cohort_percent": 95.00805152979066
+        },
+        {
+            "split": "calibration",
+            "minimum_input_and_target_availability_percent": 99.0,
+            "all_windows": 1702,
+            "high_availability_scored_windows": 389,
+            "cohort_fraction_of_all_windows_percent": 22.855464159811987,
+            "minimum_input_availability_in_cohort_percent": 99.03381642512076,
+            "minimum_target_availability_in_cohort_percent": 99.03381642512076
+        },
+        {
+            "split": "calibration",
+            "minimum_input_and_target_availability_percent": 100.0,
+            "all_windows": 1702,
+            "high_availability_scored_windows": 77,
+            "cohort_fraction_of_all_windows_percent": 4.524089306698002,
+            "minimum_input_availability_in_cohort_percent": 100.0,
+            "minimum_target_availability_in_cohort_percent": 100.0
+        },
+        {
+            "split": "test",
+            "minimum_input_and_target_availability_percent": 75.0,
+            "all_windows": 6844,
+            "high_availability_scored_windows": 5942,
+            "cohort_fraction_of_all_windows_percent": 86.82057276446523,
+            "minimum_input_availability_in_cohort_percent": 75.0,
+            "minimum_target_availability_in_cohort_percent": 76.32850241545893
+        },
+        {
+            "split": "test",
+            "minimum_input_and_target_availability_percent": 90.0,
+            "all_windows": 6844,
+            "high_availability_scored_windows": 5707,
+            "cohort_fraction_of_all_windows_percent": 83.38690824079485,
+            "minimum_input_availability_in_cohort_percent": 90.01610305958133,
+            "minimum_target_availability_in_cohort_percent": 90.01610305958133
+        },
+        {
+            "split": "test",
+            "minimum_input_and_target_availability_percent": 95.0,
+            "all_windows": 6844,
+            "high_availability_scored_windows": 4771,
+            "cohort_fraction_of_all_windows_percent": 69.71069549970778,
+            "minimum_input_availability_in_cohort_percent": 95.00805152979066,
+            "minimum_target_availability_in_cohort_percent": 95.00805152979066
+        },
+        {
+            "split": "test",
+            "minimum_input_and_target_availability_percent": 99.0,
+            "all_windows": 6844,
+            "high_availability_scored_windows": 791,
+            "cohort_fraction_of_all_windows_percent": 11.557568673290474,
+            "minimum_input_availability_in_cohort_percent": 99.03381642512076,
+            "minimum_target_availability_in_cohort_percent": 99.03381642512076
+        },
+        {
+            "split": "test",
+            "minimum_input_and_target_availability_percent": 100.0,
+            "all_windows": 6844,
+            "high_availability_scored_windows": 26,
+            "cohort_fraction_of_all_windows_percent": 0.3798947983635301,
+            "minimum_input_availability_in_cohort_percent": 100.0,
+            "minimum_target_availability_in_cohort_percent": 100.0
+        }
+    ]
+}

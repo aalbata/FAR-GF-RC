@@ -1,0 +1,125 @@
+{
+ "architecture": {
+  "causal_convolutions_per_residual_block": 2,
+  "dilations": [
+   1,
+   2,
+   4,
+   8
+  ],
+  "dropout": 0.1,
+  "forecast_strategy": "direct multi-horizon forecast conditioned on causal history and known future calendar features",
+  "kernel_size": 3,
+  "num_sensors": 207,
+  "prediction_head_dim": 64,
+  "receptive_field_minutes": 305,
+  "receptive_field_steps": 61,
+  "residual_blocks": 4,
+  "sensor_embedding_dim": 8,
+  "sensor_processing": "independent per-sensor temporal processing with shared TCN weights",
+  "tcn_channels": 64
+ },
+ "configuration_sha256": "fc492a74d86b67af0b82708840563e006c869fa6fd4b109568686f454d0cf1da",
+ "data_policy": {
+  "calibration_data_loaded": false,
+  "missing_value_representation": "zero normalized placeholder accompanied by explicit mask",
+  "native_observation_rule": "finite traffic reading strictly greater than zero",
+  "scaler": "frozen train-only per-sensor z-score scaler",
+  "scaler_mean_key": "means",
+  "scaler_source": "data/processed/metr_la_train_only_sensor_scaler.npz",
+  "scaler_std_key": "stds",
+  "selection_input_context": "historical context may cross the train-selection boundary",
+  "target_split_rule": "target windows lie fully inside their own chronological split",
+  "test_data_loaded": false
+ },
+ "dataset_name": "METR-LA",
+ "experiment_name": "metr_la_masked_sensor_shared_tcn",
+ "features": {
+  "elapsed_time_cap_hours": 24.0,
+  "elapsed_time_cap_steps": 288,
+  "future_calendar_feature_dim": 4,
+  "future_known_feature_names": [
+   "time_of_day_sin",
+   "time_of_day_cos",
+   "day_of_week_sin",
+   "day_of_week_cos"
+  ],
+  "history_feature_dim": 7,
+  "history_feature_names": [
+   "normalized_traffic_value",
+   "native_observation_mask",
+   "elapsed_time_since_observed_normalized",
+   "time_of_day_sin",
+   "time_of_day_cos",
+   "day_of_week_sin",
+   "day_of_week_cos"
+  ]
+ },
+ "forecast_minutes": {
+  "per_step": 5,
+  "required_headline_horizons": {
+   "15_min": 3,
+   "30_min": 6,
+   "60_min": 12
+  }
+ },
+ "input_steps": 12,
+ "model_family": "Non-graph learned baseline",
+ "model_full_name": "Masked Sensor-Shared Temporal Convolutional Network",
+ "model_identifier": "MS-TCN",
+ "output_steps": 12,
+ "portability_note": "Paths rewritten project-root-relative from the frozen original in configs/frozen/.",
+ "source_files": {
+  "dataset_module": "src/datasets/causal_masked_tcn_window_dataset.py",
+  "model_module": "src/models/masked_sensor_shared_tcn.py",
+  "raw_h5": "data/raw/METRLA/metr-la.h5",
+  "traffic_h5_dataset": "df/block0_values"
+ },
+ "training": {
+  "batch_size": 32,
+  "calibration_used_for_training": false,
+  "early_stopping_min_delta": 0.0001,
+  "early_stopping_patience": 10,
+  "evaluation_batch_size": 256,
+  "final_seeds": [
+   17,
+   29,
+   43,
+   71,
+   101
+  ],
+  "gradient_clip_norm": 1.0,
+  "learning_rate": 0.001,
+  "max_epochs": 60,
+  "model_selection_metric": "global raw-scale MAE on frozen selection windows",
+  "optimizer": "AdamW",
+  "reference_setup_seed": 17,
+  "selection_only_for_early_stopping": true,
+  "test_used_for_checkpoint_choice": false,
+  "test_used_for_training": false,
+  "training_loss": "masked normalized MAE over valid target entries",
+  "weight_decay": 0.0001
+ },
+ "uncertainty_reporting": {
+  "bootstrap_resamples": 2000,
+  "final_neural_seeds": [
+   17,
+   29,
+   43,
+   71,
+   101
+  ],
+  "percentile_interval": [
+   2.5,
+   97.5
+  ],
+  "point_estimate": "arithmetic mean of global per-seed metrics",
+  "seed_resampling": "five seed slots with replacement",
+  "temporal_resampling": "non-circular three-day moving blocks"
+ },
+ "uses_adaptive_graph": false,
+ "uses_adjacency_matrix": false,
+ "uses_cross_sensor_message_passing": false,
+ "uses_graph": false,
+ "uses_synthetic_failures": false
+}

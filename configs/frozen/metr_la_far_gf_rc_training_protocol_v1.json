@@ -1,0 +1,94 @@
+{
+  "curriculum_stages": [
+    {
+      "epoch_end": 4,
+      "epoch_start": 1,
+      "name": "clean_warmup",
+      "scenario_probabilities": {
+        "clean": 1.0
+      }
+    },
+    {
+      "epoch_end": 10,
+      "epoch_start": 5,
+      "name": "iid_robustness",
+      "scenario_probabilities": {
+        "clean": 0.2,
+        "iid_random_10pct": 0.4,
+        "iid_random_30pct": 0.4
+      }
+    },
+    {
+      "epoch_end": 18,
+      "epoch_start": 11,
+      "name": "temporal_robustness",
+      "scenario_probabilities": {
+        "iid_random_30pct": 0.2,
+        "iid_random_50pct": 0.2,
+        "temporal_tail_25pct_sensors_3steps": 0.25,
+        "temporal_tail_50pct_sensors_6steps": 0.35
+      }
+    },
+    {
+      "epoch_end": 30,
+      "epoch_start": 19,
+      "name": "mixed_failure_robustness",
+      "scenario_probabilities": {
+        "iid_random_10pct": 0.1,
+        "iid_random_30pct": 0.15,
+        "iid_random_50pct": 0.15,
+        "spatial_knn4_cluster_10_full_history": 0.07,
+        "spatial_knn4_cluster_20_full_history": 0.08,
+        "spatial_knn4_cluster_5_full_history": 0.05,
+        "temporal_tail_25pct_sensors_3steps": 0.1,
+        "temporal_tail_50pct_sensors_6steps": 0.15,
+        "temporal_tail_75pct_sensors_12steps": 0.15
+      }
+    }
+  ],
+  "data_split": {
+    "calibration_accessed": false,
+    "selection_timestamp_range": [
+      23990,
+      25704
+    ],
+    "test_accessed": false,
+    "train_timestamp_range": [
+      0,
+      23990
+    ]
+  },
+  "frozen_inputs": {
+    "model_config_sha256": "69af2663256a472a3aec6e63c9cd45e00d5bbeb0edcd4479e6d8109e2f67f883",
+    "model_source_sha256": "6dd6cc74f27cffd70cfef6e4dda89d31e5db16a31d66517a2da1ba2004070d25",
+    "spatial_topology_sha256": "aa4fd3041757a415e7153d61203b09ed45fe3fcaaabbd4b184786cadece5b231"
+  },
+  "model_identifier": "FAR-GF-RC-v1",
+  "model_seed": 17,
+  "optimization": {
+    "forecast_loss_weight": 1.0,
+    "gradient_clip_norm": 5.0,
+    "learning_rate": 0.001,
+    "max_epochs": 30,
+    "reconstruction_loss_weight": 0.25,
+    "reliability_loss_weight": 0.05,
+    "scale_nll_loss_weight": 0.05,
+    "selection_batch_size": 64,
+    "selection_criterion": "raw_speed_composite_selection_mae",
+    "train_batch_size": 32,
+    "weight_decay": 0.0001
+  },
+  "protocol_name": "metr_la_far_gf_rc_training_protocol_v1",
+  "selection_scenarios": [
+    "iid_random_30pct",
+    "temporal_tail_50pct_sensors_6steps",
+    "spatial_knn4_cluster_20_full_history"
+  ],
+  "window_contract": {
+    "future_calendar_features": 4,
+    "history_features": 7,
+    "input_steps": 12,
+    "output_steps": 12,
+    "target_policy": "Native future targets are retained. Artificial corruption is applied only to historical native-observed entries."
+  }
+}

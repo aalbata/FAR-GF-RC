@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{Per-lead MAE (mph) at 15/30/60 minutes (single-lead metrics) and overall, five-seed means, for the clean and the most severe condition.}
+\label{tab:horizon}
+\resizebox{\linewidth}{!}{\begin{tabular}{llccc}
+\toprule
+Condition & Lead & FAR-GF-RC & MS-GRU & MS-TCN-v2\\ \midrule
+Clean native history & 15 min & \textbf{1.360} & 1.446 & 1.459\\
+Clean native history & 30 min & \textbf{1.687} & 1.764 & 1.737\\
+Clean native history & 60 min & \textbf{1.999} & 2.131 & 2.165\\
+Clean native history & overall & \textbf{1.627} & 1.735 & 1.743\\
+\midrule
+Tail 75\%/12 & 15 min & \textbf{2.159} & 2.474 & 2.468\\
+Tail 75\%/12 & 30 min & \textbf{2.300} & 2.543 & 2.518\\
+Tail 75\%/12 & 60 min & \textbf{2.485} & 2.695 & 2.716\\
+Tail 75\%/12 & overall & \textbf{2.290} & 2.554 & 2.549\\
+\bottomrule
+\end{tabular}}
+\end{table}

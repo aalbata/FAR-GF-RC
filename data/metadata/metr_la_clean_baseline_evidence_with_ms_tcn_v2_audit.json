@@ -1,0 +1,237 @@
+{
+    "created_at": "2026-07-01T11:15:34",
+    "analysis_stage": "Consolidated clean-test baseline evidence with MS-TCN-v2",
+    "cell_version": "Cell 14H-v1-R1 corrected role-aware paired point-column resolution",
+    "scientific_firewall": {
+        "training_performed_in_this_cell": false,
+        "checkpoint_loading_performed_in_this_cell": false,
+        "current_configuration_used_in_this_cell": false,
+        "model_inference_performed_in_this_cell": false,
+        "new_test_predictions_generated_in_this_cell": false,
+        "calibration_targets_used_in_this_cell": false,
+        "input_is_existing_sealed_result_tables_only": true
+    },
+    "models": {
+        "MLOCF": {
+            "full_name": "Masked Last-Observation-Carried-Forward",
+            "model_family": "Deterministic persistence baseline"
+        },
+        "MSTPD-1D": {
+            "full_name": "Masked Same-Time-Previous-Day Persistence",
+            "model_family": "Deterministic daily-seasonal baseline"
+        },
+        "HTOW": {
+            "full_name": "Historical Time-of-Week Mean",
+            "model_family": "Deterministic weekly-seasonal baseline"
+        },
+        "MS-GRU": {
+            "full_name": "Masked Sensor-Shared GRU",
+            "model_family": "Learned non-graph recurrent baseline"
+        },
+        "MS-TCN-v2": {
+            "full_name": "Masked Sensor-Shared TCN v2",
+            "model_family": "Learned non-graph temporal-convolutional baseline"
+        }
+    },
+    "metric_sources": {
+        "MLOCF": {
+            "source_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\baselines\\metr_la_mlocf_headline_metrics_95ci.csv",
+            "source_sha256": "98a7b17268e4e852261f94d0c838dbe81c5b1818259ad71992cd7fe41e717fad",
+            "source_rows": 32,
+            "normalised_rows": 32
+        },
+        "MSTPD-1D": {
+            "source_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\baselines\\metr_la_mstpd_1d_headline_metrics_95ci.csv",
+            "source_sha256": "09204c8c53741924dd65c5450d81ceb744bdbcbd98eeb7573de66798e3c03010",
+            "source_rows": 32,
+            "normalised_rows": 32
+        },
+        "HTOW": {
+            "source_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\baselines\\metr_la_htow_headline_metrics_95ci.csv",
+            "source_sha256": "4c83c10c2c44100031192860fb93f6ece7c76c2be10f0fb2b7c4a65d8e28aae2",
+            "source_rows": 32,
+            "normalised_rows": 32
+        },
+        "MS-GRU": {
+            "source_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_gru_five_seed_clean_test_headline_metrics_95ci.csv",
+            "source_sha256": "1a7e01743630f0c8ab5c40bc20f1dc06ce20fb7876d3143b95d781bb9f4a7a09",
+            "source_rows": 32,
+            "normalised_rows": 32
+        },
+        "MS-TCN-v2": {
+            "source_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_five_seed_clean_test_headline_metrics_95ci.csv",
+            "source_sha256": "6d81b93b9af466e648e06d9cd8ca720fec5bca0e5bdc7c2016fedd21938ff223",
+            "source_rows": 32,
+            "normalised_rows": 32
+        }
+    },
+    "paired_sources": {
+        "MSTPD-1D_vs_MLOCF": {
+            "source_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\baselines\\metr_la_mstpd_1d_vs_mlocf_paired_95ci.csv",
+            "source_sha256": "8154d484fc64e1622ab4ceedbf56f916819ff4d2012db3b9fa70eb2c22eeb8be",
+            "source_rows": 32,
+            "normalised_rows": 32
+        },
+        "HTOW_vs_MLOCF": {
+            "source_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\baselines\\metr_la_htow_vs_mlocf_paired_95ci.csv",
+            "source_sha256": "1e30e87b40566c3f4774a6a4afb5b24d7ecc8c4332b6a3177c6c18714e3bbdef",
+            "source_rows": 32,
+            "normalised_rows": 32
+        },
+        "MS-GRU_vs_MLOCF": {
+            "source_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_gru_vs_mlocf_hierarchical_paired_95ci.csv",
+            "source_sha256": "236bca44fb2f86375c0a86ea5e99d8e8ae9f790fbf96908e00864c1d20bdca2f",
+            "source_rows": 32,
+            "normalised_rows": 32
+        },
+        "MS-GRU_vs_HTOW": {
+            "source_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_gru_vs_htow_hierarchical_paired_95ci.csv",
+            "source_sha256": "5b8508a4b02ca707c9fb2bdfe38138086ae7d51f876b87c97c0d47ac503c9e44",
+            "source_rows": 32,
+            "normalised_rows": 32
+        },
+        "MS-TCN-v2_vs_MS-GRU": {
+            "source_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_vs_ms_gru_hierarchical_paired_95ci.csv",
+            "source_sha256": "26768a6995c35b1ea86c93ca05a8e6377d75590f4db23873c03b1a9c9262e57c",
+            "source_rows": 32,
+            "normalised_rows": 32
+        },
+        "MS-TCN-v2_vs_MLOCF": {
+            "source_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_vs_mlocf_hierarchical_paired_95ci.csv",
+            "source_sha256": "43994bd38b67fd5186e057e1a77c9e7b04f3a59f055fb769cc3c14245ad7e7bf",
+            "source_rows": 32,
+            "normalised_rows": 32
+        },
+        "MS-TCN-v2_vs_HTOW": {
+            "source_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_vs_htow_hierarchical_paired_95ci.csv",
+            "source_sha256": "a559460de5c14c8a03162478b4fc5aca2a34feff3d6251a32741255bb551e796",
+            "source_rows": 32,
+            "normalised_rows": 32
+        }
+    },
+    "paired_column_resolution": {
+        "MSTPD-1D_vs_MLOCF": {
+            "cohort_column": "cohort",
+            "metric_column": "metric",
+            "model_a_point_column": "mstpd_1d_point_estimate",
+            "model_b_point_column": "mlocf_point_estimate",
+            "delta_column": "delta_mstpd_minus_mlocf",
+            "ci_lower_column": "paired_ci_95_lower",
+            "ci_upper_column": "paired_ci_95_upper",
+            "interpretation_column": "paired_interpretation"
+        },
+        "HTOW_vs_MLOCF": {
+            "cohort_column": "cohort",
+            "metric_column": "metric",
+            "model_a_point_column": "htow_point_estimate",
+            "model_b_point_column": "mlocf_point_estimate",
+            "delta_column": "delta_htow_minus_mlocf",
+            "ci_lower_column": "paired_ci_95_lower",
+            "ci_upper_column": "paired_ci_95_upper",
+            "interpretation_column": "paired_interpretation"
+        },
+        "MS-GRU_vs_MLOCF": {
+            "cohort_column": "cohort",
+            "metric_column": "metric",
+            "model_a_point_column": "ms_gru_point_estimate",
+            "model_b_point_column": "mlocf_point_estimate",
+            "delta_column": "delta_ms_gru_minus_mlocf",
+            "ci_lower_column": "paired_ci_95_lower",
+            "ci_upper_column": "paired_ci_95_upper",
+            "interpretation_column": "paired_interpretation"
+        },
+        "MS-GRU_vs_HTOW": {
+            "cohort_column": "cohort",
+            "metric_column": "metric",
+            "model_a_point_column": "ms_gru_point_estimate",
+            "model_b_point_column": "htow_point_estimate",
+            "delta_column": "delta_ms_gru_minus_htow",
+            "ci_lower_column": "paired_ci_95_lower",
+            "ci_upper_column": "paired_ci_95_upper",
+            "interpretation_column": "paired_interpretation"
+        },
+        "MS-TCN-v2_vs_MS-GRU": {
+            "cohort_column": "cohort",
+            "metric_column": "metric",
+            "model_a_point_column": "model_a_point_estimate",
+            "model_b_point_column": "model_b_point_estimate",
+            "delta_column": "point_difference_a_minus_b",
+            "ci_lower_column": "ci_lower",
+            "ci_upper_column": "ci_upper",
+            "interpretation_column": "paired_interpretation"
+        },
+        "MS-TCN-v2_vs_MLOCF": {
+            "cohort_column": "cohort",
+            "metric_column": "metric",
+            "model_a_point_column": "model_a_point_estimate",
+            "model_b_point_column": "model_b_point_estimate",
+            "delta_column": "point_difference_a_minus_b",
+            "ci_lower_column": "ci_lower",
+            "ci_upper_column": "ci_upper",
+            "interpretation_column": "paired_interpretation"
+        },
+        "MS-TCN-v2_vs_HTOW": {
+            "cohort_column": "cohort",
+            "metric_column": "metric",
+            "model_a_point_column": "model_a_point_estimate",
+            "model_b_point_column": "model_b_point_estimate",
+            "delta_column": "point_difference_a_minus_b",
+            "ci_lower_column": "ci_lower",
+            "ci_upper_column": "ci_upper",
+            "interpretation_column": "paired_interpretation"
+        }
+    },
+    "validation": {
+        "expected_metric_rows": 160,
+        "observed_metric_rows": 160,
+        "expected_publication_rows": 40,
+        "observed_publication_rows": 40,
+        "expected_pairwise_rows": 224,
+        "observed_pairwise_rows": 224,
+        "maximum_model_a_point_difference": 0.0,
+        "maximum_model_b_point_difference": 1.7763568394002505e-15,
+        "maximum_delta_arithmetic_difference": 1.7763568394002505e-15,
+        "pairwise_claim_counts": {
+            "MSTPD-1D_vs_MLOCF": {
+                "MLOCF lower error supported": 24,
+                "No clear paired difference": 8
+            },
+            "HTOW_vs_MLOCF": {
+                "MLOCF lower error supported": 12,
+                "No clear paired difference": 12,
+                "HTOW lower error supported": 8
+            },
+            "MS-GRU_vs_MLOCF": {
+                "MS-GRU lower error supported": 30,
+                "No clear paired difference": 2
+            },
+            "MS-GRU_vs_HTOW": {
+                "MS-GRU lower error supported": 30,
+                "No clear paired difference": 2
+            },
+            "MS-TCN-v2_vs_MS-GRU": {
+                "MS-GRU lower error supported": 16,
+                "No clear paired difference": 12,
+                "MS-TCN-v2 lower error supported": 4
+            },
+            "MS-TCN-v2_vs_MLOCF": {
+                "MS-TCN-v2 lower error supported": 30,
+                "No clear paired difference": 2
+            },
+            "MS-TCN-v2_vs_HTOW": {
+                "MS-TCN-v2 lower error supported": 30,
+                "HTOW lower error supported": 2
+            }
+        },
+        "all_metric_source_rows_valid": true,
+        "all_pairwise_claim_rows_valid": true
+    },
+    "outputs": {
+        "long_metric_table_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_clean_baseline_evidence_with_ms_tcn_v2_long_95ci.csv",
+        "publication_table_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_clean_baseline_publication_table_with_ms_tcn_v2_95ci.csv",
+        "pairwise_claim_ledger_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_clean_baseline_pairwise_claim_ledger_with_ms_tcn_v2.csv",
+        "long_metric_table_sha256": "e4d1ee924c1d97ff4168988f70f6a93148886df7a7293ecade576ddc87210b26",
+        "publication_table_sha256": "0b2f255a83e9a85f524757c6976dae31f4586e26122ba3f19f0b6579354acda5",
+        "pairwise_claim_ledger_sha256": "5706b0a7c7b7ee204f9cbce7cf5f597a3d775b162527e22a12d8e53c0687da19"
+    }
+}

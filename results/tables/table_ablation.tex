@@ -1,0 +1,14 @@
+\begin{table}[t]
+\centering
+\caption{Component ablations on METR-LA (single seed 17; overall MAE, mph; $\Delta$ vs.\ full model in parentheses). Removing the progressive curriculum degrades every condition; removing the failure-awareness inputs or the reconstruction objective does not.}
+\label{tab:ablation}
+\resizebox{\linewidth}{!}{\begin{tabular}{lcccc}
+\toprule
+Variant & clean\_native\_availabilit & iid\_random\_50pct & temporal\_tail\_75pct\_sen & spatial\_knn4\_cluster\_20\\ \midrule
+Full FAR-GF-RC & 3.161 & 3.260 & 3.744 & 3.243\\ \midrule
+-- progressive curriculum & 3.235 (+0.074) & 3.352 (+0.093) & 3.891 (+0.147) & 3.342 (+0.099)\\
+-- failure-awareness inputs & 3.141 (-0.020) & 3.258 (-0.002) & 3.724 (-0.020) & 3.239 (-0.004)\\
+-- reconstruction objective & 3.149 (-0.012) & 3.252 (-0.007) & 3.742 (-0.001) & 3.244 (+0.001)\\
+\bottomrule
+\end{tabular}}
+\end{table}

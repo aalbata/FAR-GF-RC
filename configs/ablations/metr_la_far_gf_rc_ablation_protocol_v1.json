@@ -1,0 +1,37 @@
+{
+ "base_model": "FAR-GF-RC-v1-protocol-v2",
+ "base_training_protocol_sha256": "80f3d14ac72d470386ca00c9797e26337f6578a2b38046b249347d0cbe30e95d",
+ "fairness_policy": "Every ablation uses the same optimizer, epoch budget, selection metric, checkpoint criterion, train window set, selection window set, and model architecture unless the ablation explicitly removes an input signal or loss objective.",
+ "model_config_sha256": "69af2663256a472a3aec6e63c9cd45e00d5bbeb0edcd4479e6d8109e2f67f883",
+ "model_source_sha256": "6dd6cc74f27cffd70cfef6e4dda89d31e5db16a31d66517a2da1ba2004070d25",
+ "portability_note": "Paths rewritten project-root-relative from the frozen original in configs/frozen/.",
+ "protocol_name": "metr_la_far_gf_rc_ablation_protocol_v1",
+ "protocol_version": "v1",
+ "seed_values": [
+  17
+ ],
+ "selection_policy": "The same fixed corruption policy used by FAR-GF-RC protocol-v2 selection is retained for each ablation.",
+ "variants": {
+  "without_failure_awareness": {
+   "description": "The model receives neutral observation-mask and elapsed-gap signals. Reliability supervision is disabled. Corrupted traffic values remain zero-filled exactly as in the full model.",
+   "input_policy": "neutralized_mask_and_elapsed_gap",
+   "reconstruction_loss_weight": 0.25,
+   "reliability_loss_weight": 0.0,
+   "training_schedule": "progressive_failure_curriculum"
+  },
+  "without_progressive_curriculum": {
+   "description": "All training epochs use the final mixed-failure sampling distribution. The progressive clean-to-IID-to-temporal-to-mixed curriculum is removed.",
+   "input_policy": "full_failure_aware_inputs",
+   "reconstruction_loss_weight": 0.25,
+   "reliability_loss_weight": 0.05,
+   "training_schedule": "static_final_mixed_failure_distribution"
+  },
+  "without_reconstruction_objective": {
+   "description": "The reconstruction branch remains architecturally present, but its masked reconstruction objective has zero loss weight.",
+   "input_policy": "full_failure_aware_inputs",
+   "reconstruction_loss_weight": 0.0,
+   "reliability_loss_weight": 0.05,
+   "training_schedule": "progressive_failure_curriculum"
+  }
+ }
+}

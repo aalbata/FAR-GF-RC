@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\caption{Primary-test overall MAE (mph) under all ten history-availability conditions; mean\,$\pm$\,sample SD over five seeds. Best per row in bold.}
+\label{tab:overall}
+\resizebox{\linewidth}{!}{\begin{tabular}{lccc}
+\toprule
+Condition & FAR-GF-RC & MS-GRU & MS-TCN-v2\\ \midrule
+Clean native history & \textbf{1.627\,$\pm$\,0.003} & 1.735\,$\pm$\,0.006 & 1.743\,$\pm$\,0.008\\
+IID 10\% & \textbf{1.639\,$\pm$\,0.003} & 1.748\,$\pm$\,0.007 & 1.758\,$\pm$\,0.009\\
+IID 30\% & \textbf{1.672\,$\pm$\,0.003} & 1.782\,$\pm$\,0.007 & 1.797\,$\pm$\,0.009\\
+IID 50\% & \textbf{1.733\,$\pm$\,0.004} & 1.841\,$\pm$\,0.008 & 1.858\,$\pm$\,0.009\\
+Tail 25\%/3 & \textbf{1.675\,$\pm$\,0.003} & 1.796\,$\pm$\,0.006 & 1.805\,$\pm$\,0.010\\
+Tail 50\%/6 & \textbf{1.787\,$\pm$\,0.003} & 1.939\,$\pm$\,0.008 & 1.943\,$\pm$\,0.011\\
+Tail 75\%/12 & \textbf{2.290\,$\pm$\,0.002} & 2.554\,$\pm$\,0.018 & 2.549\,$\pm$\,0.017\\
+Spatial 8 & \textbf{1.647\,$\pm$\,0.003} & 1.761\,$\pm$\,0.006 & 1.769\,$\pm$\,0.008\\
+Spatial 16 & \textbf{1.670\,$\pm$\,0.003} & 1.791\,$\pm$\,0.006 & 1.799\,$\pm$\,0.008\\
+Spatial 32 & \textbf{1.709\,$\pm$\,0.002} & 1.841\,$\pm$\,0.006 & 1.847\,$\pm$\,0.009\\
+\bottomrule
+\end{tabular}}
+\end{table}

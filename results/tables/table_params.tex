@@ -1,0 +1,13 @@
+\begin{table}[t]
+\centering
+\caption{Model capacity and runtime. Per-seed wall-clock time was not recorded in the frozen logs; hardware: RTX~3060, CUDA~12.1, fully deterministic kernels.}
+\label{tab:params}
+\resizebox{\linewidth}{!}{\begin{tabular}{lcc}
+\toprule
+Model & Trainable parameters & Wall-clock (per seed)\\ \midrule
+FAR-GF-RC & 83,204 & not recorded in frozen logs\\
+MS-GRU & 21,609 & not recorded in frozen logs\\
+MS-TCN-v2 & 106,921 & not recorded in frozen logs\\
+\bottomrule
+\end{tabular}}
+\end{table}

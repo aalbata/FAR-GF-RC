@@ -1,0 +1,59 @@
+{
+  "created_utc": "2026-07-04T12:12:58Z",
+  "evaluator_v3_runtime_hold": {
+    "path": "C:\\Users\\student\\traffic_robust_forecasting\\src\\evaluation\\pems_bay_final_multi_model_primary_evaluator_v3.py",
+    "sha256": "d078983abc654808e0eca8a1e57e5d82baa2feb770cbcbfab8f1ab6b6e1338b8",
+    "status": "runtime_hold_before_inference"
+  },
+  "evaluator_v4_supersession": {
+    "change_count": 1,
+    "invariance_statement": "No model architecture, configuration, checkpoint, normalization statistic, split, graph, mask, scenario, metric, data boundary, P52/P58/P60 protocol, or output directory was changed.",
+    "path": "C:\\Users\\student\\traffic_robust_forecasting\\src\\evaluation\\pems_bay_final_multi_model_primary_evaluator_v4.py",
+    "sha256": "e0c59ec7b43a1202bf5d66d99459d1b7cefc45b844157d816a1a213aa63dd913",
+    "single_semantic_change": {
+      "location": "import_module_from_source",
+      "new_statement": "sys.modules[module_name] = module",
+      "placement": "After importlib.util.module_from_spec(specification) and before specification.loader.exec_module(module).",
+      "reason": "Registers the dynamically created module before executing source that defines dataclasses with postponed annotations.",
+      "supporting_import": "import sys"
+    },
+    "status": "created_not_executed_pending_static_audit"
+  },
+  "execution_state_before_v4_creation": {
+    "authorized_primary_test_assets_loaded": true,
+    "calibration_values_accessed": false,
+    "checkpoint_payloads_deserialized_in_final_run": false,
+    "controlled_dropout_masks_loaded": true,
+    "evaluator_v3_imported": true,
+    "final_results_created": false,
+    "metrics_computed": false,
+    "model_forward_inference_performed": false,
+    "models_constructed_in_final_run": false,
+    "semantic_runner_module_import_completed": false
+  },
+  "frozen_protocol_references": {
+    "boundary_history_addendum": {
+      "path": "C:\\Users\\student\\traffic_robust_forecasting\\configs\\pems_bay_final_primary_test_boundary_history_context_addendum_v1.json",
+      "sha256": "f89d07942ddce901d4154408836d0e1a2790ef4ddfd00f752fa1e58f12b8d481"
+    },
+    "elapsed_state_addendum": {
+      "path": "C:\\Users\\student\\traffic_robust_forecasting\\configs\\pems_bay_final_primary_test_native_elapsed_state_prehistory_addendum_v1.json",
+      "sha256": "31869b4d20d9cae84e88534fbcf3cb946a3e80f65e7eee0675475809e9556990"
+    },
+    "final_protocol": {
+      "path": "C:\\Users\\student\\traffic_robust_forecasting\\configs\\pems_bay_final_multi_model_primary_evaluation_protocol_v1.json",
+      "sha256": "b299159b61b80475a00d2e89382734479550d6f5577e47f3b7bacc18999458fc"
+    },
+    "immutability_statement": "P52, P58, and P60 remain unchanged."
+  },
+  "next_required_step": "Perform a static source audit of evaluator v4, followed by a data-free semantic-runner import gate before resuming the final evaluation.",
+  "record_identifier": "pems_bay_final_evaluator_v3_runtime_hold_and_v4_dynamic_import_supersession_record_v1",
+  "runtime_hold_event": {
+    "exception_summary": "Dynamic import of the frozen semantic runner failed during @dataclass processing because its manually created module was absent from sys.modules.",
+    "exception_type": "AttributeError",
+    "failure_location": "import_module_from_source(...) before semantic runner import completed.",
+    "interpretation": "This was an infrastructure import-registration failure, not a data, model, checkpoint, metric, or inference failure.",
+    "source": "Cell 17C-P67, evaluator v3 final run"
+  },
+  "version": "v1"
+}

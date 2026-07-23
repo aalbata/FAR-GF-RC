@@ -1,0 +1,105 @@
+{
+    "created_at": "2026-07-01T09:16:20",
+    "dataset_name": "METR-LA",
+    "analysis_stage": "MS-TCN v2 source and configuration freeze",
+    "data_firewall": {
+        "raw_data_loaded": false,
+        "calibration_data_loaded": false,
+        "test_data_loaded": false,
+        "final_model_training_performed": false,
+        "checkpoint_selection_performed": false,
+        "final_results_generated": false,
+        "train_only_batch_used_for_integrity_checks": true
+    },
+    "versioning": {
+        "predecessor_identifier": "MS-TCN-v1",
+        "predecessor_model_source": "C:\\Users\\student\\traffic_robust_forecasting\\src\\models\\masked_sensor_shared_tcn.py",
+        "predecessor_configuration": "C:\\Users\\student\\traffic_robust_forecasting\\configs\\metr_la_masked_sensor_shared_tcn_config.json",
+        "predecessor_configuration_sha256": "fc492a74d86b67af0b82708840563e006c869fa6fd4b109568686f454d0cf1da",
+        "v1_execution_status": "Interrupted before completion of Epoch 01 because the flattened Conv1d backend was computationally infeasible.",
+        "v1_result_status": "No v1 checkpoint, epoch log, or metric output may be used as a valid experimental result.",
+        "v2_change_scope": "Backend tensor-layout refinement only: Conv1d over flattened sensor sequences replaced by time-only Conv2d with kernel height one.",
+        "architecture_capacity_changed": false,
+        "parameter_count_changed": false,
+        "input_features_changed": false,
+        "missingness_policy_changed": false,
+        "split_policy_changed": false,
+        "training_hyperparameters_changed": false
+    },
+    "v1_source": {
+        "path": "C:\\Users\\student\\traffic_robust_forecasting\\src\\models\\masked_sensor_shared_tcn.py",
+        "sha256": "25f69f66f1d41a531443a8b22f338f9103837e059677689b184467201e329c63",
+        "configuration_path": "C:\\Users\\student\\traffic_robust_forecasting\\configs\\metr_la_masked_sensor_shared_tcn_config.json",
+        "configuration_sha256": "fc492a74d86b67af0b82708840563e006c869fa6fd4b109568686f454d0cf1da",
+        "valid_result_available": false
+    },
+    "v2_source": {
+        "path": "C:\\Users\\student\\traffic_robust_forecasting\\src\\models\\masked_sensor_shared_tcn_v2.py",
+        "sha256": "1e46c2dffd2153f0babc5b267b538959f89a86bc1c3d2d8cea7f4706e6906c8b",
+        "contains_conv1d": false,
+        "contains_conv2d": true,
+        "temporal_kernel_height": 1,
+        "graph_free": true,
+        "sensor_isolated": true
+    },
+    "architecture_equivalence": {
+        "v1_parameter_count": 105977,
+        "v2_parameter_count": 105977,
+        "v2_trainable_parameter_count": 105977,
+        "expected_parameter_count": 105977,
+        "parameter_count_equivalent": true,
+        "channels": 64,
+        "kernel_size": 3,
+        "dilations": [
+            1,
+            2,
+            4,
+            8
+        ],
+        "dropout": 0.1,
+        "sensor_embedding_dim": 8,
+        "prediction_head_dim": 64,
+        "receptive_field_steps": 61,
+        "receptive_field_minutes": 305
+    },
+    "functional_equivalence": {
+        "v1_weights_copied_to_v2": true,
+        "equivalence_batch_size": 2,
+        "batch_source": "Frozen train scored dataset only",
+        "prediction_shape": [
+            2,
+            12,
+            207
+        ],
+        "rtol": 1e-05,
+        "atol": 2e-05,
+        "max_absolute_difference": 0.0,
+        "mean_absolute_difference": 0.0,
+        "passed": true
+    },
+    "integrity_tests": {
+        "v2_output_finite": true,
+        "causal_temporal_test_passed": true,
+        "sensor_isolation_test_passed": true,
+        "graph_attribute_absence_passed": true,
+        "configuration_round_trip_hash_passed": true,
+        "r1_throughput_feasibility_passed": true
+    },
+    "throughput_probe_correction": {
+        "audit_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\metadata\\metr_la_ms_tcn_v2_end_to_end_throughput_probe.json",
+        "clarification": "The throughput probe executed temporary optimizer updates for 32 batches solely to measure end-to-end runtime. The probe model was discarded; no checkpoint was selected; no final model training or reportable result was produced.",
+        "estimated_end_to_end_epoch_minutes": 2.30396809475169
+    },
+    "v2_configuration": {
+        "path": "C:\\Users\\student\\traffic_robust_forecasting\\configs\\metr_la_masked_sensor_shared_tcn_v2_config.json",
+        "sha256": "525bf5a8f0aecf880541f8e27e5e0ecaae9be3481daefa9d9eb51cd6d085dd56"
+    },
+    "next_training_outputs": {
+        "checkpoint_directory": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\checkpoints\\ms_tcn_v2",
+        "training_log_directory": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\training_logs\\ms_tcn_v2",
+        "reference_seed_17_checkpoint": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\checkpoints\\ms_tcn_v2\\metr_la_ms_tcn_v2_reference_seed_17_best_selection_mae.pt",
+        "reference_seed_17_epoch_log": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\training_logs\\ms_tcn_v2\\metr_la_ms_tcn_v2_reference_seed_17_epoch_log.csv",
+        "reference_seed_17_selection_metrics": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_reference_seed_17_best_selection_metrics.csv",
+        "reference_seed_17_training_summary": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_reference_seed_17_training_summary.json"
+    }
+}

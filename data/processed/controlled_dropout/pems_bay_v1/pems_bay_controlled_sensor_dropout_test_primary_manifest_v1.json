@@ -1,0 +1,106 @@
+{
+  "manifest_identifier": "pems_bay_controlled_sensor_dropout_test_primary_manifest_v1",
+  "primary_test": {
+    "native_observed_history_count": 40608096,
+    "native_target_count": 40608096,
+    "scenario_mask_records": [
+      {
+        "artificial_removed_history_count": 4061785,
+        "path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\controlled_dropout\\pems_bay_v1\\pems_bay_controlled_sensor_dropout_test_primary_iid_random_10pct_mask_v1.npz",
+        "remaining_observed_history_count": 36546311,
+        "scenario_id": "iid_random_10pct",
+        "sha256": "9d3838fe75696066ffc0529cd1a15e8591ba8b18bb433539feee53de049378b3",
+        "status": "created"
+      },
+      {
+        "artificial_removed_history_count": 12186825,
+        "path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\controlled_dropout\\pems_bay_v1\\pems_bay_controlled_sensor_dropout_test_primary_iid_random_30pct_mask_v1.npz",
+        "remaining_observed_history_count": 28421271,
+        "scenario_id": "iid_random_30pct",
+        "sha256": "edecd65f002537ec0bcd09c9c1efe7d4f8ec742a209c2a0b776566d853c0c5fd",
+        "status": "created"
+      },
+      {
+        "artificial_removed_history_count": 20298255,
+        "path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\controlled_dropout\\pems_bay_v1\\pems_bay_controlled_sensor_dropout_test_primary_iid_random_50pct_mask_v1.npz",
+        "remaining_observed_history_count": 20309841,
+        "scenario_id": "iid_random_50pct",
+        "sha256": "6388e02a175834b5b5ed780e12d662e3f128115364e6d405c06a404942e3baa4",
+        "status": "created"
+      },
+      {
+        "artificial_removed_history_count": 2561433,
+        "path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\controlled_dropout\\pems_bay_v1\\pems_bay_controlled_sensor_dropout_test_primary_temporal_tail_25pct_sensors_3steps_mask_v1.npz",
+        "remaining_observed_history_count": 38046663,
+        "scenario_id": "temporal_tail_25pct_sensors_3steps",
+        "sha256": "59449582000988dc538e9ff0b73dfb770ad11d8a230dd464dea59d04f13d8ade",
+        "status": "created"
+      },
+      {
+        "artificial_removed_history_count": 10183264,
+        "path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\controlled_dropout\\pems_bay_v1\\pems_bay_controlled_sensor_dropout_test_primary_temporal_tail_50pct_sensors_6steps_mask_v1.npz",
+        "remaining_observed_history_count": 30424832,
+        "scenario_id": "temporal_tail_50pct_sensors_6steps",
+        "sha256": "88095b8d13c4dcf1c9c885722a02422b9dd69ff24ddcb636e323a16704fe8b30",
+        "status": "created"
+      },
+      {
+        "artificial_removed_history_count": 30487291,
+        "path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\controlled_dropout\\pems_bay_v1\\pems_bay_controlled_sensor_dropout_test_primary_temporal_tail_75pct_sensors_12steps_mask_v1.npz",
+        "remaining_observed_history_count": 10120805,
+        "scenario_id": "temporal_tail_75pct_sensors_12steps",
+        "sha256": "848854f759befe89e6d4a19c1c6aea566a9a639ae8f4f6cac640c969feca6a58",
+        "status": "created"
+      },
+      {
+        "artificial_removed_history_count": 999586,
+        "path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\controlled_dropout\\pems_bay_v1\\pems_bay_controlled_sensor_dropout_test_primary_spatial_geographic_knn4_cluster_8_full_history_mask_v1.npz",
+        "remaining_observed_history_count": 39608510,
+        "scenario_id": "spatial_geographic_knn4_cluster_8_full_history",
+        "sha256": "88329d78dd7b8f7de47cb7053534fa65ad355bef4866f96b683f9176ff7092c6",
+        "status": "created"
+      },
+      {
+        "artificial_removed_history_count": 1999187,
+        "path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\controlled_dropout\\pems_bay_v1\\pems_bay_controlled_sensor_dropout_test_primary_spatial_geographic_knn4_cluster_16_full_history_mask_v1.npz",
+        "remaining_observed_history_count": 38608909,
+        "scenario_id": "spatial_geographic_knn4_cluster_16_full_history",
+        "sha256": "00b8a4ee9573c706de1c7b0743116105bf7822a3b43c109631c117b2dabdcc16",
+        "status": "created"
+      },
+      {
+        "artificial_removed_history_count": 3998327,
+        "path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\controlled_dropout\\pems_bay_v1\\pems_bay_controlled_sensor_dropout_test_primary_spatial_geographic_knn4_cluster_32_full_history_mask_v1.npz",
+        "remaining_observed_history_count": 36609769,
+        "scenario_id": "spatial_geographic_knn4_cluster_32_full_history",
+        "sha256": "6ef48816c237e8320156dd47c1beb1fb41159ef76010bb62943efcc2cc518cd1",
+        "status": "created"
+      }
+    ],
+    "target_window_count": 10413
+  },
+  "protocol_core_sha256": "0c600006d9bc72b0a71aa1ceea11fb85bd6ec232019ce2549a4b84b5d4c97bdc",
+  "protocol_path": "C:\\Users\\student\\traffic_robust_forecasting\\configs\\pems_bay_controlled_sensor_dropout_protocol_v1.json",
+  "protocol_sha256": "a5f0ba1d785d03aefffe2262d9129aff07a88f8038c23bbe5200e77084a8dbf4",
+  "selection_composite": {
+    "artificial_removed_history_count": 2404361,
+    "native_observed_history_count": 10118916,
+    "native_target_count": 10118916,
+    "path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\controlled_dropout\\pems_bay_v1\\pems_bay_controlled_sensor_dropout_selection_composite_mask_v1.npz",
+    "remaining_observed_history_count": 7714555,
+    "scenario_counts": {
+      "iid_random_10pct": 289,
+      "iid_random_30pct": 288,
+      "iid_random_50pct": 288,
+      "spatial_geographic_knn4_cluster_16_full_history": 288,
+      "spatial_geographic_knn4_cluster_32_full_history": 288,
+      "spatial_geographic_knn4_cluster_8_full_history": 288,
+      "temporal_tail_25pct_sensors_3steps": 289,
+      "temporal_tail_50pct_sensors_6steps": 288,
+      "temporal_tail_75pct_sensors_12steps": 289
+    },
+    "sha256": "8cf8eb7cba68bf1fda53d5bf1c5c8930b2ab76ff2d0800950d447aaf251ac052",
+    "status": "created",
+    "target_window_count": 2595
+  }
+}

@@ -1,0 +1,120 @@
+{
+    "created_at": "2026-06-29T14:21:15",
+    "dataset_name": "METR-LA",
+    "manifest_status": "Frozen before baseline training",
+    "headline_ci_eligibility_day_threshold": 21,
+    "headline_ci_method": "Paired non-circular moving-block bootstrap over forecast-origin calendar-day groups.",
+    "bootstrap_resamples": 2000,
+    "block_length_days": 3,
+    "confidence_level_percent": 95,
+    "cohort_policy": {
+        "primary_native_outage_aware": {
+            "role": "Primary headline cohort",
+            "metric_reporting": "REQUIRED",
+            "confidence_interval_reporting": "REQUIRED",
+            "paired_model_comparison_ci": "REQUIRED",
+            "per_horizon_ci": "REQUIRED_FOR_15_30_60_MINUTES",
+            "reason": "Primary native-outage-aware cohort has sufficient temporal coverage for the frozen non-circular block-bootstrap protocol."
+        },
+        "secondary_high_availability_95pct": {
+            "role": "Secondary headline cohort",
+            "metric_reporting": "REQUIRED",
+            "confidence_interval_reporting": "REQUIRED",
+            "paired_model_comparison_ci": "REQUIRED",
+            "per_horizon_ci": "REQUIRED_FOR_15_30_60_MINUTES",
+            "reason": "High-availability cohort retains all 24 forecast-origin days and satisfies the frozen headline CI eligibility rule."
+        },
+        "supplementary_near_complete_99pct": {
+            "role": "Supplementary descriptive robustness cohort",
+            "metric_reporting": "OPTIONAL_SUPPLEMENTARY",
+            "confidence_interval_reporting": "NOT_PERMITTED",
+            "paired_model_comparison_ci": "NOT_PERMITTED",
+            "per_horizon_ci": "NOT_PERMITTED",
+            "reason": "The cohort covers only 13 forecast-origin days, below the frozen 21-day headline CI eligibility threshold."
+        },
+        "audit_strict_complete_100pct": {
+            "role": "Audit-only cohort",
+            "metric_reporting": "OPTIONAL_AUDIT_ONLY",
+            "confidence_interval_reporting": "NOT_PERMITTED",
+            "paired_model_comparison_ci": "NOT_PERMITTED",
+            "per_horizon_ci": "NOT_PERMITTED",
+            "reason": "The cohort contains only 26 overlapping windows across three forecast-origin days. It is not suitable for confidence-interval or inferential reporting."
+        }
+    },
+    "cohort_temporal_summary": [
+        {
+            "cohort": "primary_native_outage_aware",
+            "role": "Primary headline cohort",
+            "anchor_window_count": 6313,
+            "unique_forecast_origin_days": 24,
+            "first_day": "2012-06-04",
+            "last_day": "2012-06-27",
+            "minimum_windows_per_day": 97,
+            "median_windows_per_day": 288.0,
+            "maximum_windows_per_day": 288,
+            "metric_reporting": "REQUIRED",
+            "confidence_interval_reporting": "REQUIRED",
+            "paired_model_comparison_ci": "REQUIRED",
+            "per_horizon_ci": "REQUIRED_FOR_15_30_60_MINUTES"
+        },
+        {
+            "cohort": "secondary_high_availability_95pct",
+            "role": "Secondary headline cohort",
+            "anchor_window_count": 4771,
+            "unique_forecast_origin_days": 24,
+            "first_day": "2012-06-04",
+            "last_day": "2012-06-27",
+            "minimum_windows_per_day": 28,
+            "median_windows_per_day": 201.5,
+            "maximum_windows_per_day": 288,
+            "metric_reporting": "REQUIRED",
+            "confidence_interval_reporting": "REQUIRED",
+            "paired_model_comparison_ci": "REQUIRED",
+            "per_horizon_ci": "REQUIRED_FOR_15_30_60_MINUTES"
+        },
+        {
+            "cohort": "supplementary_near_complete_99pct",
+            "role": "Supplementary descriptive robustness cohort",
+            "anchor_window_count": 791,
+            "unique_forecast_origin_days": 13,
+            "first_day": "2012-06-04",
+            "last_day": "2012-06-21",
+            "minimum_windows_per_day": 2,
+            "median_windows_per_day": 52.0,
+            "maximum_windows_per_day": 148,
+            "metric_reporting": "OPTIONAL_SUPPLEMENTARY",
+            "confidence_interval_reporting": "NOT_PERMITTED",
+            "paired_model_comparison_ci": "NOT_PERMITTED",
+            "per_horizon_ci": "NOT_PERMITTED"
+        },
+        {
+            "cohort": "audit_strict_complete_100pct",
+            "role": "Audit-only cohort",
+            "anchor_window_count": 26,
+            "unique_forecast_origin_days": 3,
+            "first_day": "2012-06-12",
+            "last_day": "2012-06-14",
+            "minimum_windows_per_day": 2,
+            "median_windows_per_day": 8.0,
+            "maximum_windows_per_day": 16,
+            "metric_reporting": "OPTIONAL_AUDIT_ONLY",
+            "confidence_interval_reporting": "NOT_PERMITTED",
+            "paired_model_comparison_ci": "NOT_PERMITTED",
+            "per_horizon_ci": "NOT_PERMITTED"
+        }
+    ],
+    "strict_complete_override": "The strict-complete cohort is audit-only and must never receive a 95% CI, pairwise CI, or per-horizon CI.",
+    "required_result_fields_for_headline_tables": [
+        "point_estimate",
+        "95_percent_ci_lower",
+        "95_percent_ci_upper",
+        "valid_target_entry_count",
+        "forecast_origin_day_count"
+    ],
+    "required_result_fields_for_pairwise_tables": [
+        "metric_difference_model_a_minus_model_b",
+        "paired_95_percent_ci_lower",
+        "paired_95_percent_ci_upper",
+        "paired_temporal_block_bootstrap_method"
+    ]
+}

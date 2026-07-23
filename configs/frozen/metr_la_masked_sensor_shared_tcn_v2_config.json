@@ -1,0 +1,176 @@
+{
+    "experiment_name": "metr_la_masked_sensor_shared_tcn_v2",
+    "dataset_name": "METR-LA",
+    "model_identifier": "MS-TCN-v2",
+    "model_full_name": "Masked Sensor-Shared Temporal Convolutional Network v2",
+    "model_family": "Non-graph learned baseline",
+    "uses_graph": false,
+    "uses_adjacency_matrix": false,
+    "uses_cross_sensor_message_passing": false,
+    "uses_adaptive_graph": false,
+    "uses_synthetic_failures": false,
+    "input_steps": 12,
+    "output_steps": 12,
+    "forecast_minutes": {
+        "per_step": 5,
+        "required_headline_horizons": {
+            "15_min": 3,
+            "30_min": 6,
+            "60_min": 12
+        }
+    },
+    "data_policy": {
+        "native_observation_rule": "finite traffic reading strictly greater than zero",
+        "missing_value_representation": "zero normalized placeholder accompanied by explicit mask",
+        "scaler": "frozen train-only per-sensor z-score scaler",
+        "scaler_source": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\metr_la_train_only_sensor_scaler.npz",
+        "scaler_mean_key": "means",
+        "scaler_std_key": "stds",
+        "target_split_rule": "target windows lie fully inside their own chronological split",
+        "selection_input_context": "historical context may cross the train-selection boundary",
+        "calibration_data_loaded": false,
+        "test_data_loaded": false
+    },
+    "features": {
+        "history_feature_names": [
+            "normalized_traffic_value",
+            "native_observation_mask",
+            "elapsed_time_since_observed_normalized",
+            "time_of_day_sin",
+            "time_of_day_cos",
+            "day_of_week_sin",
+            "day_of_week_cos"
+        ],
+        "history_feature_dim": 7,
+        "future_known_feature_names": [
+            "time_of_day_sin",
+            "time_of_day_cos",
+            "day_of_week_sin",
+            "day_of_week_cos"
+        ],
+        "future_calendar_feature_dim": 4,
+        "elapsed_time_cap_steps": 288,
+        "elapsed_time_cap_hours": 24.0
+    },
+    "architecture": {
+        "num_sensors": 207,
+        "sensor_processing": "independent per-sensor temporal processing with shared TCN weights",
+        "sensor_embedding_dim": 8,
+        "tcn_channels": 64,
+        "kernel_size": 3,
+        "dilations": [
+            1,
+            2,
+            4,
+            8
+        ],
+        "residual_blocks": 4,
+        "causal_convolutions_per_residual_block": 2,
+        "receptive_field_steps": 61,
+        "receptive_field_minutes": 305,
+        "dropout": 0.1,
+        "prediction_head_dim": 64,
+        "forecast_strategy": "direct multi-horizon forecast conditioned on causal history and known future calendar features",
+        "temporal_backend": "causal Conv2d over [batch, channels, sensors, time]",
+        "temporal_kernel_height": 1,
+        "cross_sensor_convolution": false,
+        "functional_equivalence_validation": "Copied v1 weights are converted from [out,in,k] to [out,in,1,k] and compared on the same train-only batch.",
+        "parameter_count": 105977
+    },
+    "training": {
+        "final_seeds": [
+            17,
+            29,
+            43,
+            71,
+            101
+        ],
+        "reference_setup_seed": 17,
+        "optimizer": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.0001,
+        "batch_size": 32,
+        "evaluation_batch_size": 256,
+        "max_epochs": 60,
+        "gradient_clip_norm": 1.0,
+        "training_loss": "masked normalized MAE over valid target entries",
+        "model_selection_metric": "global raw-scale MAE on frozen selection windows",
+        "early_stopping_patience": 10,
+        "early_stopping_min_delta": 0.0001,
+        "selection_only_for_early_stopping": true,
+        "calibration_used_for_training": false,
+        "test_used_for_training": false,
+        "test_used_for_checkpoint_choice": false
+    },
+    "uncertainty_reporting": {
+        "final_neural_seeds": [
+            17,
+            29,
+            43,
+            71,
+            101
+        ],
+        "point_estimate": "arithmetic mean of global per-seed metrics",
+        "temporal_resampling": "non-circular three-day moving blocks",
+        "seed_resampling": "five seed slots with replacement",
+        "bootstrap_resamples": 2000,
+        "percentile_interval": [
+            2.5,
+            97.5
+        ]
+    },
+    "source_files": {
+        "dataset_module": "C:\\Users\\student\\traffic_robust_forecasting\\src\\datasets\\causal_masked_tcn_window_dataset.py",
+        "model_module": "C:\\Users\\student\\traffic_robust_forecasting\\src\\models\\masked_sensor_shared_tcn_v2.py",
+        "raw_h5": "C:\\Users\\student\\traffic_robust_forecasting\\data\\raw\\METRLA\\metr-la.h5",
+        "traffic_h5_dataset": "df/block0_values",
+        "model_module_sha256": "1e46c2dffd2153f0babc5b267b538959f89a86bc1c3d2d8cea7f4706e6906c8b",
+        "dataset_module_sha256": "33917bfc6d22839e52a1347ca14775c6502ad196a5f86d53763de2e0004db134"
+    },
+    "implementation_version": "v2_conv2d_time_only_backend",
+    "versioning": {
+        "predecessor_identifier": "MS-TCN-v1",
+        "predecessor_model_source": "C:\\Users\\student\\traffic_robust_forecasting\\src\\models\\masked_sensor_shared_tcn.py",
+        "predecessor_configuration": "C:\\Users\\student\\traffic_robust_forecasting\\configs\\metr_la_masked_sensor_shared_tcn_config.json",
+        "predecessor_configuration_sha256": "fc492a74d86b67af0b82708840563e006c869fa6fd4b109568686f454d0cf1da",
+        "v1_execution_status": "Interrupted before completion of Epoch 01 because the flattened Conv1d backend was computationally infeasible.",
+        "v1_result_status": "No v1 checkpoint, epoch log, or metric output may be used as a valid experimental result.",
+        "v2_change_scope": "Backend tensor-layout refinement only: Conv1d over flattened sensor sequences replaced by time-only Conv2d with kernel height one.",
+        "architecture_capacity_changed": false,
+        "parameter_count_changed": false,
+        "input_features_changed": false,
+        "missingness_policy_changed": false,
+        "split_policy_changed": false,
+        "training_hyperparameters_changed": false
+    },
+    "implementation_integrity": {
+        "uses_graph": false,
+        "uses_adjacency_matrix": false,
+        "uses_cross_sensor_message_passing": false,
+        "uses_adaptive_graph": false,
+        "sensor_isolated_by_design": true,
+        "causal_by_design": true,
+        "source_has_conv1d": false,
+        "source_has_conv2d": true,
+        "temporal_kernel_height": 1
+    },
+    "output_paths": {
+        "checkpoint_directory": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\checkpoints\\ms_tcn_v2",
+        "training_log_directory": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\training_logs\\ms_tcn_v2",
+        "reference_seed_17_checkpoint": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\checkpoints\\ms_tcn_v2\\metr_la_ms_tcn_v2_reference_seed_17_best_selection_mae.pt",
+        "reference_seed_17_epoch_log": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\training_logs\\ms_tcn_v2\\metr_la_ms_tcn_v2_reference_seed_17_epoch_log.csv",
+        "reference_seed_17_selection_metrics": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_reference_seed_17_best_selection_metrics.csv",
+        "reference_seed_17_training_summary": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_reference_seed_17_training_summary.json"
+    },
+    "throughput_validation": {
+        "audit_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\metadata\\metr_la_ms_tcn_v2_end_to_end_throughput_probe.json",
+        "probe_only": true,
+        "temporary_optimizer_updates_performed": 32,
+        "temporary_probe_model_discarded": true,
+        "checkpoint_selected_during_probe": false,
+        "final_model_training_performed_during_probe": false,
+        "estimated_end_to_end_epoch_minutes": 2.30396809475169,
+        "feasibility_passed": true
+    },
+    "configuration_sha256": "525bf5a8f0aecf880541f8e27e5e0ecaae9be3481daefa9d9eb51cd6d085dd56"
+}

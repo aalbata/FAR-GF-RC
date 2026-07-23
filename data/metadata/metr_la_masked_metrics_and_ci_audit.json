@@ -1,0 +1,78 @@
+{
+    "created_at": "2026-06-29T14:13:29",
+    "toy_metric_expected_values": {
+        "MAE": 9.5,
+        "RMSE": 13.717385562368168,
+        "MAPE": 20.0,
+        "WMAPE": 20.141342756183743
+    },
+    "toy_metric_observed_values": {
+        "MAE": 9.5,
+        "RMSE": 13.717385562368168,
+        "MAPE": 20.0,
+        "WMAPE": 20.141342756183743
+    },
+    "toy_metric_checks": {
+        "MAE": true,
+        "RMSE": true,
+        "MAPE": true,
+        "WMAPE": true
+    },
+    "inverse_scale_numpy_check_passed": true,
+    "inverse_scale_torch_check_passed": true,
+    "toy_bootstrap_ci_check_passed": true,
+    "toy_paired_identical_model_check_passed": true,
+    "cohort_ci_group_summary": [
+        {
+            "cohort": "primary_native_outage_aware",
+            "anchor_window_count": 6313,
+            "unique_forecast_origin_days": 24,
+            "first_forecast_origin_day": "2012-06-04",
+            "last_forecast_origin_day": "2012-06-27",
+            "minimum_windows_per_day": 97,
+            "maximum_windows_per_day": 288,
+            "median_windows_per_day": 288.0,
+            "bootstrap_block_length_days": 3,
+            "bootstrap_resamples": 2000
+        },
+        {
+            "cohort": "secondary_high_availability_95pct",
+            "anchor_window_count": 4771,
+            "unique_forecast_origin_days": 24,
+            "first_forecast_origin_day": "2012-06-04",
+            "last_forecast_origin_day": "2012-06-27",
+            "minimum_windows_per_day": 28,
+            "maximum_windows_per_day": 288,
+            "median_windows_per_day": 201.5,
+            "bootstrap_block_length_days": 3,
+            "bootstrap_resamples": 2000
+        },
+        {
+            "cohort": "supplementary_near_complete_99pct",
+            "anchor_window_count": 791,
+            "unique_forecast_origin_days": 13,
+            "first_forecast_origin_day": "2012-06-04",
+            "last_forecast_origin_day": "2012-06-21",
+            "minimum_windows_per_day": 2,
+            "maximum_windows_per_day": 148,
+            "median_windows_per_day": 52.0,
+            "bootstrap_block_length_days": 3,
+            "bootstrap_resamples": 2000
+        },
+        {
+            "cohort": "audit_strict_complete_100pct",
+            "anchor_window_count": 26,
+            "unique_forecast_origin_days": 3,
+            "first_forecast_origin_day": "2012-06-12",
+            "last_forecast_origin_day": "2012-06-14",
+            "minimum_windows_per_day": 2,
+            "maximum_windows_per_day": 16,
+            "median_windows_per_day": 8.0,
+            "bootstrap_block_length_days": 3,
+            "bootstrap_resamples": 2000
+        }
+    ],
+    "metric_module_file": "C:\\Users\\student\\traffic_robust_forecasting\\src\\metrics\\masked_metrics_and_ci.py",
+    "ci_policy_file": "C:\\Users\\student\\traffic_robust_forecasting\\data\\metadata\\metr_la_95ci_policy.json",
+    "ci_group_label_file": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\metr_la_ci_temporal_group_labels.npz"
+}

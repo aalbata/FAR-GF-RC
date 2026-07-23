@@ -1,0 +1,88 @@
+{
+    "created_at": "2026-07-01T09:15:17",
+    "dataset_name": "METR-LA",
+    "model_identifier": "MS-TCN",
+    "device": "cuda",
+    "cuda_available": true,
+    "torch_version": "2.5.1+cu121",
+    "raw_h5_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\raw\\METRLA\\metr-la.h5",
+    "traffic_h5_dataset_path": "df/block0_values",
+    "raw_data_loaded_stop_index_exclusive": 25704,
+    "calibration_data_loaded": false,
+    "test_data_loaded": false,
+    "scaler": {
+        "source_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\metr_la_train_only_sensor_scaler.npz",
+        "mean_key": "means",
+        "std_key": "stds",
+        "mean_min": 30.874074935913086,
+        "mean_max": 67.76228332519531,
+        "std_min": 2.032602071762085,
+        "std_max": 23.58663558959961
+    },
+    "native_observation_policy": "finite traffic reading strictly greater than zero",
+    "loaded_train_selection_observation_rate_percent": 93.20467048870005,
+    "elapsed_feature": {
+        "cap_steps": 288,
+        "cap_hours": 24.0,
+        "normalized_min": 0.0,
+        "normalized_max": 1.0
+    },
+    "calendar_features": [
+        "time_of_day_sin",
+        "time_of_day_cos",
+        "day_of_week_sin",
+        "day_of_week_cos"
+    ],
+    "dataset_sizes": {
+        "train_scored_windows": 22969,
+        "selection_scored_windows": 1703
+    },
+    "architecture": {
+        "uses_graph": false,
+        "uses_adjacency_matrix": false,
+        "uses_cross_sensor_message_passing": false,
+        "uses_adaptive_graph": false,
+        "tcn_channels": 64,
+        "kernel_size": 3,
+        "dilations": [
+            1,
+            2,
+            4,
+            8
+        ],
+        "receptive_field_steps": 61,
+        "receptive_field_minutes": 305,
+        "sensor_embedding_dim": 8,
+        "prediction_head_dim": 64,
+        "parameter_count": 105977,
+        "trainable_parameter_count": 105977
+    },
+    "integrity_checks": {
+        "history_feature_shape_passed": true,
+        "future_calendar_shape_passed": true,
+        "target_shape_passed": true,
+        "finite_features_passed": true,
+        "finite_targets_passed": true,
+        "mask_range_passed": true,
+        "elapsed_range_passed": true,
+        "observed_elapsed_zero_passed": true,
+        "missing_target_placeholder_zero_passed": true,
+        "scored_windows_have_valid_targets": true,
+        "model_output_shape_passed": true,
+        "initial_prediction_finite": true,
+        "initial_loss_finite": true,
+        "gradient_finite": true,
+        "causal_temporal_test_passed": true,
+        "non_graph_sensor_isolation_test_passed": true
+    },
+    "initial_reference_metrics": {
+        "seed": 17,
+        "normalized_train_masked_mae": 0.6160099506378174,
+        "raw_selection_mae": 8.572742462158203,
+        "gradient_norm": 0.28420464126800377
+    },
+    "frozen_configuration_path": "C:\\Users\\student\\traffic_robust_forecasting\\configs\\metr_la_masked_sensor_shared_tcn_config.json",
+    "frozen_configuration_sha256": "fc492a74d86b67af0b82708840563e006c869fa6fd4b109568686f454d0cf1da",
+    "dataset_source_path": "C:\\Users\\student\\traffic_robust_forecasting\\src\\datasets\\causal_masked_tcn_window_dataset.py",
+    "model_source_path": "C:\\Users\\student\\traffic_robust_forecasting\\src\\models\\masked_sensor_shared_tcn.py"
+}

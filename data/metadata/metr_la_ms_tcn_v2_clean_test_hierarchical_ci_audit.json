@@ -1,0 +1,146 @@
+{
+    "created_at": "2026-07-01T10:52:49",
+    "analysis_stage": "MS-TCN v2 hierarchical five-seed clean-test confidence intervals",
+    "model_identifier": "MS-TCN-v2",
+    "implementation_version": "v2_conv2d_time_only_backend",
+    "sealed_evidence_policy": {
+        "evidence_source": "Completed Cell 14D-v2 daily sufficient statistics",
+        "current_checkpoint_files_used": false,
+        "current_configuration_file_used": false,
+        "training_performed_in_this_cell": false,
+        "checkpoint_loading_performed_in_this_cell": false,
+        "checkpoint_selection_performed_in_this_cell": false,
+        "new_test_predictions_generated_in_this_cell": false,
+        "calibration_targets_used_in_this_cell": false
+    },
+    "sealed_cell_14d_identity": {
+        "evaluation_audit_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\metadata\\metr_la_ms_tcn_v2_clean_test_evaluation_audit.json",
+        "evaluation_audit_sha256": "2bae7e1a29633973e45ea94f0c166d4170ee8829c08e281417288130cf40e011",
+        "daily_statistics_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_five_seed_clean_test_daily_sufficient_statistics.csv",
+        "daily_statistics_sha256": "e3a38a8b49c62aa84767835ef38aadf53fc054e101aa71e176311f6244cb55f2",
+        "point_estimates_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_five_seed_clean_test_headline_point_estimates.csv",
+        "point_estimates_sha256": "b2dfbb4f3439a6d714764d58420f572ccf408d1afb87435a965f4199f0448d14",
+        "sealed_configuration_sha256": "e5bcdc4fb13cb4d3f5fd5b998dcdfc62c44bca2d260d41f4e5c317d5e8010378",
+        "sealed_model_source_sha256": "1e46c2dffd2153f0babc5b267b538959f89a86bc1c3d2d8cea7f4706e6906c8b",
+        "final_seeds": [
+            17,
+            29,
+            43,
+            71,
+            101
+        ]
+    },
+    "canonical_bootstrap_plan": {
+        "source_artifact_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_gru_five_seed_clean_test_hierarchical_ci_replicates.npz",
+        "source_artifact_sha256": "66fc0e07a732cf1085480ffb4d0d8dcab072d234c10086822c1ce15c0bd1fd2f",
+        "seed_bootstrap_indices_sha256": "c7037c35e693d55ef0077d16e65e297ca1de0717bd4648bc6a1dd6151807329d",
+        "temporal_block_starts_sha256": "7e62e646f73be23f53e155e3e8efbf7ba1a6b79475234fc65ccdf82d9a7deee1",
+        "temporal_bootstrap_indices_sha256": "2f020427b8049d69ca70033e1513f3dd56e4e5adb09a26d1521346799e010bb4",
+        "final_seeds": [
+            17,
+            29,
+            43,
+            71,
+            101
+        ],
+        "forecast_origin_day_labels": [
+            "2012-06-04",
+            "2012-06-05",
+            "2012-06-06",
+            "2012-06-07",
+            "2012-06-08",
+            "2012-06-09",
+            "2012-06-10",
+            "2012-06-11",
+            "2012-06-12",
+            "2012-06-13",
+            "2012-06-14",
+            "2012-06-15",
+            "2012-06-16",
+            "2012-06-17",
+            "2012-06-18",
+            "2012-06-19",
+            "2012-06-20",
+            "2012-06-21",
+            "2012-06-22",
+            "2012-06-23",
+            "2012-06-24",
+            "2012-06-25",
+            "2012-06-26",
+            "2012-06-27"
+        ],
+        "bootstrap_random_seed": 20260629,
+        "bootstrap_resamples": 2000,
+        "temporal_block_length_days": 3,
+        "non_circular_blocks_per_replicate": 8,
+        "percentile_interval": [
+            2.5,
+            97.5
+        ],
+        "resampling_method": "non_circular_three_day_moving_block_temporal_resampling",
+        "hierarchical_aggregation_rule": "compute_metric_within_each_selected_seed_then_average_selected_seed_level_metrics"
+    },
+    "validation": {
+        "expected_daily_statistics_rows": 960,
+        "observed_daily_statistics_rows": 960,
+        "expected_ci_rows": 32,
+        "observed_ci_rows": 32,
+        "all_cell_14d_point_estimates_reconstructed": true,
+        "maximum_point_estimate_difference": 4.440892098500626e-16,
+        "all_effective_resample_counts_equal_2000": true,
+        "point_estimate_inside_own_ci": {
+            "primary_overall_MAE": true,
+            "primary_overall_RMSE": true,
+            "primary_overall_MAPE": true,
+            "primary_overall_WMAPE": true,
+            "primary_15m_MAE": true,
+            "primary_15m_RMSE": true,
+            "primary_15m_MAPE": true,
+            "primary_15m_WMAPE": true,
+            "primary_30m_MAE": true,
+            "primary_30m_RMSE": true,
+            "primary_30m_MAPE": true,
+            "primary_30m_WMAPE": true,
+            "primary_60m_MAE": true,
+            "primary_60m_RMSE": true,
+            "primary_60m_MAPE": true,
+            "primary_60m_WMAPE": true,
+            "secondary_overall_MAE": true,
+            "secondary_overall_RMSE": true,
+            "secondary_overall_MAPE": true,
+            "secondary_overall_WMAPE": true,
+            "secondary_15m_MAE": true,
+            "secondary_15m_RMSE": true,
+            "secondary_15m_MAPE": true,
+            "secondary_15m_WMAPE": true,
+            "secondary_30m_MAE": true,
+            "secondary_30m_RMSE": true,
+            "secondary_30m_MAPE": true,
+            "secondary_30m_WMAPE": true,
+            "secondary_60m_MAE": true,
+            "secondary_60m_RMSE": true,
+            "secondary_60m_MAPE": true,
+            "secondary_60m_WMAPE": true
+        },
+        "expected_valid_target_counts": {
+            "primary": {
+                "overall": 14940228,
+                "15m": 1245040,
+                "30m": 1245022,
+                "60m": 1244986
+            },
+            "secondary": {
+                "overall": 11620432,
+                "15m": 968525,
+                "30m": 968439,
+                "60m": 968022
+            }
+        }
+    },
+    "outputs": {
+        "ci_table_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_five_seed_clean_test_headline_metrics_95ci.csv",
+        "replicate_distribution_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_five_seed_clean_test_hierarchical_ci_replicates.npz",
+        "ci_table_sha256": "6d81b93b9af466e648e06d9cd8ca720fec5bca0e5bdc7c2016fedd21938ff223",
+        "replicate_distribution_sha256": "c8ae108a8e3322a03154c9901e3ac334f71309c9dd58340a63a25ea6468e524c"
+    }
+}

@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\caption{Clean-to-dropout absolute overall-MAE degradation (mph; lower is more robust), worst-condition MAE, and mean rank over the 50 (condition, seed) blocks.}
+\label{tab:robustness}
+\resizebox{\linewidth}{!}{\begin{tabular}{lccc}
+\toprule
+Condition & FAR-GF-RC & MS-GRU & MS-TCN-v2\\ \midrule
+IID 10\% & \textbf{0.012} & 0.013 & 0.015\\
+IID 30\% & \textbf{0.045} & 0.047 & 0.053\\
+IID 50\% & 0.106 & \textbf{0.106} & 0.115\\
+Tail 25\%/3 & \textbf{0.048} & 0.061 & 0.061\\
+Tail 50\%/6 & \textbf{0.159} & 0.204 & 0.200\\
+Tail 75\%/12 & \textbf{0.663} & 0.820 & 0.805\\
+Spatial 8 & \textbf{0.019} & 0.027 & 0.026\\
+Spatial 16 & \textbf{0.043} & 0.056 & 0.056\\
+Spatial 32 & \textbf{0.081} & 0.106 & 0.104\\
+\midrule
+Worst-condition MAE & 2.290 & 2.554 & 2.549\\
+Mean rank (50 blocks) & 1.00 & 2.32 & 2.68\\
+\bottomrule
+\end{tabular}}
+\end{table}

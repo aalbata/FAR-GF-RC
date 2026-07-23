@@ -1,0 +1,93 @@
+{
+ "addendum_identifier": "pems_bay_final_primary_test_boundary_history_context_addendum_v1",
+ "base_final_evaluation_protocol": {
+  "immutability_policy": "This addendum does not modify, replace, or supersede the frozen final primary-test evaluation protocol.",
+  "path": "configs/pems_bay_final_multi_model_primary_evaluation_protocol_v1.json",
+  "sha256": "b299159b61b80475a00d2e89382734479550d6f5577e47f3b7bacc18999458fc"
+ },
+ "boundary_history_context": {
+  "affected_primary_test_target_start_interval": [
+   41692,
+   41704
+  ],
+  "affected_window_count": 12,
+  "meaning": "These are the 12 timestamps immediately preceding the first primary-test target start. They are used only as observed causal input history for the earliest test windows and never as evaluation targets.",
+  "required_raw_history_interval": [
+   41680,
+   41692
+  ],
+  "required_total_raw_evaluation_load_interval": [
+   41680,
+   52116
+  ],
+  "timestamp_count": 12
+ },
+ "calibration_protection_policy": {
+  "allowed_exception": "Only timestamps [41680, 41692) may be read as causal history inputs for the first 12 frozen primary-test windows. No value from this interval may be used as a forecast target, metric target, loss target, model selection signal, tuning signal, or normalization source.",
+  "calibration_checkpoint_selection": false,
+  "calibration_conformal_or_threshold_tuning": false,
+  "calibration_hyperparameter_tuning": false,
+  "calibration_interval": [
+   39087,
+   41692
+  ],
+  "calibration_loss_computed": false,
+  "calibration_metrics_computed": false,
+  "calibration_normalization_updates": false,
+  "calibration_target_windows_evaluated": false,
+  "calibration_targets_scored": false
+ },
+ "created_utc": "2026-07-04T10:30:10Z",
+ "evaluator_data_access_accounting": {
+  "boundary_history_context_accessed": true,
+  "boundary_history_context_interval": [
+   41680,
+   41692
+  ],
+  "calibration_target_evaluation_accessed": false,
+  "forbidden_raw_access_after": 52116,
+  "forbidden_raw_access_before": 41680,
+  "primary_test_target_evaluation_accessed": true,
+  "required_test_target_start_order": "chronological_non_shuffled"
+ },
+ "frozen_window_contract": {
+  "history_definition": "For target start t, history is [t-12, t-1] and forecast targets are [t, t+11].",
+  "input_steps": 12,
+  "output_steps": 12,
+  "primary_test_raw_interval": [
+   41692,
+   52116
+  ],
+  "primary_test_target_start_interval": [
+   41692,
+   52104
+  ]
+ },
+ "nonnegotiable_invariance": {
+  "checkpoint_selection": "Use only pre-saved checkpoints selected earlier by the earliest minimum fixed-composite selection raw-speed MAE.",
+  "controlled_dropout_conditions": "Use the frozen clean condition and all nine frozen primary-test controlled-dropout masks unchanged.",
+  "metrics": [
+   "MAE",
+   "RMSE",
+   "MAPE",
+   "WMAPE"
+  ],
+  "model_families": [
+   "FAR-GF-RC",
+   "MS-GRU",
+   "MS-TCN-v2"
+  ],
+  "model_seeds": [
+   17,
+   29,
+   43,
+   71,
+   101
+  ],
+  "normalization": "Use only frozen train-partition sensor means and standard deviations."
+ },
+ "portability_note": "Paths rewritten project-root-relative from the frozen original in configs/frozen/.",
+ "publication_language_constraint": "Calibration was not used for checkpoint selection, hyperparameter tuning, threshold fitting, conformal fitting, or evaluation. The only calibration-index overlap was the mandatory 12-timestamp causal input-history context directly preceding the primary-test interval.",
+ "purpose": "Clarify the unavoidable causal-history boundary context required to evaluate the earliest frozen primary-test windows under the pre-registered 12-step history contract.",
+ "version": "v1"
+}

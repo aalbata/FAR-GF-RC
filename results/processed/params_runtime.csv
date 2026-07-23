@@ -1,0 +1,4 @@
+model,parameters,runtime
+FAR-GF-RC,83204,not recorded in frozen logs
+MS-GRU,21609,not recorded in frozen logs
+MS-TCN-v2,106921,not recorded in frozen logs

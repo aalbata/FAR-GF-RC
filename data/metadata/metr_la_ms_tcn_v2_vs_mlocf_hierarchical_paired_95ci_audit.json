@@ -1,0 +1,149 @@
+{
+    "created_at": "2026-07-01T11:07:26",
+    "analysis_stage": "Paired hierarchical clean-test comparison: MS-TCN-v2 versus MLOCF",
+    "comparison_definition": {
+        "model_a": "MS-TCN-v2",
+        "model_b": "MLOCF",
+        "delta_definition": "Metric(MS-TCN-v2) - Metric(MLOCF)",
+        "negative_delta_interpretation": "MS-TCN-v2 lower error",
+        "positive_delta_interpretation": "MLOCF lower error",
+        "seed_pairing_type": "deterministic_baseline_repeated_across_matched_seed_slots"
+    },
+    "scientific_firewall": {
+        "training_performed_in_this_cell": false,
+        "checkpoint_loading_performed_in_this_cell": false,
+        "current_configuration_used_in_this_cell": false,
+        "model_inference_performed_in_this_cell": false,
+        "new_test_predictions_generated_in_this_cell": false,
+        "calibration_targets_used_in_this_cell": false,
+        "input_is_sealed_replicates_and_grouped_statistics_only": true
+    },
+    "canonical_bootstrap_plan": {
+        "source_artifact_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_gru_five_seed_clean_test_hierarchical_ci_replicates.npz",
+        "source_artifact_sha256": "66fc0e07a732cf1085480ffb4d0d8dcab072d234c10086822c1ce15c0bd1fd2f",
+        "final_seeds": [
+            17,
+            29,
+            43,
+            71,
+            101
+        ],
+        "forecast_origin_day_labels": [
+            "2012-06-04",
+            "2012-06-05",
+            "2012-06-06",
+            "2012-06-07",
+            "2012-06-08",
+            "2012-06-09",
+            "2012-06-10",
+            "2012-06-11",
+            "2012-06-12",
+            "2012-06-13",
+            "2012-06-14",
+            "2012-06-15",
+            "2012-06-16",
+            "2012-06-17",
+            "2012-06-18",
+            "2012-06-19",
+            "2012-06-20",
+            "2012-06-21",
+            "2012-06-22",
+            "2012-06-23",
+            "2012-06-24",
+            "2012-06-25",
+            "2012-06-26",
+            "2012-06-27"
+        ],
+        "bootstrap_resamples": 2000,
+        "temporal_block_length_days": 3,
+        "non_circular_blocks_per_replicate": 8,
+        "bootstrap_random_seed": 20260629,
+        "percentile_interval": [
+            2.5,
+            97.5
+        ],
+        "seed_draw_sha256": "c7037c35e693d55ef0077d16e65e297ca1de0717bd4648bc6a1dd6151807329d",
+        "temporal_draw_sha256": "2f020427b8049d69ca70033e1513f3dd56e4e5adb09a26d1521346799e010bb4",
+        "temporal_block_start_sha256": "7e62e646f73be23f53e155e3e8efbf7ba1a6b79475234fc65ccdf82d9a7deee1"
+    },
+    "sealed_mstcn_evidence": {
+        "replicate_artifact_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_five_seed_clean_test_hierarchical_ci_replicates.npz",
+        "replicate_artifact_sha256": "c8ae108a8e3322a03154c9901e3ac334f71309c9dd58340a63a25ea6468e524c",
+        "ci_audit_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\metadata\\metr_la_ms_tcn_v2_clean_test_hierarchical_ci_audit.json",
+        "ci_audit_sha256": "70456c220b0e96496f079c52b536c6409f3ed7797bcca58167e5c87cb6c49f09",
+        "sealed_configuration_sha256": "e5bcdc4fb13cb4d3f5fd5b998dcdfc62c44bca2d260d41f4e5c317d5e8010378",
+        "sealed_model_source_sha256": "1e46c2dffd2153f0babc5b267b538959f89a86bc1c3d2d8cea7f4706e6906c8b"
+    },
+    "deterministic_evidence": {
+        "grouped_statistics_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\baselines\\metr_la_mlocf_grouped_sufficient_statistics.npz",
+        "grouped_statistics_sha256": "dbb39df106cde91cce81e8809413849a9d130a7cf0f13cda9c21ab967a8a68ba",
+        "headline_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\baselines\\metr_la_mlocf_headline_metrics_95ci.csv",
+        "headline_sha256": "98a7b17268e4e852261f94d0c838dbe81c5b1818259ad71992cd7fe41e717fad",
+        "prior_paired_replicates_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_gru_vs_mlocf_hierarchical_paired_replicates.npz",
+        "prior_paired_replicates_sha256": "166902c716505da50d141c88e89ab8ddfbeb8fe506e1d1625927d313adcaed70",
+        "prior_paired_audit_sha256": "9219530a4492eda6c23f146828a6c22c3739b94791d05da828604cc5b91d7193",
+        "headline_point_reconstruction_max_abs_diff": 1.7763568394002505e-15,
+        "grouped_to_prior_replicate_max_abs_diff": 7.105427357601002e-15,
+        "prior_ms_gru_delta_max_abs_diff": 0.0,
+        "standalone_deterministic_ci_bounds_used_for_paired_decision": false,
+        "reason_standalone_ci_bounds_not_used": "Standalone deterministic CI tables may use a different bootstrap realization; paired decisions use canonical shared-plan replicates reconstructed from grouped sufficient statistics."
+    },
+    "validation": {
+        "all_paired_replicates_finite": true,
+        "paired_rows": 32,
+        "expected_paired_rows": 32,
+        "all_effective_resamples_equal_2000": true,
+        "frozen_target_denominators": [
+            {
+                "cohort": "primary",
+                "scope": "overall",
+                "valid_target_count": 14940228
+            },
+            {
+                "cohort": "primary",
+                "scope": "15m",
+                "valid_target_count": 1245040
+            },
+            {
+                "cohort": "primary",
+                "scope": "30m",
+                "valid_target_count": 1245022
+            },
+            {
+                "cohort": "primary",
+                "scope": "60m",
+                "valid_target_count": 1244986
+            },
+            {
+                "cohort": "secondary",
+                "scope": "overall",
+                "valid_target_count": 11620432
+            },
+            {
+                "cohort": "secondary",
+                "scope": "15m",
+                "valid_target_count": 968525
+            },
+            {
+                "cohort": "secondary",
+                "scope": "30m",
+                "valid_target_count": 968439
+            },
+            {
+                "cohort": "secondary",
+                "scope": "60m",
+                "valid_target_count": 968022
+            }
+        ],
+        "paired_interpretation_counts": {
+            "MS-TCN-v2 lower error supported": 30,
+            "No clear paired difference": 2
+        }
+    },
+    "outputs": {
+        "paired_result_table_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_vs_mlocf_hierarchical_paired_95ci.csv",
+        "paired_replicate_distribution_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_vs_mlocf_hierarchical_paired_95ci_replicates.npz",
+        "paired_result_table_sha256": "43994bd38b67fd5186e057e1a77c9e7b04f3a59f055fb769cc3c14245ad7e7bf",
+        "paired_replicate_distribution_sha256": "10333d225539441211705b9260257b38230254885625b9321994d0db01a83ebe"
+    }
+}

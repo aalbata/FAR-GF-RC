@@ -1,0 +1,94 @@
+{
+ "addendum_identifier": "pems_bay_final_primary_test_native_elapsed_state_prehistory_addendum_v1",
+ "authorized_native_mask_access": {
+  "access_interval": [
+   0,
+   52116
+  ],
+  "allowed_content": "Binary native observation availability only. No raw traffic-speed values are available in this asset.",
+  "allowed_purpose": "Compute globally causal native elapsed-gap steps and obtain the carry state for each frozen primary-test history window.",
+  "asset": "data/processed/pems_bay_native_observation_mask_v1.npz",
+  "prohibited_uses": [
+   "calibration target evaluation",
+   "calibration metric computation",
+   "calibration loss computation",
+   "checkpoint selection",
+   "hyperparameter tuning",
+   "architecture modification",
+   "normalization estimation or update",
+   "threshold fitting",
+   "conformal fitting",
+   "seed exclusion"
+  ]
+ },
+ "base_protocol_references": {
+  "boundary_history_context_addendum": {
+   "path": "configs/pems_bay_final_primary_test_boundary_history_context_addendum_v1.json",
+   "sha256": "f89d07942ddce901d4154408836d0e1a2790ef4ddfd00f752fa1e58f12b8d481"
+  },
+  "final_primary_test_evaluation_protocol": {
+   "path": "configs/pems_bay_final_multi_model_primary_evaluation_protocol_v1.json",
+   "sha256": "b299159b61b80475a00d2e89382734479550d6f5577e47f3b7bacc18999458fc"
+  },
+  "immutability_policy": "This addendum does not modify, replace, or supersede the frozen P52 final protocol or the frozen P58 boundary-history context addendum."
+ },
+ "causal_elapsed_requirement": {
+  "elapsed_gap_cap_steps": 288,
+  "first_primary_test_target_start": 41692,
+  "first_required_native_elapsed_carry_index": 41679,
+  "frozen_history_feature_policy": "Use the causal effective history mask, globally causal native elapsed-gap carry state, and scenario-specific artificial dropout masks. No imputation is permitted.",
+  "input_steps": 12,
+  "last_required_native_elapsed_carry_index": 52090,
+  "window_elapsed_initialization_rule": "For target start t, initialize the corrupted-window elapsed-gap recurrence with the native elapsed state at t-13."
+ },
+ "created_utc": "2026-07-04T10:46:25Z",
+ "invariance_constraints": {
+  "controlled_dropout_conditions": "Use clean native history and the nine frozen manifest-declared primary-test artificial masks.",
+  "evaluation_order": "Chronological target-start order with no shuffle.",
+  "model_families": [
+   "FAR-GF-RC",
+   "MS-GRU",
+   "MS-TCN-v2"
+  ],
+  "model_seeds": [
+   17,
+   29,
+   43,
+   71,
+   101
+  ],
+  "normalization": "Use only frozen train-partition sensor means and standard deviations."
+ },
+ "portability_note": "Paths rewritten project-root-relative from the frozen original in configs/frozen/.",
+ "publication_language_constraint": "To reproduce globally causal elapsed-gap features, the binary native observation-availability mask was used from the series start through the primary-test end. Raw traffic speeds were read only from [41680, 52116), and the pre-test interval [41680, 41692) served only as causal history input. Calibration targets were never evaluated or used for tuning.",
+ "purpose": "Authorize binary native-observation-mask prehistory access only to reproduce the globally causal native elapsed-gap state required by the frozen history-feature policy.",
+ "raw_speed_protection_policy": {
+  "authorized_raw_speed_access_interval": [
+   41680,
+   52116
+  ],
+  "boundary_history_raw_speed_interval": [
+   41680,
+   41692
+  ],
+  "boundary_history_raw_speed_use": "Only as causal history input for the first 12 primary-test target windows. Never as a forecast target, metric target, loss target, tuning signal, or normalization source.",
+  "calibration_raw_speed_values_before_41680": "prohibited",
+  "raw_speed_access_before_boundary_history_start": "prohibited"
+ },
+ "target_and_metric_protection": {
+  "calibration_loss_computed": false,
+  "calibration_metrics_computed": false,
+  "calibration_target_windows_evaluated": false,
+  "calibration_targets_scored": false,
+  "primary_test_target_raw_interval": [
+   41692,
+   52116
+  ],
+  "primary_test_target_start_interval": [
+   41692,
+   52104
+  ],
+  "target_metric_mask": "Score only native-observed future target cells."
+ },
+ "version": "v1"
+}

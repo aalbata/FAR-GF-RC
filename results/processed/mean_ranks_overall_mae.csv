@@ -1,0 +1,4 @@
+model_identifier,mean_rank,sd_rank,n
+FAR-GF-RC,1.0,0.0,50
+MS-GRU,2.32,0.4712120714991612,50
+MS-TCN-v2,2.68,0.4712120714991612,50

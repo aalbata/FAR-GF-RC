@@ -1,0 +1,643 @@
+{
+  "best_epoch": 30,
+  "best_selection_raw_speed_mae": 1.7483935563107749,
+  "checkpoint_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\checkpoints\\pems_bay_far_gf_rc_protocol_v2\\pems_bay_far_gf_rc_protocol_v2_seed_101.pt",
+  "data_access_policy": {
+    "calibration_accessed": false,
+    "primary_test_accessed": false,
+    "raw_access_end_exclusive": 39087,
+    "selection_accessed": true,
+    "train_accessed": true
+  },
+  "dataset": "PEMS-BAY",
+  "epochs": [
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "clean_warmup",
+      "epoch": 1,
+      "scenario_probabilities": {
+        "clean": 1.0
+      },
+      "selection_raw_speed_mae": 2.7863878928582864,
+      "train_loss": {
+        "forecast_loss": 0.255130425892901,
+        "reconstruction_loss": 0.0,
+        "reliability_loss": 0.06194341646368501,
+        "scale_nll_loss": -0.632932960922552,
+        "total_loss": 0.22658094743495447
+      }
+    },
+    {
+      "checkpoint_improved": false,
+      "curriculum_stage": "clean_warmup",
+      "epoch": 2,
+      "scenario_probabilities": {
+        "clean": 1.0
+      },
+      "selection_raw_speed_mae": 2.7976587147526475,
+      "train_loss": {
+        "forecast_loss": 0.23064803868009334,
+        "reconstruction_loss": 0.0,
+        "reliability_loss": 0.0005920293578687083,
+        "scale_nll_loss": -0.8148806759401371,
+        "total_loss": 0.1899336051130504
+      }
+    },
+    {
+      "checkpoint_improved": false,
+      "curriculum_stage": "clean_warmup",
+      "epoch": 3,
+      "scenario_probabilities": {
+        "clean": 1.0
+      },
+      "selection_raw_speed_mae": 2.7995938096284227,
+      "train_loss": {
+        "forecast_loss": 0.22620483163678856,
+        "reconstruction_loss": 0.0,
+        "reliability_loss": 0.00021426328812754436,
+        "scale_nll_loss": -0.8486354964866972,
+        "total_loss": 0.18378376852917044
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "clean_warmup",
+      "epoch": 4,
+      "scenario_probabilities": {
+        "clean": 1.0
+      },
+      "selection_raw_speed_mae": 2.7353941309029546,
+      "train_loss": {
+        "forecast_loss": 0.22299647565212166,
+        "reconstruction_loss": 0.0,
+        "reliability_loss": 0.0001276807618635582,
+        "scale_nll_loss": -0.8694577976277,
+        "total_loss": 0.1795299683289047
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "iid_robustness",
+      "epoch": 5,
+      "scenario_probabilities": {
+        "clean": 0.2,
+        "iid_random_10pct": 0.4,
+        "iid_random_30pct": 0.4
+      },
+      "selection_raw_speed_mae": 2.079946156040825,
+      "train_loss": {
+        "forecast_loss": 0.22694881183275006,
+        "reconstruction_loss": 0.1536369938599436,
+        "reliability_loss": 0.028026274459849097,
+        "scale_nll_loss": -0.8383439917836273,
+        "total_loss": 0.22484217265196013
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "iid_robustness",
+      "epoch": 6,
+      "scenario_probabilities": {
+        "clean": 0.2,
+        "iid_random_10pct": 0.4,
+        "iid_random_30pct": 0.4
+      },
+      "selection_raw_speed_mae": 2.071865440860958,
+      "train_loss": {
+        "forecast_loss": 0.22273273977794145,
+        "reconstruction_loss": 0.13093220371949046,
+        "reliability_loss": 0.0004002249685551138,
+        "scale_nll_loss": -0.8660994504627428,
+        "total_loss": 0.21218082795671203
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "iid_robustness",
+      "epoch": 7,
+      "scenario_probabilities": {
+        "clean": 0.2,
+        "iid_random_10pct": 0.4,
+        "iid_random_30pct": 0.4
+      },
+      "selection_raw_speed_mae": 2.021577068815968,
+      "train_loss": {
+        "forecast_loss": 0.2206055197537991,
+        "reconstruction_loss": 0.1281411463427439,
+        "reliability_loss": 0.0001458050376210227,
+        "scale_nll_loss": -0.8806296711689547,
+        "total_loss": 0.20861661191049374
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "iid_robustness",
+      "epoch": 8,
+      "scenario_probabilities": {
+        "clean": 0.2,
+        "iid_random_10pct": 0.4,
+        "iid_random_30pct": 0.4
+      },
+      "selection_raw_speed_mae": 1.9889669691397773,
+      "train_loss": {
+        "forecast_loss": 0.21888363579647582,
+        "reconstruction_loss": 0.1262060052535513,
+        "reliability_loss": 7.008411169711811e-05,
+        "scale_nll_loss": -0.891048878013042,
+        "total_loss": 0.20588619629280608
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "iid_robustness",
+      "epoch": 9,
+      "scenario_probabilities": {
+        "clean": 0.2,
+        "iid_random_10pct": 0.4,
+        "iid_random_30pct": 0.4
+      },
+      "selection_raw_speed_mae": 1.976634856749972,
+      "train_loss": {
+        "forecast_loss": 0.2172952494731075,
+        "reconstruction_loss": 0.12450938930636958,
+        "reliability_loss": 3.707956743949724e-05,
+        "scale_nll_loss": -0.904119735015066,
+        "total_loss": 0.2032184627691382
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "iid_robustness",
+      "epoch": 10,
+      "scenario_probabilities": {
+        "clean": 0.2,
+        "iid_random_10pct": 0.4,
+        "iid_random_30pct": 0.4
+      },
+      "selection_raw_speed_mae": 1.9593600706587544,
+      "train_loss": {
+        "forecast_loss": 0.21608425842826826,
+        "reconstruction_loss": 0.12372721317959459,
+        "reliability_loss": 2.1079502865879413e-05,
+        "scale_nll_loss": -0.9130555611169129,
+        "total_loss": 0.20136433596020206
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "temporal_robustness",
+      "epoch": 11,
+      "scenario_probabilities": {
+        "iid_random_30pct": 0.2,
+        "iid_random_50pct": 0.2,
+        "temporal_tail_25pct_sensors_3steps": 0.25,
+        "temporal_tail_50pct_sensors_6steps": 0.35
+      },
+      "selection_raw_speed_mae": 1.9116348854091683,
+      "train_loss": {
+        "forecast_loss": 0.22587929649049776,
+        "reconstruction_loss": 0.15139839609986858,
+        "reliability_loss": 0.00019311200874398582,
+        "scale_nll_loss": -0.8659269022314172,
+        "total_loss": 0.22044220426887798
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "temporal_robustness",
+      "epoch": 12,
+      "scenario_probabilities": {
+        "iid_random_30pct": 0.2,
+        "iid_random_50pct": 0.2,
+        "temporal_tail_25pct_sensors_3steps": 0.25,
+        "temporal_tail_50pct_sensors_6steps": 0.35
+      },
+      "selection_raw_speed_mae": 1.9031256843618427,
+      "train_loss": {
+        "forecast_loss": 0.2243900087580346,
+        "reconstruction_loss": 0.1500807847370181,
+        "reliability_loss": 0.0001763800406543101,
+        "scale_nll_loss": -0.8769171817783724,
+        "total_loss": 0.21807316312272298
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "temporal_robustness",
+      "epoch": 13,
+      "scenario_probabilities": {
+        "iid_random_30pct": 0.2,
+        "iid_random_50pct": 0.2,
+        "temporal_tail_25pct_sensors_3steps": 0.25,
+        "temporal_tail_50pct_sensors_6steps": 0.35
+      },
+      "selection_raw_speed_mae": 1.882428732361253,
+      "train_loss": {
+        "forecast_loss": 0.22303714314312265,
+        "reconstruction_loss": 0.1488301315851379,
+        "reliability_loss": 0.0001725252700500852,
+        "scale_nll_loss": -0.8867881066966475,
+        "total_loss": 0.21591389513852305
+      }
+    },
+    {
+      "checkpoint_improved": false,
+      "curriculum_stage": "temporal_robustness",
+      "epoch": 14,
+      "scenario_probabilities": {
+        "iid_random_30pct": 0.2,
+        "iid_random_50pct": 0.2,
+        "temporal_tail_25pct_sensors_3steps": 0.25,
+        "temporal_tail_50pct_sensors_6steps": 0.35
+      },
+      "selection_raw_speed_mae": 1.883611637600312,
+      "train_loss": {
+        "forecast_loss": 0.22240066398915492,
+        "reconstruction_loss": 0.14836845929946815,
+        "reliability_loss": 0.00015914905322317378,
+        "scale_nll_loss": -0.8921733652290545,
+        "total_loss": 0.2148920664531097
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "temporal_robustness",
+      "epoch": 15,
+      "scenario_probabilities": {
+        "iid_random_30pct": 0.2,
+        "iid_random_50pct": 0.2,
+        "temporal_tail_25pct_sensors_3steps": 0.25,
+        "temporal_tail_50pct_sensors_6steps": 0.35
+      },
+      "selection_raw_speed_mae": 1.8638520791159843,
+      "train_loss": {
+        "forecast_loss": 0.2215718581226834,
+        "reconstruction_loss": 0.14791372855635065,
+        "reliability_loss": 0.00014076757477979348,
+        "scale_nll_loss": -0.8981146956222099,
+        "total_loss": 0.2136515923040478
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "temporal_robustness",
+      "epoch": 16,
+      "scenario_probabilities": {
+        "iid_random_30pct": 0.2,
+        "iid_random_50pct": 0.2,
+        "temporal_tail_25pct_sensors_3steps": 0.25,
+        "temporal_tail_50pct_sensors_6steps": 0.35
+      },
+      "selection_raw_speed_mae": 1.8442840678290047,
+      "train_loss": {
+        "forecast_loss": 0.2211231209860559,
+        "reconstruction_loss": 0.1474129894846364,
+        "reliability_loss": 0.00013146893683720887,
+        "scale_nll_loss": -0.9020922299539834,
+        "total_loss": 0.21287832847028448
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "temporal_robustness",
+      "epoch": 17,
+      "scenario_probabilities": {
+        "iid_random_30pct": 0.2,
+        "iid_random_50pct": 0.2,
+        "temporal_tail_25pct_sensors_3steps": 0.25,
+        "temporal_tail_50pct_sensors_6steps": 0.35
+      },
+      "selection_raw_speed_mae": 1.842726381832797,
+      "train_loss": {
+        "forecast_loss": 0.22056535724223705,
+        "reconstruction_loss": 0.14695850259117912,
+        "reliability_loss": 0.000139861493848832,
+        "scale_nll_loss": -0.9077389217259592,
+        "total_loss": 0.21192502844751926
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "temporal_robustness",
+      "epoch": 18,
+      "scenario_probabilities": {
+        "iid_random_30pct": 0.2,
+        "iid_random_50pct": 0.2,
+        "temporal_tail_25pct_sensors_3steps": 0.25,
+        "temporal_tail_50pct_sensors_6steps": 0.35
+      },
+      "selection_raw_speed_mae": 1.8293465086823528,
+      "train_loss": {
+        "forecast_loss": 0.2198536808684207,
+        "reconstruction_loss": 0.14654182810009572,
+        "reliability_loss": 0.00014472016346668456,
+        "scale_nll_loss": -0.9122076964692065,
+        "total_loss": 0.21088598847650644
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "mixed_failure_robustness",
+      "epoch": 19,
+      "scenario_probabilities": {
+        "iid_random_10pct": 0.1,
+        "iid_random_30pct": 0.15,
+        "iid_random_50pct": 0.15,
+        "spatial_geographic_knn4_cluster_16_full_history": 0.07,
+        "spatial_geographic_knn4_cluster_32_full_history": 0.08,
+        "spatial_geographic_knn4_cluster_8_full_history": 0.05,
+        "temporal_tail_25pct_sensors_3steps": 0.1,
+        "temporal_tail_50pct_sensors_6steps": 0.15,
+        "temporal_tail_75pct_sensors_12steps": 0.15
+      },
+      "selection_raw_speed_mae": 1.7941134656246776,
+      "train_loss": {
+        "forecast_loss": 0.228917477985746,
+        "reconstruction_loss": 0.21244004095594088,
+        "reliability_loss": 0.00013403857298582904,
+        "scale_nll_loss": -0.8685782802470944,
+        "total_loss": 0.2386052746783223
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "mixed_failure_robustness",
+      "epoch": 20,
+      "scenario_probabilities": {
+        "iid_random_10pct": 0.1,
+        "iid_random_30pct": 0.15,
+        "iid_random_50pct": 0.15,
+        "spatial_geographic_knn4_cluster_16_full_history": 0.07,
+        "spatial_geographic_knn4_cluster_32_full_history": 0.08,
+        "spatial_geographic_knn4_cluster_8_full_history": 0.05,
+        "temporal_tail_25pct_sensors_3steps": 0.1,
+        "temporal_tail_50pct_sensors_6steps": 0.15,
+        "temporal_tail_75pct_sensors_12steps": 0.15
+      },
+      "selection_raw_speed_mae": 1.7829655864323808,
+      "train_loss": {
+        "forecast_loss": 0.22798462187250454,
+        "reconstruction_loss": 0.20893219068907856,
+        "reliability_loss": 0.00010088130519554333,
+        "scale_nll_loss": -0.8712384416868812,
+        "total_loss": 0.23666079019506772
+      }
+    },
+    {
+      "checkpoint_improved": false,
+      "curriculum_stage": "mixed_failure_robustness",
+      "epoch": 21,
+      "scenario_probabilities": {
+        "iid_random_10pct": 0.1,
+        "iid_random_30pct": 0.15,
+        "iid_random_50pct": 0.15,
+        "spatial_geographic_knn4_cluster_16_full_history": 0.07,
+        "spatial_geographic_knn4_cluster_32_full_history": 0.08,
+        "spatial_geographic_knn4_cluster_8_full_history": 0.05,
+        "temporal_tail_25pct_sensors_3steps": 0.1,
+        "temporal_tail_50pct_sensors_6steps": 0.15,
+        "temporal_tail_75pct_sensors_12steps": 0.15
+      },
+      "selection_raw_speed_mae": 1.7831631681199844,
+      "train_loss": {
+        "forecast_loss": 0.22733033479828585,
+        "reconstruction_loss": 0.2075443182140589,
+        "reliability_loss": 8.202444628215999e-05,
+        "scale_nll_loss": -0.8772128022553628,
+        "total_loss": 0.2353598742173952
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "mixed_failure_robustness",
+      "epoch": 22,
+      "scenario_probabilities": {
+        "iid_random_10pct": 0.1,
+        "iid_random_30pct": 0.15,
+        "iid_random_50pct": 0.15,
+        "spatial_geographic_knn4_cluster_16_full_history": 0.07,
+        "spatial_geographic_knn4_cluster_32_full_history": 0.08,
+        "spatial_geographic_knn4_cluster_8_full_history": 0.05,
+        "temporal_tail_25pct_sensors_3steps": 0.1,
+        "temporal_tail_50pct_sensors_6steps": 0.15,
+        "temporal_tail_75pct_sensors_12steps": 0.15
+      },
+      "selection_raw_speed_mae": 1.7692929802831647,
+      "train_loss": {
+        "forecast_loss": 0.2266734510006612,
+        "reconstruction_loss": 0.2059208051677336,
+        "reliability_loss": 8.457679557243848e-05,
+        "scale_nll_loss": -0.8812300209936342,
+        "total_loss": 0.23409637871541475
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "mixed_failure_robustness",
+      "epoch": 23,
+      "scenario_probabilities": {
+        "iid_random_10pct": 0.1,
+        "iid_random_30pct": 0.15,
+        "iid_random_50pct": 0.15,
+        "spatial_geographic_knn4_cluster_16_full_history": 0.07,
+        "spatial_geographic_knn4_cluster_32_full_history": 0.08,
+        "spatial_geographic_knn4_cluster_8_full_history": 0.05,
+        "temporal_tail_25pct_sensors_3steps": 0.1,
+        "temporal_tail_50pct_sensors_6steps": 0.15,
+        "temporal_tail_75pct_sensors_12steps": 0.15
+      },
+      "selection_raw_speed_mae": 1.7657358443829358,
+      "train_loss": {
+        "forecast_loss": 0.22587714630522226,
+        "reconstruction_loss": 0.20372909933590053,
+        "reliability_loss": 7.96865713741761e-05,
+        "scale_nll_loss": -0.886721882224083,
+        "total_loss": 0.2324773097770256
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "mixed_failure_robustness",
+      "epoch": 24,
+      "scenario_probabilities": {
+        "iid_random_10pct": 0.1,
+        "iid_random_30pct": 0.15,
+        "iid_random_50pct": 0.15,
+        "spatial_geographic_knn4_cluster_16_full_history": 0.07,
+        "spatial_geographic_knn4_cluster_32_full_history": 0.08,
+        "spatial_geographic_knn4_cluster_8_full_history": 0.05,
+        "temporal_tail_25pct_sensors_3steps": 0.1,
+        "temporal_tail_50pct_sensors_6steps": 0.15,
+        "temporal_tail_75pct_sensors_12steps": 0.15
+      },
+      "selection_raw_speed_mae": 1.7645579606797803,
+      "train_loss": {
+        "forecast_loss": 0.22563490246733028,
+        "reconstruction_loss": 0.20289058991822234,
+        "reliability_loss": 6.63324565577664e-05,
+        "scale_nll_loss": -0.8887464752845596,
+        "total_loss": 0.23192354082538372
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "mixed_failure_robustness",
+      "epoch": 25,
+      "scenario_probabilities": {
+        "iid_random_10pct": 0.1,
+        "iid_random_30pct": 0.15,
+        "iid_random_50pct": 0.15,
+        "spatial_geographic_knn4_cluster_16_full_history": 0.07,
+        "spatial_geographic_knn4_cluster_32_full_history": 0.08,
+        "spatial_geographic_knn4_cluster_8_full_history": 0.05,
+        "temporal_tail_25pct_sensors_3steps": 0.1,
+        "temporal_tail_50pct_sensors_6steps": 0.15,
+        "temporal_tail_75pct_sensors_12steps": 0.15
+      },
+      "selection_raw_speed_mae": 1.7561077287082925,
+      "train_loss": {
+        "forecast_loss": 0.22524364748806283,
+        "reconstruction_loss": 0.20226382321694442,
+        "reliability_loss": 6.233105343454282e-05,
+        "scale_nll_loss": -0.8902013729800258,
+        "total_loss": 0.23130264934479144
+      }
+    },
+    {
+      "checkpoint_improved": false,
+      "curriculum_stage": "mixed_failure_robustness",
+      "epoch": 26,
+      "scenario_probabilities": {
+        "iid_random_10pct": 0.1,
+        "iid_random_30pct": 0.15,
+        "iid_random_50pct": 0.15,
+        "spatial_geographic_knn4_cluster_16_full_history": 0.07,
+        "spatial_geographic_knn4_cluster_32_full_history": 0.08,
+        "spatial_geographic_knn4_cluster_8_full_history": 0.05,
+        "temporal_tail_25pct_sensors_3steps": 0.1,
+        "temporal_tail_50pct_sensors_6steps": 0.15,
+        "temporal_tail_75pct_sensors_12steps": 0.15
+      },
+      "selection_raw_speed_mae": 1.7564937013757205,
+      "train_loss": {
+        "forecast_loss": 0.22531630734079763,
+        "reconstruction_loss": 0.20349181265684596,
+        "reliability_loss": 6.768526748425772e-05,
+        "scale_nll_loss": -0.8905262245420824,
+        "total_loss": 0.23166633250943403
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "mixed_failure_robustness",
+      "epoch": 27,
+      "scenario_probabilities": {
+        "iid_random_10pct": 0.1,
+        "iid_random_30pct": 0.15,
+        "iid_random_50pct": 0.15,
+        "spatial_geographic_knn4_cluster_16_full_history": 0.07,
+        "spatial_geographic_knn4_cluster_32_full_history": 0.08,
+        "spatial_geographic_knn4_cluster_8_full_history": 0.05,
+        "temporal_tail_25pct_sensors_3steps": 0.1,
+        "temporal_tail_50pct_sensors_6steps": 0.15,
+        "temporal_tail_75pct_sensors_12steps": 0.15
+      },
+      "selection_raw_speed_mae": 1.7522118970055687,
+      "train_loss": {
+        "forecast_loss": 0.22462401149565714,
+        "reconstruction_loss": 0.20026847352845628,
+        "reliability_loss": 6.36833351260672e-05,
+        "scale_nll_loss": -0.895262821097123,
+        "total_loss": 0.2299311714475615
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "mixed_failure_robustness",
+      "epoch": 28,
+      "scenario_probabilities": {
+        "iid_random_10pct": 0.1,
+        "iid_random_30pct": 0.15,
+        "iid_random_50pct": 0.15,
+        "spatial_geographic_knn4_cluster_16_full_history": 0.07,
+        "spatial_geographic_knn4_cluster_32_full_history": 0.08,
+        "spatial_geographic_knn4_cluster_8_full_history": 0.05,
+        "temporal_tail_25pct_sensors_3steps": 0.1,
+        "temporal_tail_50pct_sensors_6steps": 0.15,
+        "temporal_tail_75pct_sensors_12steps": 0.15
+      },
+      "selection_raw_speed_mae": 1.7511154109788045,
+      "train_loss": {
+        "forecast_loss": 0.22412762938622843,
+        "reconstruction_loss": 0.1994530540678585,
+        "reliability_loss": 5.886543207963226e-05,
+        "scale_nll_loss": -0.8961095359764601,
+        "total_loss": 0.22918835802559268
+      }
+    },
+    {
+      "checkpoint_improved": false,
+      "curriculum_stage": "mixed_failure_robustness",
+      "epoch": 29,
+      "scenario_probabilities": {
+        "iid_random_10pct": 0.1,
+        "iid_random_30pct": 0.15,
+        "iid_random_50pct": 0.15,
+        "spatial_geographic_knn4_cluster_16_full_history": 0.07,
+        "spatial_geographic_knn4_cluster_32_full_history": 0.08,
+        "spatial_geographic_knn4_cluster_8_full_history": 0.05,
+        "temporal_tail_25pct_sensors_3steps": 0.1,
+        "temporal_tail_50pct_sensors_6steps": 0.15,
+        "temporal_tail_75pct_sensors_12steps": 0.15
+      },
+      "selection_raw_speed_mae": 1.7669940803812385,
+      "train_loss": {
+        "forecast_loss": 0.2241987078466959,
+        "reconstruction_loss": 0.20087281495594142,
+        "reliability_loss": 5.522876767747476e-05,
+        "scale_nll_loss": -0.8980697763854997,
+        "total_loss": 0.2295161825261618
+      }
+    },
+    {
+      "checkpoint_improved": true,
+      "curriculum_stage": "mixed_failure_robustness",
+      "epoch": 30,
+      "scenario_probabilities": {
+        "iid_random_10pct": 0.1,
+        "iid_random_30pct": 0.15,
+        "iid_random_50pct": 0.15,
+        "spatial_geographic_knn4_cluster_16_full_history": 0.07,
+        "spatial_geographic_knn4_cluster_32_full_history": 0.08,
+        "spatial_geographic_knn4_cluster_8_full_history": 0.05,
+        "temporal_tail_25pct_sensors_3steps": 0.1,
+        "temporal_tail_50pct_sensors_6steps": 0.15,
+        "temporal_tail_75pct_sensors_12steps": 0.15
+      },
+      "selection_raw_speed_mae": 1.7483935563107749,
+      "train_loss": {
+        "forecast_loss": 0.22375051180521646,
+        "reconstruction_loss": 0.2002657389300957,
+        "reliability_loss": 5.5440133464320465e-05,
+        "scale_nll_loss": -0.8998728256999401,
+        "total_loss": 0.2288260758445974
+      }
+    }
+  ],
+  "model_seed": 101,
+  "provenance_hashes": {
+    "data_protocol": "5c466b6c481dcf5585d5fd35ceaaeb9015552aadb3a5f34b5d4a7f0384582f25",
+    "model_config": "4cbfe658252f4fc500d3343d28472649e0d1994ec8d1ec3cd5d55347e705636e",
+    "model_source": "6dd6cc74f27cffd70cfef6e4dda89d31e5db16a31d66517a2da1ba2004070d25",
+    "native_mask": "ec8917124fe063cf20b962fc5fb349dca750dfb6a8ab0cbcebf0a53728b4ea5d",
+    "normalization": "bd7733009bbe8cdd04d5acfc4f48ba4d0695f6de5a4a52ac6edbbd7a1a796f12",
+    "physical_graph": "0801aa7ccaae9ef6c8f695c8cf7d6f666cf0da67c11185faf3fe123962924de6",
+    "raw_h5": "65d69fb0a2323dba9867179eb7af47c8b814186bc459ff0a4937d21614153c8f",
+    "selection_mask": "8cf8eb7cba68bf1fda53d5bf1c5c8930b2ab76ff2d0800950d447aaf251ac052",
+    "spatial_topology": "2e11ef5f1e83032318c8afa5a68e56728da7f66ce3e99cda33ffa51d410294df",
+    "temporal_split": "d1e887e798a1c45bcc6bff41c757c1d7a00fcebdb07d218074a335555d6d6534",
+    "training_protocol_v2": "7abedbc31e21bacde366d0403728c698566d28ba95957643cdf0773fd2ddfcef"
+  },
+  "run_identifier": "pems_bay_far_gf_rc_protocol_v2_seed_101",
+  "runner_source_sha256": "f0c4934c2954e4f528c391ec03aba2c55a9956d930646003049076d29451a433"
+}

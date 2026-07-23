@@ -1,0 +1,101 @@
+{
+    "created_at": "2026-06-30T17:25:32",
+    "analysis_stage": "MS-TCN v2 five-seed clean test evaluation",
+    "model_identifier": "MS-TCN-v2",
+    "implementation_version": "v2_conv2d_time_only_backend",
+    "final_seeds": [
+        17,
+        29,
+        43,
+        71,
+        101
+    ],
+    "checkpoint_metadata_by_seed": {
+        "17": {
+            "checkpoint_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\checkpoints\\ms_tcn_v2\\metr_la_ms_tcn_v2_reference_seed_17_best_selection_mae.pt",
+            "checkpoint_sha256": "cf95ae50d9270d455b4a45fe234b3bc5838ec570b33425d55b83fce93539bdf0",
+            "best_epoch": 17,
+            "best_selection_mae": 3.0072475264412817
+        },
+        "29": {
+            "checkpoint_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\checkpoints\\ms_tcn_v2\\metr_la_ms_tcn_v2_seed_29_best_selection_mae.pt",
+            "checkpoint_sha256": "8788046c988d0dc068a7b0cd6ef08dcf8c265274e46b84e6dc98fc372e5caa9f",
+            "best_epoch": 24,
+            "best_selection_mae": 3.0133000105262955
+        },
+        "43": {
+            "checkpoint_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\checkpoints\\ms_tcn_v2\\metr_la_ms_tcn_v2_seed_43_best_selection_mae.pt",
+            "checkpoint_sha256": "fbdba13b18858b0d3bfcf7946ed6f32c453df85065c29502c58afc924635f327",
+            "best_epoch": 14,
+            "best_selection_mae": 3.0286802620854427
+        },
+        "71": {
+            "checkpoint_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\checkpoints\\ms_tcn_v2\\metr_la_ms_tcn_v2_seed_71_best_selection_mae.pt",
+            "checkpoint_sha256": "ce18038ddabd921389669b1808b5dee066557b41a40d616454a2667ea1554685",
+            "best_epoch": 17,
+            "best_selection_mae": 3.018821607780574
+        },
+        "101": {
+            "checkpoint_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\checkpoints\\ms_tcn_v2\\metr_la_ms_tcn_v2_seed_101_best_selection_mae.pt",
+            "checkpoint_sha256": "8fd9a1d730ced1e7f36719c566cc40ef937f4c8e9ff04d4d242675fa620f71a3",
+            "best_epoch": 19,
+            "best_selection_mae": 3.02751684690131
+        }
+    },
+    "configuration_path": "C:\\Users\\student\\traffic_robust_forecasting\\configs\\metr_la_masked_sensor_shared_tcn_v2_config.json",
+    "configuration_sha256": "e5bcdc4fb13cb4d3f5fd5b998dcdfc62c44bca2d260d41f4e5c317d5e8010378",
+    "model_source_path": "C:\\Users\\student\\traffic_robust_forecasting\\src\\models\\masked_sensor_shared_tcn_v2.py",
+    "model_source_sha256": "1e46c2dffd2153f0babc5b267b538959f89a86bc1c3d2d8cea7f4706e6906c8b",
+    "evaluation_firewall": {
+        "all_five_checkpoints_verified_before_test_access": true,
+        "training_performed_in_this_cell": false,
+        "checkpoint_selection_performed_in_this_cell": false,
+        "test_targets_used_for_training": false,
+        "test_targets_used_for_checkpoint_choice": false,
+        "calibration_targets_scored": false,
+        "calibration_history_context_allowed": true,
+        "raw_prediction_metric_rule": "Raw predictions are clipped to zero only during metric calculation. Negative pre-clip predictions are separately counted."
+    },
+    "test_cohort_audit_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\metadata\\metr_la_ms_tcn_v2_clean_test_cohort_audit.json",
+    "test_cohort_manifest_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\metadata\\metr_la_ms_tcn_v2_clean_test_cohort_manifest.npz",
+    "daily_sufficient_statistics_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_five_seed_clean_test_daily_sufficient_statistics.csv",
+    "headline_point_estimates_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_five_seed_clean_test_headline_point_estimates.csv",
+    "expected_valid_target_counts": {
+        "primary": {
+            "overall": 14940228,
+            "15m": 1245040,
+            "30m": 1245022,
+            "60m": 1244986
+        },
+        "secondary": {
+            "overall": 11620432,
+            "15m": 968525,
+            "30m": 968439,
+            "60m": 968022
+        }
+    },
+    "daily_sufficient_statistics_row_count": 960,
+    "headline_point_estimate_row_count": 192,
+    "resource_diagnostics_by_seed": {
+        "17": {
+            "peak_gpu_allocated_mb": 954.43701171875,
+            "peak_gpu_reserved_mb": 1850.0
+        },
+        "29": {
+            "peak_gpu_allocated_mb": 954.43701171875,
+            "peak_gpu_reserved_mb": 1850.0
+        },
+        "43": {
+            "peak_gpu_allocated_mb": 954.43701171875,
+            "peak_gpu_reserved_mb": 1850.0
+        },
+        "71": {
+            "peak_gpu_allocated_mb": 954.43701171875,
+            "peak_gpu_reserved_mb": 1850.0
+        },
+        "101": {
+            "peak_gpu_allocated_mb": 954.43701171875,
+            "peak_gpu_reserved_mb": 1850.0
+        }
+    }
+}

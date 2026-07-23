@@ -1,0 +1,41 @@
+{
+    "created_at": "2026-07-01T09:15:17",
+    "dataset_name": "METR-LA",
+    "input_steps": 12,
+    "output_steps": 12,
+    "raw_data_loaded_row_range": {
+        "start_inclusive": 0,
+        "stop_exclusive": 25704,
+        "contains_train": true,
+        "contains_selection": true,
+        "contains_calibration": false,
+        "contains_test": false
+    },
+    "train": {
+        "target_split_start_index": 0,
+        "target_split_end_index_exclusive": 23990,
+        "candidate_anchor_count": 23967,
+        "scored_anchor_count": 22969,
+        "expected_candidate_anchor_count": 23967,
+        "expected_scored_anchor_count": 22969,
+        "minimum_target_start": 12,
+        "maximum_target_start": 23978,
+        "target_window_end_exclusive": 23990
+    },
+    "selection": {
+        "target_split_start_index": 23990,
+        "target_split_end_index_exclusive": 25704,
+        "candidate_anchor_count": 1703,
+        "scored_anchor_count": 1703,
+        "expected_candidate_anchor_count": 1703,
+        "expected_scored_anchor_count": 1703,
+        "minimum_target_start": 23990,
+        "maximum_target_start": 25692,
+        "target_window_end_exclusive": 25704,
+        "historical_inputs_cross_train_selection_boundary": true
+    },
+    "train_selection_target_overlap": false,
+    "calibration_targets_loaded": false,
+    "test_targets_loaded": false,
+    "all_anchor_reconstruction_checks_passed": true
+}

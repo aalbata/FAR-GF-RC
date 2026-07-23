@@ -1,0 +1,2 @@
+# Byte-exact release: frozen artifacts are hash-pinned, so no EOL conversion ever.
+* -text

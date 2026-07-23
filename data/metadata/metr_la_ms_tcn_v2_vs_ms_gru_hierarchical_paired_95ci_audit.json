@@ -1,0 +1,423 @@
+{
+    "created_at": "2026-07-01T10:57:51",
+    "analysis_stage": "Paired hierarchical clean-test comparison: MS-TCN-v2 versus MS-GRU",
+    "comparison_definition": {
+        "model_a": "MS-TCN-v2",
+        "model_b": "MS-GRU",
+        "delta_definition": "Metric(MS-TCN-v2) - Metric(MS-GRU)",
+        "negative_delta_interpretation": "MS-TCN-v2 lower error",
+        "positive_delta_interpretation": "MS-GRU lower error",
+        "paired_seed_slot_scheme": "matched_seed_indices"
+    },
+    "scientific_firewall": {
+        "training_performed_in_this_cell": false,
+        "checkpoint_loading_performed_in_this_cell": false,
+        "current_configuration_used_in_this_cell": false,
+        "checkpoint_selection_performed_in_this_cell": false,
+        "new_test_predictions_generated_in_this_cell": false,
+        "calibration_targets_used_in_this_cell": false,
+        "input_is_sealed_ci_replicate_distributions_only": true
+    },
+    "common_bootstrap_plan": {
+        "final_seeds": [
+            17,
+            29,
+            43,
+            71,
+            101
+        ],
+        "forecast_origin_day_labels": [
+            "2012-06-04",
+            "2012-06-05",
+            "2012-06-06",
+            "2012-06-07",
+            "2012-06-08",
+            "2012-06-09",
+            "2012-06-10",
+            "2012-06-11",
+            "2012-06-12",
+            "2012-06-13",
+            "2012-06-14",
+            "2012-06-15",
+            "2012-06-16",
+            "2012-06-17",
+            "2012-06-18",
+            "2012-06-19",
+            "2012-06-20",
+            "2012-06-21",
+            "2012-06-22",
+            "2012-06-23",
+            "2012-06-24",
+            "2012-06-25",
+            "2012-06-26",
+            "2012-06-27"
+        ],
+        "bootstrap_replicates": 2000,
+        "temporal_block_length_days": 3,
+        "non_circular_blocks_per_replicate": 8,
+        "bootstrap_random_seed": 20260629,
+        "percentile_interval": [
+            2.5,
+            97.5
+        ],
+        "seed_draw_indices_sha256": "c7037c35e693d55ef0077d16e65e297ca1de0717bd4648bc6a1dd6151807329d",
+        "temporal_block_starts_sha256": "7e62e646f73be23f53e155e3e8efbf7ba1a6b79475234fc65ccdf82d9a7deee1",
+        "temporal_bootstrap_indices_sha256": "2f020427b8049d69ca70033e1513f3dd56e4e5adb09a26d1521346799e010bb4",
+        "plan_identity_verified": true
+    },
+    "input_artifacts": {
+        "ms_gru_replicates_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_gru_five_seed_clean_test_hierarchical_ci_replicates.npz",
+        "ms_gru_replicates_sha256": "66fc0e07a732cf1085480ffb4d0d8dcab072d234c10086822c1ce15c0bd1fd2f",
+        "ms_gru_ci_table_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_gru_five_seed_clean_test_headline_metrics_95ci.csv",
+        "ms_gru_ci_table_sha256": "1a7e01743630f0c8ab5c40bc20f1dc06ce20fb7876d3143b95d781bb9f4a7a09",
+        "ms_tcn_replicates_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_five_seed_clean_test_hierarchical_ci_replicates.npz",
+        "ms_tcn_replicates_sha256": "c8ae108a8e3322a03154c9901e3ac334f71309c9dd58340a63a25ea6468e524c",
+        "ms_tcn_ci_table_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_five_seed_clean_test_headline_metrics_95ci.csv",
+        "ms_tcn_ci_table_sha256": "6d81b93b9af466e648e06d9cd8ca720fec5bca0e5bdc7c2016fedd21938ff223",
+        "ms_tcn_ci_audit_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\metadata\\metr_la_ms_tcn_v2_clean_test_hierarchical_ci_audit.json",
+        "ms_tcn_ci_audit_sha256": "70456c220b0e96496f079c52b536c6409f3ed7797bcca58167e5c87cb6c49f09"
+    },
+    "sealed_mstcn_evidence_identity": {
+        "sealed_configuration_sha256": "e5bcdc4fb13cb4d3f5fd5b998dcdfc62c44bca2d260d41f4e5c317d5e8010378",
+        "sealed_model_source_sha256": "1e46c2dffd2153f0babc5b267b538959f89a86bc1c3d2d8cea7f4706e6906c8b"
+    },
+    "validation": {
+        "expected_paired_rows": 32,
+        "observed_paired_rows": 32,
+        "individual_model_ci_reconstruction_passed": true,
+        "individual_ci_validation_records": [
+            {
+                "cohort": "primary",
+                "scope": "overall",
+                "metric": "MAE",
+                "gru_ci_lower_difference": 4.440892098500626e-16,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "primary",
+                "scope": "overall",
+                "metric": "RMSE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "primary",
+                "scope": "overall",
+                "metric": "MAPE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "primary",
+                "scope": "overall",
+                "metric": "WMAPE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "primary",
+                "scope": "15m",
+                "metric": "MAE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 4.440892098500626e-16
+            },
+            {
+                "cohort": "primary",
+                "scope": "15m",
+                "metric": "RMSE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "primary",
+                "scope": "15m",
+                "metric": "MAPE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "primary",
+                "scope": "15m",
+                "metric": "WMAPE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 8.881784197001252e-16,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "primary",
+                "scope": "30m",
+                "metric": "MAE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "primary",
+                "scope": "30m",
+                "metric": "RMSE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "primary",
+                "scope": "30m",
+                "metric": "MAPE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "primary",
+                "scope": "30m",
+                "metric": "WMAPE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "primary",
+                "scope": "60m",
+                "metric": "MAE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 4.440892098500626e-16,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "primary",
+                "scope": "60m",
+                "metric": "RMSE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "primary",
+                "scope": "60m",
+                "metric": "MAPE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 1.7763568394002505e-15,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "primary",
+                "scope": "60m",
+                "metric": "WMAPE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "secondary",
+                "scope": "overall",
+                "metric": "MAE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "secondary",
+                "scope": "overall",
+                "metric": "RMSE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "secondary",
+                "scope": "overall",
+                "metric": "MAPE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "secondary",
+                "scope": "overall",
+                "metric": "WMAPE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 8.881784197001252e-16,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "secondary",
+                "scope": "15m",
+                "metric": "MAE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 4.440892098500626e-16,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "secondary",
+                "scope": "15m",
+                "metric": "RMSE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "secondary",
+                "scope": "15m",
+                "metric": "MAPE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 1.7763568394002505e-15,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "secondary",
+                "scope": "15m",
+                "metric": "WMAPE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "secondary",
+                "scope": "30m",
+                "metric": "MAE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 4.440892098500626e-16,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "secondary",
+                "scope": "30m",
+                "metric": "RMSE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "secondary",
+                "scope": "30m",
+                "metric": "MAPE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "secondary",
+                "scope": "30m",
+                "metric": "WMAPE",
+                "gru_ci_lower_difference": 8.881784197001252e-16,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "secondary",
+                "scope": "60m",
+                "metric": "MAE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "secondary",
+                "scope": "60m",
+                "metric": "RMSE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "secondary",
+                "scope": "60m",
+                "metric": "MAPE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 0.0,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 1.7763568394002505e-15,
+                "mstcn_point_tensor_difference": 0.0
+            },
+            {
+                "cohort": "secondary",
+                "scope": "60m",
+                "metric": "WMAPE",
+                "gru_ci_lower_difference": 0.0,
+                "gru_ci_upper_difference": 8.881784197001252e-16,
+                "mstcn_ci_lower_difference": 0.0,
+                "mstcn_ci_upper_difference": 0.0,
+                "mstcn_point_tensor_difference": 0.0
+            }
+        ],
+        "all_paired_replicates_finite": true,
+        "paired_claim_counts": {
+            "MS-GRU lower error supported": 16,
+            "No clear paired difference": 12,
+            "MS-TCN-v2 lower error supported": 4
+        }
+    },
+    "outputs": {
+        "paired_results_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_vs_ms_gru_hierarchical_paired_95ci.csv",
+        "paired_replicates_path": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\results\\learned_baselines\\metr_la_ms_tcn_v2_vs_ms_gru_hierarchical_paired_95ci_replicates.npz",
+        "paired_results_sha256": "26768a6995c35b1ea86c93ca05a8e6377d75590f4db23873c03b1a9c9262e57c",
+        "paired_replicates_sha256": "9ff33083bafb726ebdadd3760a7d27ccdfd3aeb98228fa57f3266fdfa61b694f"
+    }
+}

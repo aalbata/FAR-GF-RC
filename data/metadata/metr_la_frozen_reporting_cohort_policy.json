@@ -1,0 +1,34 @@
+{
+    "created_at": "2026-06-29T14:06:59",
+    "dataset_name": "METR-LA",
+    "policy_status": "Frozen before model training",
+    "primary_cohort": {
+        "name": "primary_native_outage_aware",
+        "definition": "At least one valid future target observation.",
+        "role": "Main quantitative test cohort."
+    },
+    "secondary_cohort": {
+        "name": "secondary_high_availability_95pct",
+        "definition": "At least 95% valid input and at least 95% valid future targets.",
+        "role": "Secondary headline cohort for high-availability comparability."
+    },
+    "supplementary_cohort": {
+        "name": "supplementary_near_complete_99pct",
+        "definition": "At least 99% valid input and at least 99% valid future targets.",
+        "role": "Supplementary robustness audit only."
+    },
+    "strict_complete_cohort": {
+        "name": "audit_strict_complete_100pct",
+        "definition": "100% valid input and 100% valid future targets.",
+        "role": "Audit only; not a headline result because it is expected to be very small."
+    },
+    "uncertainty_interval_policy": "Do not treat overlapping sliding windows as independent samples. Later confidence intervals and significance analyses must use chronological block bootstrap or day-level grouped resampling.",
+    "secondary_cohort_operational_gate": {
+        "minimum_anchor_count": 500,
+        "minimum_unique_target_dates": 10,
+        "passed": true
+    },
+    "cohort_anchor_file": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\metr_la_frozen_reporting_cohorts.npz",
+    "cohort_summary_file": "C:\\Users\\student\\traffic_robust_forecasting\\data\\metadata\\metr_la_frozen_reporting_cohort_summary.csv",
+    "temporal_blocks_file": "C:\\Users\\student\\traffic_robust_forecasting\\data\\metadata\\metr_la_frozen_reporting_cohort_temporal_blocks.csv"
+}

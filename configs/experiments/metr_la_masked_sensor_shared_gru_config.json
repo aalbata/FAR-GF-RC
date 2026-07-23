@@ -1,0 +1,90 @@
+{
+ "adjacency_matrix_used": false,
+ "architecture": {
+  "direct_multi_horizon_forecast": true,
+  "gru_hidden_dimension": 64,
+  "gru_num_layers": 1,
+  "head_dropout": 0.1,
+  "head_hidden_dimension": 64,
+  "sensor_embedding_dimension": 8,
+  "total_parameter_count": 20665,
+  "trainable_parameter_count": 20665
+ },
+ "created_at": "2026-06-29T14:46:55",
+ "cross_sensor_message_passing_used": false,
+ "data_usage": {
+  "calibration_scored_anchors_reserved": 1567,
+  "calibration_usage": "Reserved; not loaded for fitting or selection",
+  "model_selection_scored_anchors": 1703,
+  "selection_usage": "Early stopping and best-checkpoint selection only",
+  "test_scored_anchors_reserved": 6313,
+  "test_usage": "Reserved; not loaded for fitting, tuning, or inspection",
+  "training_scored_anchors": 22969,
+  "training_usage": "Model fitting only"
+ },
+ "dataset_name": "METR-LA",
+ "evaluation_protocol": {
+  "headline_test_cohorts": [
+   "primary_native_outage_aware",
+   "secondary_high_availability_95pct"
+  ],
+  "metric_units": "Original traffic units after inverse scaling",
+  "raw_prediction_constraint": "Final raw-unit forecasts will be clipped to a minimum of 0.0 before reporting metrics",
+  "target_metric_mask": "Native-valid future targets only"
+ },
+ "graph_information_used": false,
+ "input_contract": {
+  "elapsed_gap_cap_minutes": 1440,
+  "elapsed_gap_cap_steps": 288,
+  "historical_input_features": [
+   "train_only_normalized_value",
+   "native_observation_mask",
+   "causal_elapsed_gap_normalized",
+   "time_of_day_sine",
+   "time_of_day_cosine",
+   "day_of_week_sine",
+   "day_of_week_cosine"
+  ],
+  "input_steps": 12,
+  "known_future_features": [
+   "time_of_day_sine",
+   "time_of_day_cosine",
+   "day_of_week_sine",
+   "day_of_week_cosine"
+  ],
+  "missing_value_placeholder": 0.0,
+  "output_steps": 12,
+  "sensor_count": 207
+ },
+ "model_class": "Non-graph learned baseline",
+ "model_name": "Masked Sensor-Shared GRU (MS-GRU)",
+ "portability_note": "Paths rewritten project-root-relative from the frozen original in configs/frozen/.",
+ "source_files": {
+  "anchor_reconstruction_audit": "data/metadata/metr_la_ms_gru_anchor_reconstruction_audit.json",
+  "dataset_module": "src/datasets/causal_masked_gru_window_dataset.py",
+  "model_module": "src/models/masked_sensor_shared_gru.py",
+  "reproducibility_module": "src/utils/reproducibility.py"
+ },
+ "training_protocol": {
+  "checkpoint_selection_metric": "Global original-unit MAE across valid model-selection targets over all 5-60 minute forecast horizons",
+  "early_stopping_min_delta": 0.0001,
+  "early_stopping_patience": 10,
+  "evaluation_batch_size": 256,
+  "final_neural_evaluation_seeds": [
+   17,
+   29,
+   43,
+   71,
+   101
+  ],
+  "gradient_clip_norm": 1.0,
+  "learning_rate": 0.001,
+  "loss": "Masked normalized MAE over valid future targets only",
+  "maximum_epochs": 60,
+  "optimizer": "AdamW",
+  "reference_development_seed": 17,
+  "synthetic_failure_training_applied": false,
+  "train_batch_size": 32,
+  "weight_decay": 0.0001
+ }
+}

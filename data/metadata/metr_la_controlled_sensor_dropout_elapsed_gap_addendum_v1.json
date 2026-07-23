@@ -1,0 +1,108 @@
+{
+    "addendum_id": "metr_la_controlled_sensor_dropout_elapsed_gap_addendum_v1",
+    "addendum_version": 1,
+    "controlled_dropout_window_recomputation": {
+        "artificial_dropout_scope": "Artificial removal is permitted only for native-observed cells within the 12-step historical input context.",
+        "calendar_features_modified": false,
+        "carry_in_policy": "At historical input start h, initialize the local running state from the native elapsed-gap step state at h-1. If h=0, initialize every sensor at the cap.",
+        "combined_window_mask": "combined_observation_mask = native_observation_mask AND NOT artificial_dropout_mask.",
+        "future_target_masks_modified": false,
+        "future_target_values_modified": false,
+        "global_corrupted_feature_tensor_prohibited": "True. Artificial interventions are window-specific and overlapping windows must not share an improperly globalized corruption state.",
+        "local_recomputation_rule": "Apply the exact frozen causal recurrence across the 12 historical input timestamps using the combined window mask.",
+        "model_ready_value_placeholder": 0.0,
+        "scope": "Historical input context only, separately for each window-specific corruption realization.",
+        "zero_eligible_window_policy": "When a window has no native-observed historical cells, its artificial removal count is zero. Retain its native all-missing context and recompute elapsed features using the native carry-in state."
+    },
+    "elapsed_gap_feature": {
+        "canonical_recurrence": "For each sensor j, initialize the pre-series running gap as:\ng[-1, j] = cap.\n\nFor timestamp t:\n1. If m[t, j] = 1, set g[t, j] = 0.\n2. If m[t, j] = 0, set:\n   g[t, j] = min(g[t - 1, j] + 1, cap).\n\nReturn e[t, j] = float32(g[t, j]) / cap.",
+        "canonical_recurrence_sha256": "904518f887486122f6ccbe03631ec45955f0d59c88e874ef08c0843e0331025b",
+        "cap_minutes": 1440,
+        "cap_steps": 288,
+        "initial_missing_state": "Before the first timestamp, every sensor has running gap equal to the cap. Therefore a missing entry at timestamp zero remains at normalized value 1.0.",
+        "missing_after_observation_state": "A missing entry after an observation increases by one five-minute step, capped at 288 steps.",
+        "name": "causal_elapsed_gap_normalized",
+        "observed_state": "An observed entry has normalized elapsed gap 0.0.",
+        "output_dtype": "float32",
+        "output_range": [
+            0.0,
+            1.0
+        ],
+        "sampling_interval_minutes": 5
+    },
+    "historical_source_provenance": {
+        "historical_cell_execution_count": 32,
+        "historical_cell_source_sha256": "764dc19f9de00d21f6fe9c1def2eccbb66f922eeeb1cac17f0fa34ba479d05af",
+        "historical_notebook_cell_index": 27,
+        "historical_notebook_path": "C:\\Users\\student\\ITS Phase 0.ipynb",
+        "historical_notebook_sha256_at_addendum_freeze": "39bba72e7e902958189eb8d6d9c4a29e21a7d9d130360520c4ce61ee396e8d26",
+        "historical_notebook_sha256_recorded_by_cell_15b_p7": "15fc75c2db58157294a044a21667720308c9d28183b610812e19541da5192edc",
+        "old_cell_rerun_prohibited": true,
+        "rerun_risk_summary": "The historical Cell 13A writes dataset/model source files, configuration JSON, anchor audit JSON, and setup audit JSON. It must not be re-executed.",
+        "whole_notebook_sha_is_non_authoritative": "True. The notebook is live and may autosave newly executed audit cells. The extracted historical Cell 13A source SHA-256 is the authoritative identity.",
+        "whole_notebook_sha_match_to_cell_15b_p7_snapshot": false
+    },
+    "parent_protocol": {
+        "path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\metadata\\metr_la_controlled_sensor_dropout_protocol_v1.json",
+        "protocol_id": "metr_la_controlled_sensor_dropout_protocol_v1",
+        "sha256": "955de07f36a79b854f547d412b034ee06a00776332ed68b02ec633fbe81ffe01"
+    },
+    "source_provenance": {
+        "native_observation_mask_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\metr_la_native_observation_mask.npz",
+        "native_observation_mask_sha256": "70e6684b434461d6388553add88ad17df2b59822926d01897087cd21d218069f",
+        "test_cohort_manifest_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\metadata\\metr_la_ms_tcn_v2_clean_test_cohort_manifest.npz",
+        "test_cohort_manifest_sha256": "e581b56f1f417c9a1d3aa32099e0a92ed07f8d1e6e83b8e02e7c417f94030cbf"
+    },
+    "status": "frozen_elapsed_gap_specification_only; no_synthetic_masks_generated",
+    "unit_test_results": {
+        "exact_historical_toy_test_passed": true,
+        "historical_source_identity_passed": true,
+        "initial_missing_cap_state_passed": true,
+        "initial_missing_not_at_cap_count": 0,
+        "initial_missing_sensor_count": 2,
+        "native_elapsed_normalized_sha256": "7f5014e6a1e4a0387b7cd695fc9e2cce247f2434852a4cf440529a6fd16b1e32",
+        "native_elapsed_range_passed": true,
+        "native_elapsed_steps_sha256": "26ae4a44252c3f356e5d79e2632947c99cd98c9b8cceff7e59394cf9c4297835",
+        "native_observed_elapsed_zero_passed": true,
+        "observed_positions_nonzero_elapsed_count": 0,
+        "window_equivalence_probe_results": [
+            {
+                "exact_global_equivalence": true,
+                "input_end_exclusive": 27417,
+                "input_start": 27405,
+                "native_history_observed_cells": 2445,
+                "primary_window_index": 0,
+                "target_start": 27417,
+                "zero_native_history": false
+            },
+            {
+                "exact_global_equivalence": true,
+                "input_end_exclusive": 28956,
+                "input_start": 28944,
+                "native_history_observed_cells": 0,
+                "primary_window_index": 1432,
+                "target_start": 28956,
+                "zero_native_history": true
+            },
+            {
+                "exact_global_equivalence": true,
+                "input_end_exclusive": 30701,
+                "input_start": 30689,
+                "native_history_observed_cells": 2467,
+                "primary_window_index": 3156,
+                "target_start": 30701,
+                "zero_native_history": false
+            },
+            {
+                "exact_global_equivalence": true,
+                "input_end_exclusive": 34260,
+                "input_start": 34248,
+                "native_history_observed_cells": 2397,
+                "primary_window_index": 6312,
+                "target_start": 34260,
+                "zero_native_history": false
+            }
+        ],
+        "window_local_carry_in_equivalence_passed": true
+    }
+}

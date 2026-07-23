@@ -1,0 +1,75 @@
+{
+    "audit_created_at": "2026-06-29T13:57:27",
+    "dataset_name": "METR-LA",
+    "hdf5_reader": "h5py_direct_legacy_pandas_fixed_format",
+    "hdf5_dataframe_group": "/df",
+    "hdf5_group_datasets": [
+        "axis0",
+        "axis1",
+        "block0_items",
+        "block0_values"
+    ],
+    "traffic_array_orientation": "Traffic values are stored as [timestamps, sensors].",
+    "adjacency_pickle_status": "Quarantined due to legacy pickle decoding failure.",
+    "graph_source_used_for_audit": "W_metrla.csv",
+    "traffic_file": "C:\\Users\\student\\traffic_robust_forecasting\\data\\raw\\METRLA\\metr-la.h5",
+    "traffic_shape_timestamps_sensors": [
+        34272,
+        207
+    ],
+    "timestamp_start": "2012-03-01 00:00:00",
+    "timestamp_end": "2012-06-27 23:55:00",
+    "timestamp_order_status": "Already in chronological order.",
+    "sampling_interval_counts": {
+        "0 days 00:05:00": 34271
+    },
+    "total_values": 7094304,
+    "nan_count": 0,
+    "nan_percent": 0.0,
+    "zero_count": 575302,
+    "zero_percent": 8.109350825676486,
+    "negative_count": 0,
+    "infinite_count": 0,
+    "traffic_minimum": 0.0,
+    "traffic_maximum": 70.0,
+    "traffic_mean": 53.7190211024135,
+    "traffic_std": 20.261432217626275,
+    "sensors_with_nan": 0,
+    "timestamps_with_nan": 0,
+    "traffic_text_exact_order_match": true,
+    "traffic_only_sensor_ids": [],
+    "text_only_sensor_ids": [],
+    "weight_matrix_shape": [
+        207,
+        207
+    ],
+    "weight_matrix_is_square": true,
+    "weight_matrix_matches_sensor_count": true,
+    "weight_matrix_nan_count": 0,
+    "weight_matrix_infinite_count": 0,
+    "weight_matrix_negative_count": 0,
+    "weight_matrix_nonzero_entries": 14736,
+    "weight_matrix_density": 0.34390534201498285,
+    "weight_matrix_is_symmetric": true,
+    "weight_matrix_nonzero_diagonal_entries": 0,
+    "weight_matrix_fully_isolated_sensors": 0,
+    "sensor_location_table_shape": [
+        207,
+        4
+    ],
+    "distance_table_shape": [
+        295374,
+        3
+    ],
+    "distance_file_columns": [
+        "from",
+        "to",
+        "cost"
+    ],
+    "location_file_columns": [
+        "index",
+        "sensor_id",
+        "latitude",
+        "longitude"
+    ]
+}

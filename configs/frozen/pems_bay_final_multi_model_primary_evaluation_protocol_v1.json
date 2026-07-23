@@ -1,0 +1,216 @@
+{
+  "controlled_dropout_protocol": {
+    "condition_order": [
+      "clean_native_history",
+      "iid_random_10pct",
+      "iid_random_30pct",
+      "iid_random_50pct",
+      "temporal_tail_25pct_sensors_3steps",
+      "temporal_tail_50pct_sensors_6steps",
+      "temporal_tail_75pct_sensors_12steps",
+      "spatial_geographic_knn4_cluster_8_full_history",
+      "spatial_geographic_knn4_cluster_16_full_history",
+      "spatial_geographic_knn4_cluster_32_full_history"
+    ],
+    "expected_artificial_removals": {
+      "iid_random_10pct": 4061785,
+      "iid_random_30pct": 12186825,
+      "iid_random_50pct": 20298255,
+      "spatial_geographic_knn4_cluster_16_full_history": 1999187,
+      "spatial_geographic_knn4_cluster_32_full_history": 3998327,
+      "spatial_geographic_knn4_cluster_8_full_history": 999586,
+      "temporal_tail_25pct_sensors_3steps": 2561433,
+      "temporal_tail_50pct_sensors_6steps": 10183264,
+      "temporal_tail_75pct_sensors_12steps": 30487291
+    },
+    "mask_policy": "Artificial dropout may remove only historically native-observed cells. Future target values and native target masks remain unchanged.",
+    "protocol_file": "configs/pems_bay_controlled_sensor_dropout_protocol_v1.json",
+    "protocol_sha256_previously_validated": "a5f0ba1d785d03aefffe2262d9129aff07a88f8038c23bbe5200e77084a8dbf4",
+    "test_manifest": "data/processed/controlled_dropout/pems_bay_v1/pems_bay_controlled_sensor_dropout_test_primary_manifest_v1.json",
+    "test_manifest_sha256_previously_validated": "0f5e4e4e8bc9248a2aeee194c4e750d0c56b096459ad78c5f04ba44ddfee2e5c"
+  },
+  "created_utc": "2026-07-04T09:58:53Z",
+  "dataset": {
+    "input_steps": 12,
+    "name": "PEMS-BAY",
+    "native_observation_mask": "data/processed/pems_bay_native_observation_mask_v1.npz",
+    "native_observation_mask_sha256_previously_validated": "ec8917124fe063cf20b962fc5fb349dca750dfb6a8ab0cbcebf0a53728b4ea5d",
+    "output_steps": 12,
+    "raw_traffic_file": "data/raw/PEMSBAY/pems-bay.h5",
+    "raw_traffic_sha256_previously_validated": "65d69fb0a2323dba9867179eb7af47c8b814186bc459ff0a4937d21614153c8f",
+    "sensor_count": 325,
+    "temporal_split": "data/processed/pems_bay_temporal_split_v1.npz",
+    "temporal_split_sha256_previously_validated": "d1e887e798a1c45bcc6bff41c757c1d7a00fcebdb07d218074a335555d6d6534",
+    "time_resolution_minutes": 5,
+    "train_normalization": "data/processed/pems_bay_train_normalization_v1.npz",
+    "train_normalization_sha256_previously_validated": "bd7733009bbe8cdd04d5acfc4f48ba4d0695f6de5a4a52ac6edbbd7a1a796f12"
+  },
+  "evaluation_rules": {
+    "checkpoint_rule": "Use exactly the pre-saved checkpoint selected by the earliest minimum fixed-composite selection raw-speed MAE for each seed.",
+    "degradation_policy": "For each seed and scenario, compute absolute MAE increase and relative MAE increase against the same seed clean condition before five-seed aggregation.",
+    "history_feature_policy": "Use the causal effective history mask, globally causal native elapsed-gap carry state, and scenario-specific artificial dropout masks. No imputation is permitted.",
+    "normalization_policy": "Use only frozen train-partition normalization statistics.",
+    "seed_aggregation": "Report arithmetic mean and sample standard deviation across the five independently trained seeds.",
+    "significance_policy": "Do not claim statistical significance because no inferential test has been pre-registered.",
+    "target_metric_mask": "Score only native-observed future target cells.",
+    "test_inference_mode": "model.eval() and no-gradient inference.",
+    "test_loader_order": "Chronological target-start order with no shuffle."
+  },
+  "metrics": {
+    "horizon_specific_metrics": [
+      "MAE",
+      "RMSE",
+      "MAPE",
+      "WMAPE"
+    ],
+    "horizon_specific_steps": {
+      "15_minutes": 3,
+      "30_minutes": 6,
+      "60_minutes": 12
+    },
+    "overall": [
+      "MAE",
+      "RMSE",
+      "MAPE",
+      "WMAPE"
+    ],
+    "reported_comparisons": [
+      "per-seed clean metrics",
+      "per-seed controlled-dropout metrics",
+      "five-seed mean and sample standard deviation",
+      "scenario-wise absolute MAE degradation",
+      "scenario-wise relative MAE degradation percentage",
+      "FAR-GF-RC relative improvement over each baseline"
+    ]
+  },
+  "model_seeds": [
+    17,
+    29,
+    43,
+    71,
+    101
+  ],
+  "models": {
+    "FAR-GF-RC": {
+      "checkpoint_directory": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\checkpoints\\pems_bay_far_gf_rc_protocol_v2",
+      "checkpoint_filename_template": "pems_bay_far_gf_rc_protocol_v2_seed_{seed}.pt",
+      "expected_checkpoint_hashes": {
+        "101": "ccf3f00d68711e84d247095aa01771a23db70c2f0df91157c7ab4f5bc555e13e",
+        "17": "e49e93463d3322abc206a69e92387ac673752240ab19b85573c60822346ab76d",
+        "29": "e6cd190ba37ffe146aee9f9aba7137e1808142fb9ba882920d966c35c475940c",
+        "43": "8b4c86a2c509fdfccd43fd6861aae730128f490e59c37c9959c78fe12147055a",
+        "71": "1dd23a50d4e777318289c821f2b0492e7e7d0361c3ff2382133e34169c3540e8"
+      },
+      "expected_history_hashes": {
+        "101": "480ab283e9a108a661a80bfde85655951873523afef80368832af7b8e22b042b",
+        "17": "d82eb38af87f8e4d80d8fb16351ed61ab2c2278453450c611c4aa0fa7e158be2",
+        "29": "1eb8f84919b0f52af3648c1a72686ea803ce2ca7456c59efe1a19bd2b8e9d353",
+        "43": "9f99a294d72c0adf449d244914e91f9f0444e7e75cf0d19bb62e3bad3d7c4bc1",
+        "71": "30abe2bb9bde08276d891cdcdf7669ba3056b390faeeae7818818f2727ff76cb"
+      },
+      "history_directory": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\training_history\\pems_bay_far_gf_rc_protocol_v2",
+      "history_filename_template": "pems_bay_far_gf_rc_protocol_v2_seed_{seed}.json",
+      "model_config_sha256": "4cbfe658252f4fc500d3343d28472649e0d1994ec8d1ec3cd5d55347e705636e",
+      "model_source_sha256": "6dd6cc74f27cffd70cfef6e4dda89d31e5db16a31d66517a2da1ba2004070d25",
+      "training_protocol_sha256": "7abedbc31e21bacde366d0403728c698566d28ba95957643cdf0773fd2ddfcef",
+      "training_runner_sha256": "f0c4934c2954e4f528c391ec03aba2c55a9956d930646003049076d29451a433"
+    },
+    "MS-GRU": {
+      "checkpoint_directory": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\checkpoints\\pems_bay_masked_baselines_protocol_v1",
+      "checkpoint_filename_template": "pems_bay_ms_gru_protocol_v2_seed_{seed}.pt",
+      "expected_checkpoint_hashes": {
+        "101": "173b23bd85900165c9a43fd3aef044be4f4397dadfe0fb3d5633b67acd34469d",
+        "17": "c3d5ee1e60d096c4b8063630a510dc552c3da058049551e21eaa6fde8aecac36",
+        "29": "f5e30665817f0c150c9031700caf172fee1775d167b9370a2289bcf18ec77e82",
+        "43": "f6b366f000b8ea5ab7725500eb908288b632cb68cb36a8f77a148ec01d117ab4",
+        "71": "b0e2cd3038d0c7a3629ee5902146fb155a4e25f45d5b423ec8ce510f57119ae3"
+      },
+      "expected_history_hashes": {
+        "101": "b375d33b225f49a57488eb285295723e08d21f24eb95852d3adc4271d58b7f20",
+        "17": "82aa8bbb0ea9fc9586acf9489bd0091d57a5cc9e4820850fd952a648a1c1fc28",
+        "29": "0a207bcecf396ecd2ed64eb94005ce9aa6007614a5ac3442a8ce992248e6b18a",
+        "43": "50941aa8e1c124ad230ad158ad69a68def36b648438aad6395d4550dda11ea76",
+        "71": "1e51cf1c934b38f522e4a4777a58a6e2a7695678455d2b047c817cdc52c238b7"
+      },
+      "history_directory": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\training_history\\pems_bay_masked_baselines_protocol_v1",
+      "history_filename_template": "pems_bay_ms_gru_protocol_v2_seed_{seed}.json",
+      "model_config_sha256": "b5edb17e18e94228e26c88002f2dbf7de0c1e4f98f79abbf85639124c9e3b127",
+      "model_source_sha256": "17ac07b273476fb4cf7def103e5f4e25fbcbaf488b61e0cf5da9a3456999851e",
+      "training_protocol_sha256": "91d5ff35786a76f03bdfceaf7a3059f65c532c8f064baa23ed67e1369f5ed23e",
+      "training_runner_sha256": "563f14a9cea1b9a0517a8017702726e2541caecf8db552df5ad4106c2530ec9e"
+    },
+    "MS-TCN-v2": {
+      "checkpoint_directory": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\checkpoints\\pems_bay_masked_baselines_protocol_v1",
+      "checkpoint_filename_template": "pems_bay_ms_tcn_v2_protocol_v2_seed_{seed}.pt",
+      "expected_checkpoint_hashes": {
+        "101": "aa10d56df5737192bebb69619c6d8d7c7d10067b8243d8f2c7f426f4f51dc07c",
+        "17": "60d83d76bd60fe4a9f1b68c14647b646b37b497cf5ec6136d89268fe195663b3",
+        "29": "f486e78bc330d4635c9cd79912e97ccbb9836fb133cab012b48cb4f4f4ef907f",
+        "43": "339cec8b42cea56d2aad08b4e238c011e29f9388458bc69d6a6da1af460a73c9",
+        "71": "0ca42ebe827cb42283fb13b5efe3e4cd20e8e1d783663125ae0b71a630e7c4d7"
+      },
+      "expected_history_hashes": {
+        "101": "64754533aeb3c86226b8a749e8c75634bda7110500f7b9ed728394fdf9267a15",
+        "17": "9e64fa5a031616d07fc223972ef1f1341d69f818fc29f068f264b27c626774d5",
+        "29": "3b8e6affb6e475be795627043ed716bc281fb7afd06f359faf8aade22e1ba382",
+        "43": "0f8bcba4975efe3bd609a42a03bc5a04d3344cb7ebf0c8ede5473e2042d0a5e6",
+        "71": "1431e588abd97989ae9dd34acf241e87a9884245285fd7de459fad2586b41534"
+      },
+      "history_directory": "C:\\Users\\student\\traffic_robust_forecasting\\outputs\\training_history\\pems_bay_masked_baselines_protocol_v1",
+      "history_filename_template": "pems_bay_ms_tcn_v2_protocol_v2_seed_{seed}.json",
+      "model_config_sha256": "52bf7c3277b1820089bd685a3031a179a7308bb3f2538b6617f246eab28758bd",
+      "model_source_sha256": "1e46c2dffd2153f0babc5b267b538959f89a86bc1c3d2d8cea7f4706e6906c8b",
+      "training_protocol_sha256": "91d5ff35786a76f03bdfceaf7a3059f65c532c8f064baa23ed67e1369f5ed23e",
+      "training_runner_sha256": "563f14a9cea1b9a0517a8017702726e2541caecf8db552df5ad4106c2530ec9e"
+    }
+  },
+  "output_policy": {
+    "comparative_output_basename": "pems_bay_far_gf_rc_comparative_robustness_and_degradation_v1",
+    "overwrite_policy": "refuse_overwrite",
+    "per_model_output_template": "pems_bay_{model_slug}_clean_and_nine_controlled_dropout_primary_five_seed_metrics_v1",
+    "prediction_storage_policy": "Do not persist full prediction tensors unless separately approved. Store metrics and provenance only.",
+    "required_formats": [
+      "NPZ",
+      "CSV",
+      "JSON provenance manifest"
+    ],
+    "results_directory": "outputs/results/controlled_dropout/pems_bay_final_primary_evaluation_v1"
+  },
+  "partition_policy": {
+    "calibration_access_policy": "locked_unused",
+    "calibration_interval": [
+      39087,
+      41692
+    ],
+    "primary_test_access_policy": "permitted_only_for_this_frozen_final_evaluation_protocol",
+    "primary_test_interval": [
+      41692,
+      52116
+    ],
+    "primary_test_native_target_cells": 40608096,
+    "primary_test_target_start_interval": [
+      41692,
+      52104
+    ],
+    "primary_test_window_count": 10413,
+    "prohibited_test_time_actions": [
+      "checkpoint selection",
+      "epoch selection",
+      "hyperparameter tuning",
+      "architecture modification",
+      "dropout-protocol modification",
+      "seed exclusion",
+      "metric-dependent model selection"
+    ],
+    "selection_interval": [
+      36481,
+      39087
+    ],
+    "train_interval": [
+      0,
+      36481
+    ]
+  },
+  "protocol_name": "PEMS-BAY final multi-model clean and controlled sensor-dropout primary-test evaluation",
+  "version": "v1"
+}

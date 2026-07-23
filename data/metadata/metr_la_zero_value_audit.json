@@ -1,0 +1,133 @@
+{
+    "audit_created_at": "2026-06-29T13:57:27",
+    "dataset_name": "METR-LA",
+    "analysis_status": "Forensic analysis only. No zero values were modified or reclassified.",
+    "time_interval_minutes": 5,
+    "total_values": 7094304,
+    "total_zero_values": 575302,
+    "global_zero_percent": 8.109350825676486,
+    "sensors_with_any_zero": 207,
+    "timestamps_with_any_zero": 29066,
+    "timestamps_with_25_percent_zeros": 2149,
+    "timestamps_with_50_percent_zeros": 2149,
+    "timestamps_with_75_percent_zeros": 2148,
+    "timestamps_with_all_sensor_zeros": 2148,
+    "long_run_threshold_steps": 12,
+    "long_run_threshold_minutes": 60,
+    "very_long_run_threshold_steps": 36,
+    "very_long_run_threshold_minutes": 180,
+    "total_zero_runs": 25963,
+    "total_runs_at_least_12_steps": 6942,
+    "total_runs_at_least_36_steps": 3324,
+    "max_sensor_zero_percent": 20.10387488328665,
+    "median_sensor_zero_percent": 6.973622782446312,
+    "max_zero_run_steps": 1683,
+    "max_zero_run_minutes": 8415,
+    "hourly_zero_percent": {
+        "0": 10.446014154454053,
+        "1": 8.67230950351155,
+        "2": 9.883083668249908,
+        "3": 9.850945209001475,
+        "4": 8.802554838360466,
+        "5": 8.875965845275307,
+        "6": 9.808319463050918,
+        "7": 9.503511549547355,
+        "8": 10.064750537896318,
+        "9": 10.06441223832528,
+        "10": 9.841134521441427,
+        "11": 7.625272331154684,
+        "12": 8.234211559019743,
+        "13": 8.911487300234105,
+        "14": 8.505527814990732,
+        "15": 7.1601104209799855,
+        "16": 6.059621916399409,
+        "17": 6.658073857562348,
+        "18": 7.202059567788469,
+        "19": 5.3583269056414835,
+        "20": 3.9645326729725703,
+        "21": 5.969634230503796,
+        "22": 6.72201247648818,
+        "23": 6.440547233386108
+    },
+    "day_of_week_zero_percent": {
+        "Monday": 12.189187269110544,
+        "Tuesday": 7.674114331723028,
+        "Wednesday": 5.605285592497869,
+        "Thursday": 5.362259638154779,
+        "Friday": 6.382909443970824,
+        "Saturday": 6.336830223232613,
+        "Sunday": 13.214869281045749
+    },
+    "top_10_sensors_by_zero_percent": [
+        {
+            "sensor_id": "718076",
+            "zero_percent": 20.10387488328665,
+            "maximum_zero_run_steps": 875,
+            "maximum_zero_run_minutes": 4375,
+            "runs_at_least_12_steps": 87
+        },
+        {
+            "sensor_id": "716939",
+            "zero_percent": 18.860877684407097,
+            "maximum_zero_run_steps": 905,
+            "maximum_zero_run_minutes": 4525,
+            "runs_at_least_12_steps": 38
+        },
+        {
+            "sensor_id": "760987",
+            "zero_percent": 16.141456582633054,
+            "maximum_zero_run_steps": 1014,
+            "maximum_zero_run_minutes": 5070,
+            "runs_at_least_12_steps": 41
+        },
+        {
+            "sensor_id": "716955",
+            "zero_percent": 15.680438842203548,
+            "maximum_zero_run_steps": 857,
+            "maximum_zero_run_minutes": 4285,
+            "runs_at_least_12_steps": 46
+        },
+        {
+            "sensor_id": "769418",
+            "zero_percent": 15.607492997198879,
+            "maximum_zero_run_steps": 422,
+            "maximum_zero_run_minutes": 2110,
+            "runs_at_least_12_steps": 65
+        },
+        {
+            "sensor_id": "769405",
+            "zero_percent": 15.59873949579832,
+            "maximum_zero_run_steps": 422,
+            "maximum_zero_run_minutes": 2110,
+            "runs_at_least_12_steps": 65
+        },
+        {
+            "sensor_id": "717481",
+            "zero_percent": 15.064775910364144,
+            "maximum_zero_run_steps": 390,
+            "maximum_zero_run_minutes": 1950,
+            "runs_at_least_12_steps": 111
+        },
+        {
+            "sensor_id": "717510",
+            "zero_percent": 15.044351073762838,
+            "maximum_zero_run_steps": 381,
+            "maximum_zero_run_minutes": 1905,
+            "runs_at_least_12_steps": 67
+        },
+        {
+            "sensor_id": "717513",
+            "zero_percent": 14.061041083099907,
+            "maximum_zero_run_steps": 381,
+            "maximum_zero_run_minutes": 1905,
+            "runs_at_least_12_steps": 65
+        },
+        {
+            "sensor_id": "717576",
+            "zero_percent": 13.640873015873014,
+            "maximum_zero_run_steps": 1118,
+            "maximum_zero_run_minutes": 5590,
+            "runs_at_least_12_steps": 35
+        }
+    ]
+}

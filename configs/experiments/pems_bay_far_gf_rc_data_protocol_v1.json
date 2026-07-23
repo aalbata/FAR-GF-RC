@@ -1,0 +1,95 @@
+{
+ "availability_contract": {
+  "missing_value_policy": "Zero and non-finite values are unavailable. No imputation is applied before model feature construction.",
+  "native_observation_definition": "finite and strictly greater than zero",
+  "native_observed_value_count": 16937179,
+  "native_unavailable_value_count": 521
+ },
+ "dataset": "PEMS-BAY",
+ "forecasting_contract": {
+  "elapsed_gap_cap_steps": 288,
+  "forecast_minutes": 60,
+  "future_calendar_feature_channels": [
+   "time_of_day_sine",
+   "time_of_day_cosine",
+   "day_of_week_sine",
+   "day_of_week_cosine"
+  ],
+  "historical_feature_channels": [
+   "normalized_speed",
+   "native_or_corrupted_observation_mask",
+   "causal_elapsed_gap_normalized",
+   "time_of_day_sine",
+   "time_of_day_cosine",
+   "day_of_week_sine",
+   "day_of_week_cosine"
+  ],
+  "input_minutes": 60,
+  "input_steps": 12,
+  "output_steps": 12
+ },
+ "normalization_contract": {
+  "fit_partition": "train",
+  "missing_normalized_placeholder": 0.0,
+  "standardization": "Per-sensor population z-score using only native-observed training values."
+ },
+ "physical_graph_contract": {
+  "physical_graph_path": "data/processed/pems_bay_geographic_knn4_self_tuning_gaussian_physical_graph_v1.npz",
+  "physical_graph_sha256": "0801aa7ccaae9ef6c8f695c8cf7d6f666cf0da67c11185faf3fe123962924de6",
+  "semantic_scope": "Coordinate-derived geographic affinity graph. It is not a verified road-network-distance graph.",
+  "spatial_topology_path": "data/processed/pems_bay_geographic_knn4_spatial_failure_topology_v1.npz",
+  "spatial_topology_sha256": "2e11ef5f1e83032318c8afa5a68e56728da7f66ce3e99cda33ffa51d410294df"
+ },
+ "portability_note": "Paths rewritten project-root-relative from the frozen original in configs/frozen/.",
+ "protocol_identifier": "pems_bay_far_gf_rc_data_protocol_v1",
+ "source_data": {
+  "location_csv_path": "data/raw/PEMSBAY/graph_sensor_locations_bay.csv",
+  "location_csv_sha256": "276ee01059610774d4e59572507f7e32eaac21f1f5882fcd9e3d7d426a4b7a6c",
+  "sensor_axis_key": "speed/axis0",
+  "timestamp_axis_key": "speed/axis1",
+  "traffic_hdf5_path": "data/raw/PEMSBAY/pems-bay.h5",
+  "traffic_hdf5_sha256": "65d69fb0a2323dba9867179eb7af47c8b814186bc459ff0a4937d21614153c8f",
+  "traffic_matrix_key": "speed/block0_values",
+  "traffic_shape": [
+   52116,
+   325
+  ]
+ },
+ "temporal_splits": {
+  "calibration": {
+   "raw_interval": [
+    39087,
+    41692
+   ],
+   "target_start_count": 2594
+  },
+  "selection": {
+   "raw_interval": [
+    36481,
+    39087
+   ],
+   "target_start_count": 2595
+  },
+  "test": {
+   "raw_interval": [
+    41692,
+    52116
+   ],
+   "target_start_count": 10413
+  },
+  "train": {
+   "raw_interval": [
+    0,
+    36481
+   ],
+   "target_start_count": 36458
+  }
+ },
+ "test_target_policy": "Any future controlled corruption may affect historical native-observed cells only. Target values and target availability remain native and unchanged.",
+ "time_contract": {
+  "calendar_timezone": "America/Los_Angeles",
+  "dst_policy": "The source sequence is preserved. The March 12, 2017 spring daylight-saving wall-clock jump represents five minutes of actual elapsed time after Pacific-time localization. No timestamp insertion or interpolation is applied.",
+  "sampling_interval_minutes": 5,
+  "source_timestamp_interpretation": "Naive local timestamps from the HDF5 axis."
+ }
+}

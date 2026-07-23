@@ -1,0 +1,61 @@
+{
+  "created_utc": "2026-07-04T11:54:44Z",
+  "evaluator_v2_static_hold": {
+    "identified_preflight_defect": {
+      "observed_protocol_value": [
+        41692,
+        52104
+      ],
+      "old_expression": "[\n            PRIMARY_TEST_TARGET_START,\n            PRIMARY_TEST_TARGET_STOP,\n        ]",
+      "reason": "P52 expresses primary_test_target_start_interval with an inclusive upper endpoint, whereas PRIMARY_TEST_TARGET_STOP is an internal exclusive Python stop index equal to 52105."
+    },
+    "impact_assessment": "Evaluator v2 stopped during read-only protocol reconciliation before HDF/NPZ payload access, checkpoint deserialization, model construction, or inference.",
+    "path": "C:\\Users\\student\\traffic_robust_forecasting\\src\\evaluation\\pems_bay_final_multi_model_primary_evaluator_v2.py",
+    "sha256": "b71d4929a481c9fd56b201ab75267524429cc5f120105b37f9a7c2455563d6b1",
+    "status": "read_only_preflight_hold_not_executed"
+  },
+  "evaluator_v3_supersession": {
+    "change_count": 1,
+    "invariance_statement": "No data asset, raw traffic value, mask, checkpoint, model configuration, seed, scenario, split, normalization statistic, metric, output directory, P52 protocol, P58 addendum, or P60 addendum was changed.",
+    "path": "C:\\Users\\student\\traffic_robust_forecasting\\src\\evaluation\\pems_bay_final_multi_model_primary_evaluator_v3.py",
+    "sha256": "d078983abc654808e0eca8a1e57e5d82baa2feb770cbcbfab8f1ab6b6e1338b8",
+    "single_change": {
+      "new_expression": "[PRIMARY_TEST_TARGET_START, PRIMARY_TEST_TARGET_STOP - 1]",
+      "old_expression": "[\n            PRIMARY_TEST_TARGET_START,\n            PRIMARY_TEST_TARGET_STOP,\n        ]",
+      "reason": "The corrected expression compares P52's inclusive target-start interval [41692, 52104] against the internal exclusive stop representation PRIMARY_TEST_TARGET_STOP - 1."
+    },
+    "status": "created_not_executed_pending_static_audit"
+  },
+  "execution_state_before_v3_creation": {
+    "calibration_values_accessed": false,
+    "checkpoint_payloads_deserialized": false,
+    "controlled_dropout_masks_loaded": false,
+    "evaluator_v2_imported_for_read_only_preflight": true,
+    "final_results_created": false,
+    "inference_performed": false,
+    "models_constructed": false,
+    "npz_payload_arrays_loaded": false,
+    "primary_test_values_accessed": false,
+    "raw_hdf_datasets_indexed": false,
+    "raw_hdf_traffic_values_loaded": false,
+    "training_performed": false
+  },
+  "frozen_protocol_references": {
+    "boundary_history_addendum": {
+      "path": "C:\\Users\\student\\traffic_robust_forecasting\\configs\\pems_bay_final_primary_test_boundary_history_context_addendum_v1.json",
+      "sha256": "f89d07942ddce901d4154408836d0e1a2790ef4ddfd00f752fa1e58f12b8d481"
+    },
+    "elapsed_state_addendum": {
+      "path": "C:\\Users\\student\\traffic_robust_forecasting\\configs\\pems_bay_final_primary_test_native_elapsed_state_prehistory_addendum_v1.json",
+      "sha256": "31869b4d20d9cae84e88534fbcf3cb946a3e80f65e7eee0675475809e9556990"
+    },
+    "final_protocol": {
+      "path": "C:\\Users\\student\\traffic_robust_forecasting\\configs\\pems_bay_final_multi_model_primary_evaluation_protocol_v1.json",
+      "sha256": "b299159b61b80475a00d2e89382734479550d6f5577e47f3b7bacc18999458fc"
+    },
+    "immutability_statement": "P52, P58, and P60 remain unchanged."
+  },
+  "next_required_step": "Perform a read-only static audit of evaluator v3 before any runtime preflight or final primary-test inference.",
+  "record_identifier": "pems_bay_final_evaluator_v2_static_hold_and_v3_supersession_record_v1",
+  "version": "v1"
+}

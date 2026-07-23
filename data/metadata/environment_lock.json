@@ -1,0 +1,38 @@
+{
+    "created_at": "2026-06-29T14:02:22",
+    "project_name": "Robust Graph-Based Traffic Forecasting Under Sensor Dropout",
+    "python_version": "3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)]",
+    "python_executable": "C:\\Users\\student\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "operating_system": "Windows-10-10.0.19045-SP0",
+    "machine_architecture": "AMD64",
+    "processor": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+    "cuda_available": true,
+    "pytorch_version": "2.5.1+cu121",
+    "pytorch_cuda_version": "12.1",
+    "cudnn_version": 90100,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "gpu_name": "NVIDIA GeForce RTX 3060",
+    "gpu_compute_capability": "8.6",
+    "gpu_total_memory_gb": 12.0,
+    "gpu_free_memory_gb_at_lock": 10.947,
+    "nvidia_smi": "NVIDIA GeForce RTX 3060, 576.80, 12288 MiB",
+    "required_packages": {
+        "numpy": "2.4.4",
+        "pandas": "3.0.3",
+        "scipy": "1.17.1",
+        "h5py": "3.16.0",
+        "tables": "3.11.1",
+        "scikit-learn": "1.8.0",
+        "matplotlib": "3.10.9",
+        "PyYAML": "6.0.3",
+        "tqdm": "4.67.3",
+        "torch": "2.5.1+cu121"
+    },
+    "optional_packages": {
+        "tensorboard": null,
+        "statsmodels": null
+    },
+    "requirements_file": "C:\\Users\\student\\traffic_robust_forecasting\\requirements.txt",
+    "pip_freeze_file": "C:\\Users\\student\\traffic_robust_forecasting\\data\\metadata\\pip_freeze.txt"
+}

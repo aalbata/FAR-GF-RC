@@ -1,0 +1,30 @@
+\begin{table}[t]
+\centering
+\caption{Paired five-seed comparisons on overall MAE. $\Delta$MAE = baseline $-$ FAR-GF-RC (mph) with paired $t$-based 95\% CI; Impr.\,\% is the mean paired relative improvement; $p_{\mathrm{Holm}}$ is Holm-adjusted over all 20 tests; $d_z$ is Cohen's paired effect size; $p_{W}$ is the exact one-sided Wilcoxon signed-rank $p$ (floor $2^{-5}{=}0.03125$ at $n{=}5$).}
+\label{tab:stats}
+\resizebox{\linewidth}{!}{\begin{tabular}{llcccccc}
+\toprule
+Condition & Baseline & $\Delta$MAE [95\% CI] & Impr.\,\% & $t$ & $p_{\mathrm{Holm}}$ & $d_z$ & $p_{W}$\\ \midrule
+Clean native history & MS-GRU & 0.107 [0.097, 0.117] & 6.19 & 29.6 & 8.5e-05 & 13.2 & 0.0312\\
+Clean native history & MS-TCN-v2 & 0.116 [0.104, 0.128] & 6.64 & 27.2 & 8.5e-05 & 12.1 & 0.0312\\
+IID 10\% & MS-GRU & 0.108 [0.098, 0.119] & 6.21 & 28.9 & 8.5e-05 & 12.9 & 0.0312\\
+IID 10\% & MS-TCN-v2 & 0.119 [0.106, 0.132] & 6.77 & 25.5 & 8.5e-05 & 11.4 & 0.0312\\
+IID 30\% & MS-GRU & 0.109 [0.098, 0.120] & 6.13 & 27.6 & 8.5e-05 & 12.4 & 0.0312\\
+IID 30\% & MS-TCN-v2 & 0.124 [0.110, 0.138] & 6.91 & 24.3 & 8.5e-05 & 10.9 & 0.0312\\
+IID 50\% & MS-GRU & 0.107 [0.094, 0.121] & 5.81 & 22.0 & 8.5e-05 & 9.8 & 0.0312\\
+IID 50\% & MS-TCN-v2 & 0.125 [0.111, 0.139] & 6.72 & 24.5 & 8.5e-05 & 10.9 & 0.0312\\
+Tail 25\%/3 & MS-GRU & 0.121 [0.111, 0.131] & 6.73 & 33.1 & 8.4e-05 & 14.8 & 0.0312\\
+Tail 25\%/3 & MS-TCN-v2 & 0.129 [0.115, 0.144] & 7.17 & 25.0 & 8.5e-05 & 11.2 & 0.0312\\
+Tail 50\%/6 & MS-GRU & 0.152 [0.139, 0.164] & 7.83 & 33.7 & 8.4e-05 & 15.1 & 0.0312\\
+Tail 50\%/6 & MS-TCN-v2 & 0.156 [0.140, 0.172] & 8.04 & 27.0 & 8.5e-05 & 12.1 & 0.0312\\
+Tail 75\%/12 & MS-GRU & 0.264 [0.242, 0.286] & 10.33 & 33.5 & 8.4e-05 & 15.0 & 0.0312\\
+Tail 75\%/12 & MS-TCN-v2 & 0.258 [0.238, 0.278] & 10.13 & 35.6 & 7.3e-05 & 15.9 & 0.0312\\
+Spatial 8 & MS-GRU & 0.115 [0.105, 0.125] & 6.52 & 31.7 & 8.4e-05 & 14.2 & 0.0312\\
+Spatial 8 & MS-TCN-v2 & 0.123 [0.111, 0.135] & 6.94 & 28.9 & 8.5e-05 & 12.9 & 0.0312\\
+Spatial 16 & MS-GRU & 0.121 [0.111, 0.131] & 6.75 & 33.5 & 8.4e-05 & 15.0 & 0.0312\\
+Spatial 16 & MS-TCN-v2 & 0.129 [0.117, 0.140] & 7.15 & 30.4 & 8.4e-05 & 13.6 & 0.0312\\
+Spatial 32 & MS-GRU & 0.132 [0.122, 0.143] & 7.18 & 35.8 & 7.3e-05 & 16.0 & 0.0312\\
+Spatial 32 & MS-TCN-v2 & 0.139 [0.126, 0.151] & 7.50 & 31.4 & 8.4e-05 & 14.1 & 0.0312\\
+\bottomrule
+\end{tabular}}
+\end{table}

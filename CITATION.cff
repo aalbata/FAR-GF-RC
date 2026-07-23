@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this software or the frozen protocol, please cite it."
+title: "FAR-GF-RC: Failure-Aware Reliability-Gated Graph Forecasting with Robust Curriculum"
+date-released: 2026-07-10
+authors:
+  - given-names: "Vamsi"
+    family-names: "Bandi"
+    affiliation: "Department of Artificial Intelligence, Madanapalle Institute of Technology & Science (MITS), Deemed to be University, Madanapalle, Andhra Pradesh, India"
+  - given-names: "Ali"
+    family-names: "Al Bataineh"
+    affiliation: "Faculty of Computer Information Science, Higher Colleges of Technology, United Arab Emirates"
+    email: "alialbata87@gmail.com"
+repository-code: "https://github.com/aalbata/FAR-GF-RC"
+license: MIT
+keywords: [traffic forecasting, graph neural networks, sensor dropout, robustness, PEMS-BAY]

@@ -1,0 +1,30 @@
+{
+    "created_at": "2026-06-29T14:08:38",
+    "dataset_name": "METR-LA",
+    "dataset_class_source_file": "C:\\Users\\student\\traffic_robust_forecasting\\src\\datasets\\masked_traffic_window_dataset.py",
+    "input_steps": 12,
+    "output_steps": 12,
+    "sensor_count": 207,
+    "time_feature_names": [
+        "time_of_day_sin",
+        "time_of_day_cos",
+        "day_of_week_sin",
+        "day_of_week_cos"
+    ],
+    "time_feature_policy": "Time-of-day and day-of-week sine/cosine covariates are known at prediction time and may be supplied for input and forecast horizons.",
+    "normalization_policy": "Per-sensor z-score statistics are loaded from the training-only scaler created in Cell 8.",
+    "native_missing_value_policy": "Values marked missing by the native observation mask are represented as 0.0 after normalization and are always accompanied by a separate mask.",
+    "imputation_performed": false,
+    "loss_aggregation_policy": "Masked loss is normalized by the total number of valid target entries in the batch, never by the number of windows.",
+    "metric_aggregation_policy": "Metrics must aggregate errors across all valid target entries globally; do not compute an unweighted mean of window-level scores.",
+    "batch_size": 32,
+    "num_workers": 0,
+    "random_seed_for_training_loader": 20260629,
+    "train_anchor_count": 22969,
+    "model_selection_anchor_count": 1703,
+    "calibration_anchor_count": 1567,
+    "primary_test_anchor_count": 6313,
+    "high_availability_test_anchor_count": 4771,
+    "near_complete_test_anchor_count": 791,
+    "strict_complete_test_anchor_count": 26
+}

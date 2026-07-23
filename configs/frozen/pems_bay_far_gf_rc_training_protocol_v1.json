@@ -1,0 +1,178 @@
+{
+  "base_metr_la_protocol": {
+    "path": "C:\\Users\\student\\traffic_robust_forecasting\\configs\\metr_la_far_gf_rc_training_protocol_v2.json",
+    "sha256": "80f3d14ac72d470386ca00c9797e26337f6578a2b38046b249347d0cbe30e95d",
+    "transfer_policy": "Optimization, loss weighting, checkpoint criterion, and four-stage robust-failure curriculum are inherited without PEMS-BAY hyperparameter tuning."
+  },
+  "curriculum_stages": [
+    {
+      "epoch_end": 4,
+      "epoch_start": 1,
+      "name": "clean_warmup",
+      "scenario_probabilities": {
+        "clean": 1.0
+      }
+    },
+    {
+      "epoch_end": 10,
+      "epoch_start": 5,
+      "name": "iid_robustness",
+      "scenario_probabilities": {
+        "clean": 0.2,
+        "iid_random_10pct": 0.4,
+        "iid_random_30pct": 0.4
+      }
+    },
+    {
+      "epoch_end": 18,
+      "epoch_start": 11,
+      "name": "temporal_robustness",
+      "scenario_probabilities": {
+        "iid_random_30pct": 0.2,
+        "iid_random_50pct": 0.2,
+        "temporal_tail_25pct_sensors_3steps": 0.25,
+        "temporal_tail_50pct_sensors_6steps": 0.35
+      }
+    },
+    {
+      "epoch_end": 30,
+      "epoch_start": 19,
+      "name": "mixed_failure_robustness",
+      "scenario_probabilities": {
+        "iid_random_10pct": 0.1,
+        "iid_random_30pct": 0.15,
+        "iid_random_50pct": 0.15,
+        "spatial_knn4_cluster_10_full_history": 0.07,
+        "spatial_knn4_cluster_20_full_history": 0.08,
+        "spatial_knn4_cluster_5_full_history": 0.05,
+        "temporal_tail_25pct_sensors_3steps": 0.1,
+        "temporal_tail_50pct_sensors_6steps": 0.15,
+        "temporal_tail_75pct_sensors_12steps": 0.15
+      }
+    }
+  ],
+  "data_contract": {
+    "controlled_dropout_protocol_path": "C:\\Users\\student\\traffic_robust_forecasting\\configs\\pems_bay_controlled_sensor_dropout_protocol_v1.json",
+    "controlled_dropout_protocol_sha256": "a5f0ba1d785d03aefffe2262d9129aff07a88f8038c23bbe5200e77084a8dbf4",
+    "data_protocol_path": "C:\\Users\\student\\traffic_robust_forecasting\\configs\\pems_bay_far_gf_rc_data_protocol_v1.json",
+    "data_protocol_sha256": "5c466b6c481dcf5585d5fd35ceaaeb9015552aadb3a5f34b5d4a7f0384582f25",
+    "physical_graph_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\pems_bay_geographic_knn4_self_tuning_gaussian_physical_graph_v1.npz",
+    "physical_graph_sha256": "0801aa7ccaae9ef6c8f695c8cf7d6f666cf0da67c11185faf3fe123962924de6",
+    "selection_mask_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\controlled_dropout\\pems_bay_v1\\pems_bay_controlled_sensor_dropout_selection_composite_mask_v1.npz",
+    "selection_mask_sha256": "8cf8eb7cba68bf1fda53d5bf1c5c8930b2ab76ff2d0800950d447aaf251ac052",
+    "spatial_topology_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\pems_bay_geographic_knn4_spatial_failure_topology_v1.npz",
+    "spatial_topology_sha256": "2e11ef5f1e83032318c8afa5a68e56728da7f66ce3e99cda33ffa51d410294df",
+    "test_mask_manifest_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\controlled_dropout\\pems_bay_v1\\pems_bay_controlled_sensor_dropout_test_primary_manifest_v1.json",
+    "test_mask_manifest_sha256": "0f5e4e4e8bc9248a2aeee194c4e750d0c56b096459ad78c5f04ba44ddfee2e5c"
+  },
+  "data_split": {
+    "calibration_accessed": false,
+    "selection_timestamp_range": [
+      23990,
+      25704
+    ],
+    "test_accessed": false,
+    "train_timestamp_range": [
+      0,
+      23990
+    ]
+  },
+  "dataset": "PEMS-BAY",
+  "determinism": {
+    "cublas_workspace_config": ":4096:8",
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "seed_policy": "Each final model seed initializes Python, NumPy, PyTorch, and CUDA random generators with its own declared seed.",
+    "torch_deterministic_algorithms": true
+  },
+  "frozen_inputs": {
+    "model_config_sha256": "69af2663256a472a3aec6e63c9cd45e00d5bbeb0edcd4479e6d8109e2f67f883",
+    "model_source_sha256": "6dd6cc74f27cffd70cfef6e4dda89d31e5db16a31d66517a2da1ba2004070d25",
+    "spatial_topology_sha256": "aa4fd3041757a415e7153d61203b09ed45fe3fcaaabbd4b184786cadece5b231"
+  },
+  "model_configuration_path": "C:\\Users\\student\\traffic_robust_forecasting\\configs\\pems_bay_far_gf_rc_config_v1.json",
+  "model_configuration_sha256": "432e295f72835338b4940479357db28beaa00915302d92a6fe42a094eaaf44b9",
+  "model_identifier": "FAR-GF-RC-v1",
+  "model_seed": 17,
+  "model_seed_values": [
+    17,
+    29,
+    43,
+    71,
+    101
+  ],
+  "optimization": {
+    "forecast_loss_weight": 1.0,
+    "gradient_clip_norm": 5.0,
+    "learning_rate": 0.001,
+    "max_epochs": 30,
+    "reconstruction_loss_weight": 0.25,
+    "reliability_loss_weight": 0.05,
+    "scale_nll_loss_weight": 0.05,
+    "selection_batch_size": 64,
+    "selection_criterion": "raw_speed_composite_selection_mae",
+    "train_batch_size": 32,
+    "weight_decay": 0.0001
+  },
+  "protocol_identifier": "pems_bay_far_gf_rc_training_protocol_v1",
+  "protocol_name": "metr_la_far_gf_rc_training_protocol_v2",
+  "protocol_version": "v1",
+  "reproducibility_policy": {
+    "cuda_policy": "Set CUBLAS_WORKSPACE_CONFIG before importing PyTorch, enable deterministic algorithms, disable cuDNN benchmark, and use deterministic cuDNN execution.",
+    "immutable_checkpoint_policy": "Checkpoint and history paths are unique by model seed and cannot be overwritten.",
+    "python_numpy_torch_seed_policy": "Set each model seed before model initialization, data-loader construction, and optimizer initialization."
+  },
+  "selection_policy": {
+    "checkpoint_criterion": "Minimum fixed selection composite overall MAE.",
+    "mask_source": "Frozen balanced selection-composite mask bundle.",
+    "scope": "selection split only",
+    "selection_mask_shape": [
+      2595,
+      12,
+      325
+    ],
+    "selection_target_count": 10118916
+  },
+  "selection_protocol": {
+    "mask_randomisation": "Fixed deterministic corruption seed derived only from split_name, target_start, scenario_identifier, and model_seed. Epoch number is excluded.",
+    "scenario_assignment": "Round-robin by immutable selection-window index.",
+    "selection_criterion": "Global raw-speed MAE aggregated across all valid future targets from the three fixed selection scenarios.",
+    "selection_scenarios": [
+      "iid_random_30pct",
+      "temporal_tail_50pct_sensors_6steps",
+      "spatial_knn4_cluster_20_full_history"
+    ],
+    "target_policy": "Artificial corruption applies only to historical native-observed entries. Future target masks and values remain unchanged."
+  },
+  "selection_scenarios": [
+    "iid_random_30pct",
+    "temporal_tail_50pct_sensors_6steps",
+    "spatial_knn4_cluster_20_full_history"
+  ],
+  "supersedes": {
+    "path": "C:\\Users\\student\\traffic_robust_forecasting\\configs\\metr_la_far_gf_rc_training_protocol_v1.json",
+    "reason": "Protocol v1 changed selection corruption masks across epochs because epoch_number was included in selection-mask randomisation. Protocol v2 fixes selection masks for every selection target start and scenario across all epochs.",
+    "sha256": "ed4d43c9eb95d7bacc29f22e51861a91d387368ba8bf4469bc74f2b51cf61aec"
+  },
+  "test_policy": {
+    "native_target_count": 40608096,
+    "scenario_evaluation": "All nine frozen controlled-dropout scenarios are evaluated after model selection.",
+    "scope": "primary-test split only",
+    "test_target_window_count": 10413
+  },
+  "training_corruption_policy": {
+    "calibration_policy": "Calibration target windows are inaccessible during training and model selection.",
+    "mask_generation": "Dynamic deterministic corruption generated per epoch and target window according to the inherited four-stage robust-failure curriculum.",
+    "scope": "training split only",
+    "target_policy": "Future targets and future target masks remain native.",
+    "test_policy": "Primary-test target windows are inaccessible during training and model selection."
+  },
+  "training_protocol_note": "Training corruption remains epoch-dependent to implement the failure curriculum. Selection corruption is strictly fixed across epochs.",
+  "window_contract": {
+    "future_calendar_features": 4,
+    "history_features": 7,
+    "input_steps": 12,
+    "output_steps": 12,
+    "target_policy": "Native future targets are retained. Artificial corruption is applied only to historical native-observed entries."
+  }
+}

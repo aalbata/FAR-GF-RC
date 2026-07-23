@@ -1,0 +1,70 @@
+{
+    "created_at": "2026-06-29T14:46:54",
+    "dataset_name": "METR-LA",
+    "anchor_source": "Deterministic reconstruction from frozen chronological split lengths and native future-target validity masks.",
+    "allow_pickle_used": false,
+    "frozen_split_lengths": {
+        "train": 23990,
+        "selection": 1714,
+        "calibration": 1713,
+        "test": 6855
+    },
+    "expected_scored_anchor_counts": {
+        "train": 22969,
+        "selection": 1703,
+        "calibration": 1567,
+        "test": 6313
+    },
+    "actual_boundary_timestamps": {
+        "train_start": "2012-03-01 00:00:00",
+        "train_end": "2012-05-23 07:05:00",
+        "selection_start": "2012-05-23 07:10:00",
+        "selection_end": "2012-05-29 05:55:00",
+        "calibration_start": "2012-05-29 06:00:00",
+        "calibration_end": "2012-06-04 04:40:00",
+        "test_start": "2012-06-04 04:45:00",
+        "test_end": "2012-06-27 23:55:00"
+    },
+    "expected_boundary_timestamps": {
+        "train_start": "2012-03-01 00:00:00",
+        "train_end": "2012-05-23 07:05:00",
+        "selection_start": "2012-05-23 07:10:00",
+        "selection_end": "2012-05-29 05:55:00",
+        "calibration_start": "2012-05-29 06:00:00",
+        "calibration_end": "2012-06-04 04:40:00",
+        "test_start": "2012-06-04 04:45:00",
+        "test_end": "2012-06-27 23:55:00"
+    },
+    "split_anchor_summary": {
+        "train": {
+            "first_anchor": 11,
+            "last_anchor": 23977,
+            "candidate_count": 23967,
+            "scored_count": 22969
+        },
+        "selection": {
+            "first_anchor": 23989,
+            "last_anchor": 25691,
+            "candidate_count": 1703,
+            "scored_count": 1703
+        },
+        "calibration": {
+            "first_anchor": 25703,
+            "last_anchor": 27404,
+            "candidate_count": 1702,
+            "scored_count": 1567
+        },
+        "test": {
+            "first_anchor": 27416,
+            "last_anchor": 34259,
+            "candidate_count": 6844,
+            "scored_count": 6313
+        }
+    },
+    "train_selection_overlap": false,
+    "train_calibration_overlap": false,
+    "selection_calibration_overlap": false,
+    "train_test_overlap": false,
+    "calibration_used_for_training": false,
+    "test_used_for_training": false
+}

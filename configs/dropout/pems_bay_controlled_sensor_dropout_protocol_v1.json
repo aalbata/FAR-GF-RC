@@ -1,0 +1,86 @@
+{
+ "corruption_scope": "Artificial dropout is applied only to naturally observed historical sensor-time cells. Future targets and their native availability remain unchanged.",
+ "dataset": "PEMS-BAY",
+ "input_steps": 12,
+ "native_observation_definition": "finite and strictly greater than zero",
+ "output_steps": 12,
+ "portability_note": "Paths rewritten project-root-relative from the frozen original in configs/frozen/.",
+ "primary_test_policy": {
+  "description": "Every primary-test target window is evaluated under each of the nine fixed controlled-dropout scenarios.",
+  "name": "all_nine_fixed_scenarios",
+  "target_window_count": 10413
+ },
+ "protocol_identifier": "pems_bay_controlled_sensor_dropout_protocol_v1",
+ "protocol_seed": 20260702,
+ "scenarios": [
+  {
+   "dropout_probability": 0.1,
+   "family": "iid_random",
+   "scenario_id": "iid_random_10pct"
+  },
+  {
+   "dropout_probability": 0.3,
+   "family": "iid_random",
+   "scenario_id": "iid_random_30pct"
+  },
+  {
+   "dropout_probability": 0.5,
+   "family": "iid_random",
+   "scenario_id": "iid_random_50pct"
+  },
+  {
+   "family": "temporal_tail",
+   "scenario_id": "temporal_tail_25pct_sensors_3steps",
+   "sensor_fraction": 0.25,
+   "tail_steps": 3
+  },
+  {
+   "family": "temporal_tail",
+   "scenario_id": "temporal_tail_50pct_sensors_6steps",
+   "sensor_fraction": 0.5,
+   "tail_steps": 6
+  },
+  {
+   "family": "temporal_tail",
+   "scenario_id": "temporal_tail_75pct_sensors_12steps",
+   "sensor_fraction": 0.75,
+   "tail_steps": 12
+  },
+  {
+   "cluster_size": 8,
+   "family": "spatial_geographic_cluster",
+   "scenario_id": "spatial_geographic_knn4_cluster_8_full_history"
+  },
+  {
+   "cluster_size": 16,
+   "family": "spatial_geographic_cluster",
+   "scenario_id": "spatial_geographic_knn4_cluster_16_full_history"
+  },
+  {
+   "cluster_size": 32,
+   "family": "spatial_geographic_cluster",
+   "scenario_id": "spatial_geographic_knn4_cluster_32_full_history"
+  }
+ ],
+ "selection_policy": {
+  "description": "Each selection window receives exactly one fixed scenario. Scenario assignments are approximately balanced across all nine controlled-dropout scenarios.",
+  "name": "fixed_balanced_composite_selection",
+  "target_window_count": 2595
+ },
+ "sensor_count": 325,
+ "spatial_failure_semantics": "A geographic cluster contains one randomly selected anchor sensor and its nearest non-anchor sensors according to the frozen coordinate-derived geographic topology. It is not a road-network cluster.",
+ "upstream_artefacts": {
+  "data_protocol_path": "configs/pems_bay_far_gf_rc_data_protocol_v1.json",
+  "data_protocol_sha256": "5c466b6c481dcf5585d5fd35ceaaeb9015552aadb3a5f34b5d4a7f0384582f25",
+  "native_mask_path": "data/processed/pems_bay_native_observation_mask_v1.npz",
+  "native_mask_sha256": "ec8917124fe063cf20b962fc5fb349dca750dfb6a8ab0cbcebf0a53728b4ea5d",
+  "normalization_path": "data/processed/pems_bay_train_normalization_v1.npz",
+  "normalization_sha256": "bd7733009bbe8cdd04d5acfc4f48ba4d0695f6de5a4a52ac6edbbd7a1a796f12",
+  "physical_graph_path": "data/processed/pems_bay_geographic_knn4_self_tuning_gaussian_physical_graph_v1.npz",
+  "physical_graph_sha256": "0801aa7ccaae9ef6c8f695c8cf7d6f666cf0da67c11185faf3fe123962924de6",
+  "spatial_topology_path": "data/processed/pems_bay_geographic_knn4_spatial_failure_topology_v1.npz",
+  "spatial_topology_sha256": "2e11ef5f1e83032318c8afa5a68e56728da7f66ce3e99cda33ffa51d410294df",
+  "split_path": "data/processed/pems_bay_temporal_split_v1.npz",
+  "split_sha256": "d1e887e798a1c45bcc6bff41c757c1d7a00fcebdb07d218074a335555d6d6534"
+ }
+}

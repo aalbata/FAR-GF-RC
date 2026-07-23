@@ -1,0 +1,222 @@
+{
+  "curriculum_stages": [
+    {
+      "epochs": [
+        1,
+        4
+      ],
+      "scenario_probabilities": {
+        "clean": 1.0
+      }
+    },
+    {
+      "epochs": [
+        5,
+        10
+      ],
+      "scenario_probabilities": {
+        "clean": 0.2,
+        "iid_random_10pct": 0.4,
+        "iid_random_30pct": 0.4
+      }
+    },
+    {
+      "epochs": [
+        11,
+        18
+      ],
+      "scenario_probabilities": {
+        "iid_random_30pct": 0.2,
+        "iid_random_50pct": 0.2,
+        "temporal_tail_25pct_sensors_3steps": 0.25,
+        "temporal_tail_50pct_sensors_6steps": 0.35
+      }
+    },
+    {
+      "epochs": [
+        19,
+        30
+      ],
+      "scenario_probabilities": {
+        "iid_random_10pct": 0.1,
+        "iid_random_30pct": 0.15,
+        "iid_random_50pct": 0.15,
+        "spatial_geographic_knn4_cluster_16_full_history": 0.07,
+        "spatial_geographic_knn4_cluster_32_full_history": 0.08,
+        "spatial_geographic_knn4_cluster_8_full_history": 0.05,
+        "temporal_tail_25pct_sensors_3steps": 0.1,
+        "temporal_tail_50pct_sensors_6steps": 0.15,
+        "temporal_tail_75pct_sensors_12steps": 0.15
+      }
+    }
+  ],
+  "dataset": "PEMS-BAY",
+  "dynamic_training_mask_policy": {
+    "causal_feature_requirement": "Recompute effective mask, zero-placeholder values, and causal elapsed-gap feature after dynamic corruption.",
+    "determinism": "Baseline runner must reproduce the deterministic mask semantics of the frozen FAR-GF-RC protocol-v2 runner, conditioned on model seed, epoch, target start, and selected curriculum scenario.",
+    "forbidden": [
+      "future-target corruption",
+      "target imputation",
+      "selection-mask regeneration",
+      "calibration access",
+      "primary-test access"
+    ],
+    "scope": "Generate dynamic artificial dropout only from historical native-observed cells for each training window."
+  },
+  "fairness_policy": {
+    "architecture_specific_losses": {
+      "MS-GRU": [
+        "forecast loss only"
+      ],
+      "MS-TCN-v2": [
+        "forecast loss only"
+      ],
+      "excluded_fargfrc_specific_losses": [
+        "reconstruction loss",
+        "reliability loss",
+        "predictive-scale NLL loss"
+      ]
+    },
+    "same_epoch_budget_as_fargfrc": true,
+    "same_fixed_selection_composite_as_fargfrc": true,
+    "same_model_seed_values_as_fargfrc": true,
+    "same_native_target_mask_policy_as_fargfrc": true,
+    "same_selection_batch_size_as_fargfrc": true,
+    "same_splits_as_fargfrc": true,
+    "same_train_batch_size_as_fargfrc": true,
+    "same_train_only_normalization_policy_as_fargfrc": true,
+    "same_training_dropout_curriculum_as_fargfrc": true,
+    "same_window_contract_as_fargfrc": true
+  },
+  "model_families": [
+    "MS-GRU",
+    "MS-TCN-v2"
+  ],
+  "model_seed_values": [
+    17,
+    29,
+    43,
+    71,
+    101
+  ],
+  "optimization": {
+    "forecast_loss": "masked normalized L1 over native observed targets",
+    "forecast_loss_weight": 1.0,
+    "gradient_clip_norm": 5.0,
+    "learning_rate": 0.001,
+    "max_epochs": 30,
+    "optimizer": "AdamW",
+    "selection_batch_size": 64,
+    "selection_criterion": "minimum fixed selection-composite raw-speed MAE",
+    "train_batch_size": 32,
+    "weight_decay": 0.0001
+  },
+  "partition_policy": {
+    "calibration": {
+      "access": "prohibited during all baseline training and checkpoint-selection stages",
+      "raw_index_interval": [
+        39087,
+        41692
+      ]
+    },
+    "primary_test": {
+      "access": "prohibited during all baseline training and checkpoint-selection stages",
+      "raw_index_interval": [
+        41692,
+        52116
+      ]
+    },
+    "selection": {
+      "access": "fixed composite checkpoint selection only",
+      "raw_index_interval": [
+        36481,
+        39087
+      ],
+      "target_window_count": 2595
+    },
+    "train": {
+      "access": "optimization only",
+      "raw_index_interval": [
+        0,
+        36481
+      ],
+      "target_window_count": 36458
+    }
+  },
+  "protocol_identifier": "pems_bay_masked_baseline_training_protocol_v1",
+  "protocol_version": "v1",
+  "purpose": "Fair five-seed robustness comparison of MS-GRU and MS-TCN-v2 against FAR-GF-RC under the frozen PEMS-BAY controlled sensor-dropout protocol.",
+  "runner_implementation_policy": {
+    "custom_window_assembly_required": true,
+    "reason": "Dynamic artificial dropout requires window-specific effective masks and causal elapsed-gap recomputation.",
+    "required_audits_before_full_training": [
+      "model forward-shape validation",
+      "one real-data no-update smoke test",
+      "one real-data optimizer-update smoke test",
+      "dynamic-mask equivalence check against FAR-GF-RC for representative windows",
+      "selection-composite feature-assembly verification",
+      "GPU-memory feasibility check"
+    ]
+  },
+  "selection_policy": {
+    "checkpoint_policy": "Retain the earliest epoch attaining the minimum selection-composite raw-speed MAE.",
+    "selection_corruption": "Use the stored fixed effective observation mask. Do not regenerate selection artificial dropout.",
+    "selection_mask": "Use the immutable balanced fixed nine-scenario selection-composite mask artifact."
+  },
+  "training_output_policy": {
+    "checkpoint_payload_requirements": [
+      "dataset",
+      "model_identifier",
+      "model_seed",
+      "model_config_sha256",
+      "training_protocol_sha256",
+      "runner_source_sha256",
+      "best_epoch",
+      "best_selection_raw_speed_mae",
+      "model_state_dict",
+      "data_access_policy",
+      "provenance_hashes"
+    ],
+    "checkpoint_root": "outputs/checkpoints/pems_bay_masked_baselines_protocol_v1",
+    "history_root": "outputs/training_history/pems_bay_masked_baselines_protocol_v1",
+    "overwrite_policy": "forbid overwrite"
+  },
+  "upstream_provenance": {
+    "controlled_dropout_protocol_v1": {
+      "path": "configs/pems_bay_controlled_sensor_dropout_protocol_v1.json",
+      "sha256": "a5f0ba1d785d03aefffe2262d9129aff07a88f8038c23bbe5200e77084a8dbf4"
+    },
+    "fargfrc_training_protocol_v2": {
+      "path": "configs/pems_bay_far_gf_rc_training_protocol_v2.json",
+      "sha256": "7abedbc31e21bacde366d0403728c698566d28ba95957643cdf0773fd2ddfcef"
+    },
+    "native_observation_mask_v1": {
+      "path": "data/processed/pems_bay_native_observation_mask_v1.npz",
+      "sha256": "ec8917124fe063cf20b962fc5fb349dca750dfb6a8ab0cbcebf0a53728b4ea5d"
+    },
+    "pems_data_protocol_v1": {
+      "path": "configs/pems_bay_far_gf_rc_data_protocol_v1.json",
+      "sha256": "5c466b6c481dcf5585d5fd35ceaaeb9015552aadb3a5f34b5d4a7f0384582f25"
+    },
+    "selection_composite_mask_v1": {
+      "path": "data/processed/controlled_dropout/pems_bay_v1/pems_bay_controlled_sensor_dropout_selection_composite_mask_v1.npz",
+      "sha256": "8cf8eb7cba68bf1fda53d5bf1c5c8930b2ab76ff2d0800950d447aaf251ac052"
+    },
+    "temporal_split_v1": {
+      "path": "data/processed/pems_bay_temporal_split_v1.npz",
+      "sha256": "d1e887e798a1c45bcc6bff41c757c1d7a00fcebdb07d218074a335555d6d6534"
+    },
+    "train_normalization_v1": {
+      "path": "data/processed/pems_bay_train_normalization_v1.npz",
+      "sha256": "bd7733009bbe8cdd04d5acfc4f48ba4d0695f6de5a4a52ac6edbbd7a1a796f12"
+    }
+  },
+  "window_contract": {
+    "earliest_target_start": 12,
+    "input_steps": 12,
+    "latest_selection_target_start": 39075,
+    "latest_train_target_start": 36469,
+    "output_steps": 12,
+    "target_start_definition": "History [t-12, t-1], target [t, t+11]."
+  }
+}

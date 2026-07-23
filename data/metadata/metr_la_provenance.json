@@ -1,0 +1,46 @@
+{
+    "dataset_name": "METR-LA",
+    "source_repository": "https://github.com/deepkashiwa20/DL-Traff-Graph.git",
+    "source_branch": "main",
+    "resolved_repository_commit": "ccc038aeef05ffd43fab42e0752c8f94b90163a7",
+    "downloaded_at": "2026-06-29T13:57:27",
+    "local_dataset_directory": "C:\\Users\\student\\traffic_robust_forecasting\\data\\raw\\METRLA",
+    "file_count": 7,
+    "files": [
+        {
+            "relative_path": "adj_mx.pkl",
+            "size_bytes": 681326,
+            "sha256": "d78fa5938a3bc114355ec87771054c7d1793ffe3262ce00b4ba598f2ddca14d5"
+        },
+        {
+            "relative_path": "distances_la_2012.csv",
+            "size_bytes": 6688722,
+            "sha256": "657508cadd30d2a42fdb61e1e8f6d100314324d3821a436f252a545153dd37b0"
+        },
+        {
+            "relative_path": "graph_sensor_locations.csv",
+            "size_bytes": 6548,
+            "sha256": "6c5e1b3d2a9462d2dbf7f8031fa62fd5e16c6000e4a1cbe8c0023c55ccc8c5c0"
+        },
+        {
+            "relative_path": "metr-la.h5",
+            "size_bytes": 57038056,
+            "sha256": "64784b76d6fb8ec9bff4b6decafb354da2bb37840468fdccee5044e511277c05"
+        },
+        {
+            "relative_path": "metr_ids.txt",
+            "size_bytes": 1448,
+            "sha256": "3ba026caa2e6263ab0ea54b0fa1b125dbfa7216544cd05313b555e826292b990"
+        },
+        {
+            "relative_path": "SE_metrla.txt",
+            "size_bytes": 150818,
+            "sha256": "979b93bbda676228bc6c193f43c020267cb8ab10032776fa1f6554569d8aef2d"
+        },
+        {
+            "relative_path": "W_metrla.csv",
+            "size_bytes": 218354,
+            "sha256": "b09f1dcf65882af702e28baa51440cc233d587a9847e2f6c7a453d137ad3b60a"
+        }
+    ]
+}

@@ -1,0 +1,118 @@
+{
+    "created_at": "2026-06-29T14:17:07",
+    "dataset_name": "METR-LA",
+    "policy_status": "Frozen before baseline or proposed-model training",
+    "metric_units": "Original traffic units after inverse scaling",
+    "metric_aggregation_rule": "Aggregate sufficient statistics across all valid future-target entries. Do not use unweighted averages of window-level metrics.",
+    "confidence_interval_method": "Paired non-circular moving-block bootstrap over forecast-origin calendar-day groups.",
+    "circular_bootstrap_status": "Superseded; circular wrapping is not used in canonical results.",
+    "bootstrap_resamples": 2000,
+    "bootstrap_block_length_days": 3,
+    "bootstrap_random_seed": 20260629,
+    "confidence_level_percent": 95,
+    "percentile_interval": [
+        2.5,
+        97.5
+    ],
+    "headline_ci_eligibility_rule": "At least 21 unique forecast-origin calendar days are required.",
+    "paired_comparison_definition": "Delta = Metric(Model A) - Metric(Model B), using identical resampled chronological blocks.",
+    "paired_error_metric_interpretation": "For MAE, RMSE, MAPE, and WMAPE, a Delta CI entirely below zero supports lower error for Model A under this frozen protocol.",
+    "overlapping_window_policy": "Overlapping sliding windows are not treated as independent observations.",
+    "temporal_group_label_storage": "Fixed-width Unicode arrays; allow_pickle=False enforced.",
+    "cohort_ci_status": [
+        {
+            "cohort": "primary_native_outage_aware",
+            "anchor_window_count": 6313,
+            "unique_forecast_origin_days": 24,
+            "first_day": "2012-06-04",
+            "last_day": "2012-06-27",
+            "minimum_windows_per_day": 97,
+            "median_windows_per_day": 288.0,
+            "maximum_windows_per_day": 288,
+            "headline_ci_eligible": true,
+            "ci_reporting_status": "HEADLINE_CI_ELIGIBLE"
+        },
+        {
+            "cohort": "secondary_high_availability_95pct",
+            "anchor_window_count": 4771,
+            "unique_forecast_origin_days": 24,
+            "first_day": "2012-06-04",
+            "last_day": "2012-06-27",
+            "minimum_windows_per_day": 28,
+            "median_windows_per_day": 201.5,
+            "maximum_windows_per_day": 288,
+            "headline_ci_eligible": true,
+            "ci_reporting_status": "HEADLINE_CI_ELIGIBLE"
+        },
+        {
+            "cohort": "supplementary_near_complete_99pct",
+            "anchor_window_count": 791,
+            "unique_forecast_origin_days": 13,
+            "first_day": "2012-06-04",
+            "last_day": "2012-06-21",
+            "minimum_windows_per_day": 2,
+            "median_windows_per_day": 52.0,
+            "maximum_windows_per_day": 148,
+            "headline_ci_eligible": false,
+            "ci_reporting_status": "DESCRIPTIVE_ONLY_NO_HEADLINE_CI"
+        },
+        {
+            "cohort": "audit_strict_complete_100pct",
+            "anchor_window_count": 26,
+            "unique_forecast_origin_days": 3,
+            "first_day": "2012-06-12",
+            "last_day": "2012-06-14",
+            "minimum_windows_per_day": 2,
+            "median_windows_per_day": 8.0,
+            "maximum_windows_per_day": 16,
+            "headline_ci_eligible": false,
+            "ci_reporting_status": "DESCRIPTIVE_ONLY_NO_HEADLINE_CI"
+        }
+    ],
+    "canonical_ci_module": "C:\\Users\\student\\traffic_robust_forecasting\\src\\metrics\\noncircular_temporal_block_ci.py",
+    "temporal_group_labels_file": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\metr_la_ci_temporal_group_labels.npz",
+    "ci_reporting_manifest_status": "Frozen before baseline and proposed-model training.",
+    "cohort_reporting_permissions": {
+        "primary_native_outage_aware": {
+            "role": "Primary headline cohort",
+            "metric_reporting": "REQUIRED",
+            "confidence_interval_reporting": "REQUIRED",
+            "paired_model_comparison_ci": "REQUIRED",
+            "per_horizon_ci": "REQUIRED_FOR_15_30_60_MINUTES",
+            "reason": "Primary native-outage-aware cohort has sufficient temporal coverage for the frozen non-circular block-bootstrap protocol."
+        },
+        "secondary_high_availability_95pct": {
+            "role": "Secondary headline cohort",
+            "metric_reporting": "REQUIRED",
+            "confidence_interval_reporting": "REQUIRED",
+            "paired_model_comparison_ci": "REQUIRED",
+            "per_horizon_ci": "REQUIRED_FOR_15_30_60_MINUTES",
+            "reason": "High-availability cohort retains all 24 forecast-origin days and satisfies the frozen headline CI eligibility rule."
+        },
+        "supplementary_near_complete_99pct": {
+            "role": "Supplementary descriptive robustness cohort",
+            "metric_reporting": "OPTIONAL_SUPPLEMENTARY",
+            "confidence_interval_reporting": "NOT_PERMITTED",
+            "paired_model_comparison_ci": "NOT_PERMITTED",
+            "per_horizon_ci": "NOT_PERMITTED",
+            "reason": "The cohort covers only 13 forecast-origin days, below the frozen 21-day headline CI eligibility threshold."
+        },
+        "audit_strict_complete_100pct": {
+            "role": "Audit-only cohort",
+            "metric_reporting": "OPTIONAL_AUDIT_ONLY",
+            "confidence_interval_reporting": "NOT_PERMITTED",
+            "paired_model_comparison_ci": "NOT_PERMITTED",
+            "per_horizon_ci": "NOT_PERMITTED",
+            "reason": "The cohort contains only 26 overlapping windows across three forecast-origin days. It is not suitable for confidence-interval or inferential reporting."
+        }
+    },
+    "strict_complete_cohort_override": "AUDIT_ONLY_NO_CI. This explicit override supersedes any earlier automatically derived descriptive status.",
+    "headline_ci_eligible_cohorts": [
+        "primary_native_outage_aware",
+        "secondary_high_availability_95pct"
+    ],
+    "ci_not_permitted_cohorts": [
+        "supplementary_near_complete_99pct",
+        "audit_strict_complete_100pct"
+    ]
+}

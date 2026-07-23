@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{Frozen dataset and evaluation protocol.}
+\label{tab:protocol}
+\resizebox{\linewidth}{!}{\begin{tabular}{ll}
+\toprule
+Item & Value\\ \midrule
+Dataset & PEMS-BAY (325 sensors, 52{,}116 five-minute steps)\\
+Native availability & 99.997\% (finite and $>0$)\\
+Split (target starts) & train $[12,36481)$ / selection $[36481,39087)$ / calibration $[39087,41692)$ / test $[41692,52105]$\\
+Windows & 12-step history $\rightarrow$ 12-step horizon; 10{,}413 primary-test windows\\
+Normalization & per-sensor $z$-score, fit on native-observed \emph{train} values only\\
+History channels & value, effective mask, elapsed gap (cap 288), daily $\sin/\cos$, weekly $\sin/\cos$\\
+Graph & Haversine $k$NN ($k{=}4$), self-tuning Gaussian $\exp(-d_{ij}^2/\sigma_i\sigma_j)$, symmetric union\\
+Seeds & 17, 29, 43, 71, 101 (fully deterministic CUDA)\\
+Runs & $3\times5\times10=150$, all finite, hash-verified\\
+\bottomrule
+\end{tabular}}
+\end{table}

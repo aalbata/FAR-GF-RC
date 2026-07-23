@@ -1,0 +1,79 @@
+{
+  "architecture": {
+    "forecast_strategy": "direct multi-horizon normalized forecasting",
+    "gru_hidden_dimension": 64,
+    "gru_num_layers": 1,
+    "head_dropout": 0.1,
+    "head_hidden_dimension": 64,
+    "input_feature_dimension": 7,
+    "number_of_sensors": 325,
+    "sensor_embedding_dimension": 8,
+    "time_feature_dimension": 4
+  },
+  "config_identifier": "pems_bay_masked_sensor_shared_gru_config_v1",
+  "dataset": "PEMS-BAY",
+  "dataset_interface_reference": {
+    "path": "src/datasets/causal_masked_gru_window_dataset.py",
+    "policy": "Reference interface only. The future canonical PEMS-BAY runner must assemble dynamic corrupted windows directly to guarantee window-specific causal elapsed-gap recomputation.",
+    "sha256": "1e3c65278ab0be31ad710b5c808c88fb192d90c35f119ebcab5168dab1b145d1"
+  },
+  "input_contract": {
+    "output": "[batch, 12, 325]",
+    "x_elapsed": "[batch, 12, 325]",
+    "x_mask": "[batch, 12, 325]",
+    "x_time": "[batch, 12, 4]",
+    "x_value": "[batch, 12, 325]",
+    "y_time": "[batch, 12, 4]"
+  },
+  "method_scope": {
+    "uses_adaptive_graph": false,
+    "uses_cross_sensor_message_passing": false,
+    "uses_explicit_reliability_head": false,
+    "uses_physical_graph": false,
+    "uses_predictive_scale_head": false,
+    "uses_reconstruction_objective": false
+  },
+  "model_class": "MaskedSensorSharedGRU",
+  "model_full_name": "Masked Sensor-Shared Gated Recurrent Unit",
+  "model_identifier": "MS-GRU",
+  "model_source": {
+    "path": "src/models/masked_sensor_shared_gru.py",
+    "sha256": "17ac07b273476fb4cf7def103e5f4e25fbcbaf488b61e0cf5da9a3456999851e"
+  },
+  "shared_data_contract": {
+    "causal_elapsed_policy": "Recompute elapsed-gap values causally from the effective window-specific history mask after artificial dropout. For an unavailable pre-series carry index, initialize elapsed state at the configured cap.",
+    "dataset": "PEMS-BAY",
+    "elapsed_gap_cap_steps": 288,
+    "forecast_horizons_minutes": [
+      15,
+      30,
+      60
+    ],
+    "future_calendar_feature_order": [
+      "daily_sine",
+      "daily_cosine",
+      "weekly_sine",
+      "weekly_cosine"
+    ],
+    "history_corruption_policy": "Artificial failures are applied only to historically native observed cells. The effective history mask is native mask AND NOT artificial-removal mask.",
+    "history_feature_order": [
+      "normalized_speed_with_zero_placeholder",
+      "effective_observation_mask",
+      "causal_elapsed_gap_normalized",
+      "daily_sine",
+      "daily_cosine",
+      "weekly_sine",
+      "weekly_cosine"
+    ],
+    "input_steps": 12,
+    "native_observation_definition": "A native observation is finite and strictly greater than zero.",
+    "normalization_policy": "Use only train-partition normalization statistics. Do not estimate normalization statistics from selection, calibration, or primary-test partitions.",
+    "normalized_missing_value_placeholder": 0.0,
+    "output_steps": 12,
+    "sampling_interval_minutes": 5,
+    "sensor_count": 325,
+    "target_policy": "Forecast targets remain native and uncorrupted. Masked normalized L1 training loss and raw-speed selection MAE must use the native target-observation mask.",
+    "target_start_definition": "For target start t, history is [t-12, t-1] and forecast target is [t, t+11]."
+  },
+  "version": "v1"
+}

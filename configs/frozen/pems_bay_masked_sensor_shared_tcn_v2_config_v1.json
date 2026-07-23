@@ -1,0 +1,84 @@
+{
+  "architecture": {
+    "channels": 64,
+    "cross_sensor_convolution": false,
+    "dilations": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "dropout": 0.1,
+    "forecast_strategy": "direct multi-horizon normalized forecasting",
+    "future_calendar_feature_dim": 4,
+    "history_feature_dim": 7,
+    "kernel_size": 3,
+    "num_sensors": 325,
+    "prediction_head_dim": 64,
+    "sensor_embedding_dim": 8,
+    "temporal_backend": "causal Conv2d over [batch, channels, sensors, time]"
+  },
+  "config_identifier": "pems_bay_masked_sensor_shared_tcn_v2_config_v1",
+  "dataset": "PEMS-BAY",
+  "dataset_interface_reference": {
+    "path": "src/datasets/causal_masked_tcn_window_dataset.py",
+    "policy": "Reference interface only. The future canonical PEMS-BAY runner must assemble dynamic corrupted windows directly to guarantee window-specific causal elapsed-gap recomputation.",
+    "sha256": "33917bfc6d22839e52a1347ca14775c6502ad196a5f86d53763de2e0004db134"
+  },
+  "input_contract": {
+    "future_calendar": "[batch, 12, 4]",
+    "history_features": "[batch, 12, 325, 7]",
+    "output": "[batch, 12, 325]"
+  },
+  "method_scope": {
+    "uses_adaptive_graph": false,
+    "uses_cross_sensor_message_passing": false,
+    "uses_explicit_reliability_head": false,
+    "uses_physical_graph": false,
+    "uses_predictive_scale_head": false,
+    "uses_reconstruction_objective": false
+  },
+  "model_class": "MaskedSensorSharedTCNV2",
+  "model_full_name": "Masked Sensor-Shared Causal Temporal Convolutional Network v2",
+  "model_identifier": "MS-TCN-v2",
+  "model_source": {
+    "path": "src/models/masked_sensor_shared_tcn_v2.py",
+    "sha256": "1e46c2dffd2153f0babc5b267b538959f89a86bc1c3d2d8cea7f4706e6906c8b"
+  },
+  "shared_data_contract": {
+    "causal_elapsed_policy": "Recompute elapsed-gap values causally from the effective window-specific history mask after artificial dropout. For an unavailable pre-series carry index, initialize elapsed state at the configured cap.",
+    "dataset": "PEMS-BAY",
+    "elapsed_gap_cap_steps": 288,
+    "forecast_horizons_minutes": [
+      15,
+      30,
+      60
+    ],
+    "future_calendar_feature_order": [
+      "daily_sine",
+      "daily_cosine",
+      "weekly_sine",
+      "weekly_cosine"
+    ],
+    "history_corruption_policy": "Artificial failures are applied only to historically native observed cells. The effective history mask is native mask AND NOT artificial-removal mask.",
+    "history_feature_order": [
+      "normalized_speed_with_zero_placeholder",
+      "effective_observation_mask",
+      "causal_elapsed_gap_normalized",
+      "daily_sine",
+      "daily_cosine",
+      "weekly_sine",
+      "weekly_cosine"
+    ],
+    "input_steps": 12,
+    "native_observation_definition": "A native observation is finite and strictly greater than zero.",
+    "normalization_policy": "Use only train-partition normalization statistics. Do not estimate normalization statistics from selection, calibration, or primary-test partitions.",
+    "normalized_missing_value_placeholder": 0.0,
+    "output_steps": 12,
+    "sampling_interval_minutes": 5,
+    "sensor_count": 325,
+    "target_policy": "Forecast targets remain native and uncorrupted. Masked normalized L1 training loss and raw-speed selection MAE must use the native target-observation mask.",
+    "target_start_definition": "For target start t, history is [t-12, t-1] and forecast target is [t, t+11]."
+  },
+  "version": "v1"
+}

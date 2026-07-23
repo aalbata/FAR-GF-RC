@@ -1,0 +1,967 @@
+{
+    "addendum_id": "metr_la_controlled_sensor_dropout_randomisation_addendum_v1",
+    "addendum_version": 1,
+    "immutability_policy": {
+        "clean_evidence_modification_prohibited": true,
+        "future_controlled_dropout_generation_requires": [
+            "metr_la_controlled_sensor_dropout_protocol_v2.json",
+            "metr_la_controlled_sensor_dropout_elapsed_gap_addendum_v1.json",
+            "metr_la_spatial_failure_topology_knn4_v1.npz",
+            "metr_la_controlled_sensor_dropout_randomisation_addendum_v1.json"
+        ],
+        "mask_generation_not_performed_in_this_addendum": true,
+        "overwrite_prohibited": true
+    },
+    "inherited_split_scenario_seeds": {
+        "rederivation_from_textual_root_seed_policy_prohibited": true,
+        "seed_table": {
+            "calibration": {
+                "clean_native": null,
+                "iid_random_10pct": 3335386424,
+                "iid_random_30pct": 2242698315,
+                "iid_random_50pct": 398078450,
+                "spatial_knn4_cluster_10_full_history": 1724103099,
+                "spatial_knn4_cluster_20_full_history": 3476944623,
+                "spatial_knn4_cluster_5_full_history": 2472317166,
+                "temporal_tail_25pct_sensors_3steps": 40956729,
+                "temporal_tail_50pct_sensors_6steps": 3407674138,
+                "temporal_tail_75pct_sensors_12steps": 1797552264
+            },
+            "selection": {
+                "clean_native": null,
+                "iid_random_10pct": 2457004575,
+                "iid_random_30pct": 2753382968,
+                "iid_random_50pct": 1226627187,
+                "spatial_knn4_cluster_10_full_history": 2085424504,
+                "spatial_knn4_cluster_20_full_history": 1124078871,
+                "spatial_knn4_cluster_5_full_history": 4180733430,
+                "temporal_tail_25pct_sensors_3steps": 1865410097,
+                "temporal_tail_50pct_sensors_6steps": 234783310,
+                "temporal_tail_75pct_sensors_12steps": 3895328740
+            },
+            "test": {
+                "clean_native": null,
+                "iid_random_10pct": 922825601,
+                "iid_random_30pct": 2501262878,
+                "iid_random_50pct": 2753698848,
+                "spatial_knn4_cluster_10_full_history": 2053426217,
+                "spatial_knn4_cluster_20_full_history": 634735808,
+                "spatial_knn4_cluster_5_full_history": 3593019608,
+                "temporal_tail_25pct_sensors_3steps": 3327115680,
+                "temporal_tail_50pct_sensors_6steps": 647989568,
+                "temporal_tail_75pct_sensors_12steps": 2375607501
+            },
+            "train": {
+                "clean_native": null,
+                "iid_random_10pct": 1987667320,
+                "iid_random_30pct": 2379623288,
+                "iid_random_50pct": 2852209252,
+                "spatial_knn4_cluster_10_full_history": 3262051301,
+                "spatial_knn4_cluster_20_full_history": 3533646254,
+                "spatial_knn4_cluster_5_full_history": 3664723160,
+                "temporal_tail_25pct_sensors_3steps": 1237728622,
+                "temporal_tail_50pct_sensors_6steps": 3510559521,
+                "temporal_tail_75pct_sensors_12steps": 1191142846
+            }
+        },
+        "source": "protocol_v2.randomness_policy.split_scenario_seeds",
+        "stored_seed_table_is_authoritative": true
+    },
+    "parent_protocol": {
+        "path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\metadata\\metr_la_controlled_sensor_dropout_protocol_v2.json",
+        "protocol_id": "metr_la_controlled_sensor_dropout_protocol_v2",
+        "protocol_version": 2,
+        "sha256": "7ce0f55b977283742ebc8e51f47c5729cbf0466c8edddee7d76c6607f990b643"
+    },
+    "per_window_entropy_derivation": {
+        "canonical_primary_window_identity": "split_name plus primary_target_start. Primary-window ordinal is not part of the entropy preimage.",
+        "digest_algorithm": "SHA-256",
+        "digest_byte_order_for_entropy_words": "big_endian",
+        "digest_length_bytes": 32,
+        "entropy_word_count": 8,
+        "entropy_word_dtype": "uint32",
+        "preimage_canonical_json": {
+            "fields": [
+                "addendum_id",
+                "primary_target_start",
+                "protocol_v2_sha256",
+                "scenario_id",
+                "split_name",
+                "split_scenario_seed"
+            ],
+            "keys_sorted": true,
+            "separators": [
+                ",",
+                ":"
+            ]
+        },
+        "rationale": "Independent entropy per primary target start makes the realization invariant to processing order and prevents zero-eligibility or skipped windows from changing downstream random draws.",
+        "rng_initialisation": {
+            "bit_generator": "np.random.PCG64",
+            "generator": "np.random.Generator(np.random.PCG64(seed_sequence))",
+            "seed_sequence": "np.random.SeedSequence(entropy=entropy_words_big_endian_uint32)"
+        },
+        "runtime_clock_or_machine_entropy_prohibited": true,
+        "sequential_rng_stream_prohibited": true
+    },
+    "required_linked_artefacts": {
+        "elapsed_gap_addendum": {
+            "path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\metadata\\metr_la_controlled_sensor_dropout_elapsed_gap_addendum_v1.json",
+            "sha256": "71c6237e3bc7f93f654a506517287b78abb295c80d1449361c8c8f1d3f431573"
+        },
+        "spatial_failure_topology_bundle": {
+            "path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\metr_la_spatial_failure_topology_knn4_v1.npz",
+            "sha256": "aa4fd3041757a415e7153d61203b09ed45fe3fcaaabbd4b184786cadece5b231",
+            "support_matrix_sha256": "f36cbd7f742f43532f34d393d50cae1cf953cd8f72606a467ba120f43e68d75d",
+            "topology_id": "metr_la_spatial_failure_topology_knn4_v1",
+            "topology_specification_sha256": "bb7ab1f43492d1da45e4c62a9922321a647aa38bc02666e0a3b385ac8ae9003d"
+        }
+    },
+    "scenario_execution_contract": {
+        "iid_random": {
+            "canonical_recording": "Sort selected flat positions ascending before storing any diagnostic selection record.",
+            "eligible_positions": "Flatten native-observed historical positions in C-order from [input_steps, sensor_count].",
+            "sampling": "rng.choice(eligible_flat_positions, size=selection_count, replace=False)",
+            "selection_count": "floor(conditional_dropout_rate * eligible_position_count + 0.5)"
+        },
+        "spatial_cluster_outage": {
+            "canonical_recording": "Record root_sensor and cluster positions in BFS discovery order.",
+            "cluster_growth": "Run FIFO breadth-first search from root_sensor using bfs_neighbour_order in the sealed kNN-4 topology bundle. The cluster is the first K discovered graph-position sensors.",
+            "cluster_size": "Use scenario cluster_size_sensors exactly.",
+            "intervention": "For each selected cluster sensor, remove only native-observed positions across all 12 historical input steps. Native-missing cells remain native missing and are not counted as artificial removals.",
+            "root_sampling": "root_sensor = int(rng.integers(0, sensor_count))"
+        },
+        "temporal_tail_outage": {
+            "canonical_recording": "Sort selected sensor positions ascending before storing any diagnostic selection record.",
+            "eligible_sensors": "A sensor is eligible only when all L intended tail positions are native observed.",
+            "intervention": "Remove all L tail positions for every selected sensor. When full-tail eligibility is zero, selection_count is zero and the native historical context remains unchanged.",
+            "sampling": "rng.choice(full_tail_eligible_sensors, size=selection_count, replace=False)",
+            "selection_count": "floor(affected_sensor_fraction * full_tail_eligible_sensor_count + 0.5)"
+        }
+    },
+    "scope": {
+        "applies_to_non_clean_scenarios": [
+            "iid_random_10pct",
+            "iid_random_30pct",
+            "iid_random_50pct",
+            "temporal_tail_25pct_sensors_3steps",
+            "temporal_tail_50pct_sensors_6steps",
+            "temporal_tail_75pct_sensors_12steps",
+            "spatial_knn4_cluster_5_full_history",
+            "spatial_knn4_cluster_10_full_history",
+            "spatial_knn4_cluster_20_full_history"
+        ],
+        "applies_to_splits": [
+            "selection",
+            "calibration",
+            "test"
+        ],
+        "clean_native_policy": "No artificial dropout and no randomisation draw.",
+        "independent_secondary_entropy_derivation_prohibited": true,
+        "independent_secondary_sampling_prohibited": true,
+        "primary_generation_policy": "Generate randomisation only for ordered primary windows. The secondary cohort must be obtained solely by selecting the already-generated primary-window realizations using secondary_flags_for_primary."
+    },
+    "status": "frozen_randomisation_execution_specification_only; no_synthetic_masks_generated",
+    "test_cohort_entropy_commitments": {
+        "non_clean_scenario_entropy_commitments": {
+            "iid_random_10pct": {
+                "entropy_digest_dtype": "uint8",
+                "entropy_digest_shape": [
+                    6313,
+                    32
+                ],
+                "entropy_matrix_sha256": "3f9a783c31f797729a9a5bb9571b5b87d63af7da653f255a5a6fe9adc4073b1b",
+                "test_split_scenario_seed": 922825601,
+                "unique_digest_count": 6313
+            },
+            "iid_random_30pct": {
+                "entropy_digest_dtype": "uint8",
+                "entropy_digest_shape": [
+                    6313,
+                    32
+                ],
+                "entropy_matrix_sha256": "6dc7e86b629e034b08653bea1229ba8628c05389d15481a7edc619d92372666e",
+                "test_split_scenario_seed": 2501262878,
+                "unique_digest_count": 6313
+            },
+            "iid_random_50pct": {
+                "entropy_digest_dtype": "uint8",
+                "entropy_digest_shape": [
+                    6313,
+                    32
+                ],
+                "entropy_matrix_sha256": "a8e0e8c160c708cdcc8e701428dfed71df4eb0f6d9d61648794284e290b161dd",
+                "test_split_scenario_seed": 2753698848,
+                "unique_digest_count": 6313
+            },
+            "spatial_knn4_cluster_10_full_history": {
+                "entropy_digest_dtype": "uint8",
+                "entropy_digest_shape": [
+                    6313,
+                    32
+                ],
+                "entropy_matrix_sha256": "4cb6f65b0150dda95d4a3e5c4ea7ccb54f291f2c18fd63e50aa644606eece7a9",
+                "test_split_scenario_seed": 2053426217,
+                "unique_digest_count": 6313
+            },
+            "spatial_knn4_cluster_20_full_history": {
+                "entropy_digest_dtype": "uint8",
+                "entropy_digest_shape": [
+                    6313,
+                    32
+                ],
+                "entropy_matrix_sha256": "5ffd19351ef65f1ecacd66ae3c52e4db1dfcd76d03443e5f6e1541d06dea95f7",
+                "test_split_scenario_seed": 634735808,
+                "unique_digest_count": 6313
+            },
+            "spatial_knn4_cluster_5_full_history": {
+                "entropy_digest_dtype": "uint8",
+                "entropy_digest_shape": [
+                    6313,
+                    32
+                ],
+                "entropy_matrix_sha256": "c58a2354fb3180049e06b6283d2dd4ab017923d1c3052f1e2ff7456a2a6c6761",
+                "test_split_scenario_seed": 3593019608,
+                "unique_digest_count": 6313
+            },
+            "temporal_tail_25pct_sensors_3steps": {
+                "entropy_digest_dtype": "uint8",
+                "entropy_digest_shape": [
+                    6313,
+                    32
+                ],
+                "entropy_matrix_sha256": "c00ba3765c2c67718f6931cbf1b29a211e72c07784a6fa9fe7681cf66eacb9e9",
+                "test_split_scenario_seed": 3327115680,
+                "unique_digest_count": 6313
+            },
+            "temporal_tail_50pct_sensors_6steps": {
+                "entropy_digest_dtype": "uint8",
+                "entropy_digest_shape": [
+                    6313,
+                    32
+                ],
+                "entropy_matrix_sha256": "e6dad6d3e5f4e5607a45ccb3b17ec12279dcf5e29da5358d1dadeca982f8fd42",
+                "test_split_scenario_seed": 647989568,
+                "unique_digest_count": 6313
+            },
+            "temporal_tail_75pct_sensors_12steps": {
+                "entropy_digest_dtype": "uint8",
+                "entropy_digest_shape": [
+                    6313,
+                    32
+                ],
+                "entropy_matrix_sha256": "537fcc2dab544bc7a3c3f5b4f3c7e2cdf42ca3dca2c80891812d5f397eade86f",
+                "test_split_scenario_seed": 2375607501,
+                "unique_digest_count": 6313
+            }
+        },
+        "primary_target_starts_sha256": "3864b94ff381ff412d4eefb417f0935b79bfcd9e22a2d5c7145e587a6ac86fd4",
+        "primary_window_count": 6313,
+        "probe_primary_indices": [
+            0,
+            1,
+            1432,
+            3156,
+            6312
+        ],
+        "probe_vectors": {
+            "iid_random_10pct": [
+                {
+                    "entropy_digest_hex": "0c33e406161d87e69a6fdf8a7648a1f0e13680cb9863115c38caa8bef50cbf61",
+                    "entropy_words_big_endian_uint32": [
+                        204727302,
+                        371034086,
+                        2591022986,
+                        1984471536,
+                        3778445515,
+                        2556629340,
+                        952805566,
+                        4111253345
+                    ],
+                    "primary_target_start": 27417,
+                    "primary_window_index": 0
+                },
+                {
+                    "entropy_digest_hex": "cf53062587756fb84366b3c38510544612faf90414fd19ea1117426fe912abb5",
+                    "entropy_words_big_endian_uint32": [
+                        3478324773,
+                        2272620472,
+                        1130804163,
+                        2232439878,
+                        318437636,
+                        352131562,
+                        286737007,
+                        3910314933
+                    ],
+                    "primary_target_start": 27418,
+                    "primary_window_index": 1
+                },
+                {
+                    "entropy_digest_hex": "22004a13e5f9f57a70fd7cf80da086027819e502cd6653895363ca101de2c1b8",
+                    "entropy_words_big_endian_uint32": [
+                        570444307,
+                        3858363770,
+                        1895660792,
+                        228623874,
+                        2014962946,
+                        3446035337,
+                        1399048720,
+                        501399992
+                    ],
+                    "primary_target_start": 28956,
+                    "primary_window_index": 1432
+                },
+                {
+                    "entropy_digest_hex": "0c4588802a3f588e6b813e1130812717b3cbdf64e0a88a7f8d58e33ad83490f8",
+                    "entropy_words_big_endian_uint32": [
+                        205883520,
+                        708794510,
+                        1803632145,
+                        813770519,
+                        3016482660,
+                        3769141887,
+                        2371412794,
+                        3627323640
+                    ],
+                    "primary_target_start": 30701,
+                    "primary_window_index": 3156
+                },
+                {
+                    "entropy_digest_hex": "77a960cff0532c303f3ced1c3c752e69df35b49fd8657053332b4acda50ef8cf",
+                    "entropy_words_big_endian_uint32": [
+                        2007589071,
+                        4031982640,
+                        1060957468,
+                        1014312553,
+                        3744838815,
+                        3630526547,
+                        858475213,
+                        2769221839
+                    ],
+                    "primary_target_start": 34260,
+                    "primary_window_index": 6312
+                }
+            ],
+            "iid_random_30pct": [
+                {
+                    "entropy_digest_hex": "b050393c9ad49adbe89ca2e6e5c6e6e3c4b9c56ebb37fc7427cd07ebcf5d5659",
+                    "entropy_words_big_endian_uint32": [
+                        2958047548,
+                        2597624539,
+                        3902579430,
+                        3855017699,
+                        3300509038,
+                        3141008500,
+                        667748331,
+                        3479000665
+                    ],
+                    "primary_target_start": 27417,
+                    "primary_window_index": 0
+                },
+                {
+                    "entropy_digest_hex": "e4a4e59d83a0cf4b142de16ec9829034389ca2994829b1b56e4ebc970e00d20b",
+                    "entropy_words_big_endian_uint32": [
+                        3836011933,
+                        2208354123,
+                        338551150,
+                        3380777012,
+                        949789337,
+                        1210692021,
+                        1850653847,
+                        234934795
+                    ],
+                    "primary_target_start": 27418,
+                    "primary_window_index": 1
+                },
+                {
+                    "entropy_digest_hex": "3189bf2cc544b62d59f3f753ed158b8edb8a6a886579c08b554d51002b4202a0",
+                    "entropy_words_big_endian_uint32": [
+                        831110956,
+                        3309614637,
+                        1509160787,
+                        3977612174,
+                        3683281544,
+                        1702477963,
+                        1431130368,
+                        725746336
+                    ],
+                    "primary_target_start": 28956,
+                    "primary_window_index": 1432
+                },
+                {
+                    "entropy_digest_hex": "f9117788315feea71f2bb89532cb2df30cfb9368c34a1e8db491cfde12a9a005",
+                    "entropy_words_big_endian_uint32": [
+                        4178671496,
+                        828370599,
+                        522958997,
+                        852176371,
+                        217813864,
+                        3276414605,
+                        3029454814,
+                        313106437
+                    ],
+                    "primary_target_start": 30701,
+                    "primary_window_index": 3156
+                },
+                {
+                    "entropy_digest_hex": "9e4c9810fcd84160974a5c454d89de5bdffd0f9aeee07dbbb88949f31e16e611",
+                    "entropy_words_big_endian_uint32": [
+                        2655819792,
+                        4242030944,
+                        2538232901,
+                        1300880987,
+                        3757903770,
+                        4007689659,
+                        3096005107,
+                        504817169
+                    ],
+                    "primary_target_start": 34260,
+                    "primary_window_index": 6312
+                }
+            ],
+            "iid_random_50pct": [
+                {
+                    "entropy_digest_hex": "024d59a9e6cd3e7c23dccfad2c2a286105bcb98ab15443e755ac827e30675ccc",
+                    "entropy_words_big_endian_uint32": [
+                        38623657,
+                        3872210556,
+                        601673645,
+                        740960353,
+                        96254346,
+                        2975089639,
+                        1437368958,
+                        812080332
+                    ],
+                    "primary_target_start": 27417,
+                    "primary_window_index": 0
+                },
+                {
+                    "entropy_digest_hex": "508e6a195f5815e75a5fe1a7f337cd4fb32bbfa3390416653602d218518a950b",
+                    "entropy_words_big_endian_uint32": [
+                        1351510553,
+                        1599608295,
+                        1516233127,
+                        4080520527,
+                        3005988771,
+                        956569189,
+                        906154520,
+                        1368036619
+                    ],
+                    "primary_target_start": 27418,
+                    "primary_window_index": 1
+                },
+                {
+                    "entropy_digest_hex": "32af045b2ac5b5b0d7bc6f10fedab1833315cb505a711d9ee3ad677c99eae8fa",
+                    "entropy_words_big_endian_uint32": [
+                        850330715,
+                        717600176,
+                        3619450640,
+                        4275745155,
+                        857066320,
+                        1517362590,
+                        3819792252,
+                        2582309114
+                    ],
+                    "primary_target_start": 28956,
+                    "primary_window_index": 1432
+                },
+                {
+                    "entropy_digest_hex": "1900e439a2f38dcae238b7749d3d55b76a989f37c91d1b19b2d9524cc20f43fe",
+                    "entropy_words_big_endian_uint32": [
+                        419488825,
+                        2733870538,
+                        3795367796,
+                        2638042551,
+                        1788387127,
+                        3374127897,
+                        3000586828,
+                        3255780350
+                    ],
+                    "primary_target_start": 30701,
+                    "primary_window_index": 3156
+                },
+                {
+                    "entropy_digest_hex": "cfd7e68192a78ac1dc5f867711ea4616de02bc2fc531c7012cc0be703694bd07",
+                    "entropy_words_big_endian_uint32": [
+                        3487032961,
+                        2460453569,
+                        3697247863,
+                        300566038,
+                        3724721199,
+                        3308373761,
+                        750829168,
+                        915717383
+                    ],
+                    "primary_target_start": 34260,
+                    "primary_window_index": 6312
+                }
+            ],
+            "spatial_knn4_cluster_10_full_history": [
+                {
+                    "entropy_digest_hex": "12e3a2830ec11d8049f42fe0313604d29d58b12da232fa84fddf9396b54e41b6",
+                    "entropy_words_big_endian_uint32": [
+                        316908163,
+                        247537024,
+                        1240739808,
+                        825623762,
+                        2639835437,
+                        2721249924,
+                        4259287958,
+                        3041804726
+                    ],
+                    "primary_target_start": 27417,
+                    "primary_window_index": 0
+                },
+                {
+                    "entropy_digest_hex": "0140f7d77ac5eb0ab32ab9235b1c326858b3f74a95cec8d14432e43354ac1599",
+                    "entropy_words_big_endian_uint32": [
+                        21034967,
+                        2059791114,
+                        3005921571,
+                        1528574568,
+                        1488189258,
+                        2513357009,
+                        1144185907,
+                        1420563865
+                    ],
+                    "primary_target_start": 27418,
+                    "primary_window_index": 1
+                },
+                {
+                    "entropy_digest_hex": "4fa6677b59ab3d3cb11effb48f7265525ec87301d6cf89066ba08332682a3ad2",
+                    "entropy_words_big_endian_uint32": [
+                        1336305531,
+                        1504394556,
+                        2971598772,
+                        2406638930,
+                        1590194945,
+                        3603925254,
+                        1805681458,
+                        1747598034
+                    ],
+                    "primary_target_start": 28956,
+                    "primary_window_index": 1432
+                },
+                {
+                    "entropy_digest_hex": "6816bc71f78cde4f2f9dc9464a7acbeb05fee113ed3d7eb7c20ffc4658d4c23d",
+                    "entropy_words_big_endian_uint32": [
+                        1746320497,
+                        4153204303,
+                        798869830,
+                        1249561579,
+                        100589843,
+                        3980230327,
+                        3255827526,
+                        1490338365
+                    ],
+                    "primary_target_start": 30701,
+                    "primary_window_index": 3156
+                },
+                {
+                    "entropy_digest_hex": "f46280a53e5a23ebd2cec527b36cf4374e32cfce6604cf76d47c78723ded8357",
+                    "entropy_words_big_endian_uint32": [
+                        4100096165,
+                        1046094827,
+                        3536766247,
+                        3010262071,
+                        1311952846,
+                        1711591286,
+                        3564927090,
+                        1038975831
+                    ],
+                    "primary_target_start": 34260,
+                    "primary_window_index": 6312
+                }
+            ],
+            "spatial_knn4_cluster_20_full_history": [
+                {
+                    "entropy_digest_hex": "c9b0f70fbdb62ba3a3eb63c80c3ecb8d6542eae6d5f0239e87153eb41e03b94a",
+                    "entropy_words_big_endian_uint32": [
+                        3383817999,
+                        3182832547,
+                        2750112712,
+                        205441933,
+                        1698884326,
+                        3589284766,
+                        2266316468,
+                        503560522
+                    ],
+                    "primary_target_start": 27417,
+                    "primary_window_index": 0
+                },
+                {
+                    "entropy_digest_hex": "06c35f6814755dce01ce66e82be4de43e0e5163768a9a1648dbfb85c786c0c96",
+                    "entropy_words_big_endian_uint32": [
+                        113467240,
+                        343236046,
+                        30303976,
+                        736419395,
+                        3773109815,
+                        1755947364,
+                        2378152028,
+                        2020347030
+                    ],
+                    "primary_target_start": 27418,
+                    "primary_window_index": 1
+                },
+                {
+                    "entropy_digest_hex": "8710ed8ede71df47c2ac8e788286305b44149a047b8e01db787c9cc39c5f16ae",
+                    "entropy_words_big_endian_uint32": [
+                        2266033550,
+                        3732004679,
+                        3266088568,
+                        2189832283,
+                        1142200836,
+                        2072904155,
+                        2021432515,
+                        2623477422
+                    ],
+                    "primary_target_start": 28956,
+                    "primary_window_index": 1432
+                },
+                {
+                    "entropy_digest_hex": "2dfaadceec16cb2bfae94a1b5791e09aa64fee0674c908d74232601fc2552c2d",
+                    "entropy_words_big_endian_uint32": [
+                        771403214,
+                        3960916779,
+                        4209592859,
+                        1469178010,
+                        2790256134,
+                        1959332055,
+                        1110597663,
+                        3260361773
+                    ],
+                    "primary_target_start": 30701,
+                    "primary_window_index": 3156
+                },
+                {
+                    "entropy_digest_hex": "dd79a19ebae7a7a55504021921ed5932a62e9949669db8915489b530c3422fef",
+                    "entropy_words_big_endian_uint32": [
+                        3715735966,
+                        3135743909,
+                        1426326041,
+                        569202994,
+                        2788071753,
+                        1721612433,
+                        1418310960,
+                        3275894767
+                    ],
+                    "primary_target_start": 34260,
+                    "primary_window_index": 6312
+                }
+            ],
+            "spatial_knn4_cluster_5_full_history": [
+                {
+                    "entropy_digest_hex": "ff3bad4699e50213f1188b16c36b7a2eeb424ee793724b6a4ec3cf1e40db1a06",
+                    "entropy_words_big_endian_uint32": [
+                        4282101062,
+                        2581922323,
+                        4044917526,
+                        3278600750,
+                        3946991335,
+                        2473741162,
+                        1321455390,
+                        1088100870
+                    ],
+                    "primary_target_start": 27417,
+                    "primary_window_index": 0
+                },
+                {
+                    "entropy_digest_hex": "75024cc796818bd5ab4ab6397e23acc22f8554cf74c9543f7ad6dbbb8e797d01",
+                    "entropy_words_big_endian_uint32": [
+                        1963084999,
+                        2525072341,
+                        2873800249,
+                        2116267202,
+                        797267151,
+                        1959351359,
+                        2060901307,
+                        2390326529
+                    ],
+                    "primary_target_start": 27418,
+                    "primary_window_index": 1
+                },
+                {
+                    "entropy_digest_hex": "dbf64971fd3b9ec3403a6088395866c8737d7a2ed4b164f522f96ec52e465eaa",
+                    "entropy_words_big_endian_uint32": [
+                        3690350961,
+                        4248542915,
+                        1077567624,
+                        962094792,
+                        1937603118,
+                        3568395509,
+                        586772165,
+                        776363690
+                    ],
+                    "primary_target_start": 28956,
+                    "primary_window_index": 1432
+                },
+                {
+                    "entropy_digest_hex": "8add3d80b2c79c2327f0a035eaa62df1b4089ddff744c87a3bbcd8559d412863",
+                    "entropy_words_big_endian_uint32": [
+                        2329755008,
+                        2999426083,
+                        670081077,
+                        3936759281,
+                        3020463583,
+                        4148480122,
+                        1002231893,
+                        2638293091
+                    ],
+                    "primary_target_start": 30701,
+                    "primary_window_index": 3156
+                },
+                {
+                    "entropy_digest_hex": "22eb6b4b2b51ddefacf1fea7eeb3a7333877f34252b1a9936acbc0dee4376309",
+                    "entropy_words_big_endian_uint32": [
+                        585853771,
+                        726785519,
+                        2901540519,
+                        4004751155,
+                        947385154,
+                        1387374995,
+                        1791738078,
+                        3828835081
+                    ],
+                    "primary_target_start": 34260,
+                    "primary_window_index": 6312
+                }
+            ],
+            "temporal_tail_25pct_sensors_3steps": [
+                {
+                    "entropy_digest_hex": "3e88e7553e82ab26066bbdb0037eb5ed4178546b10df28593f917c2625db1207",
+                    "entropy_words_big_endian_uint32": [
+                        1049159509,
+                        1048750886,
+                        107724208,
+                        58635757,
+                        1098404971,
+                        283060313,
+                        1066499110,
+                        635113991
+                    ],
+                    "primary_target_start": 27417,
+                    "primary_window_index": 0
+                },
+                {
+                    "entropy_digest_hex": "66313cea8a4069e4b6d5a0e98b46c776c568920bf17871f46be3c84c3a396901",
+                    "entropy_words_big_endian_uint32": [
+                        1714502890,
+                        2319477220,
+                        3067453673,
+                        2336671606,
+                        3311964683,
+                        4051202548,
+                        1810090060,
+                        976840961
+                    ],
+                    "primary_target_start": 27418,
+                    "primary_window_index": 1
+                },
+                {
+                    "entropy_digest_hex": "9ef094103843d9021119d9668dbe7d8dd9d9deb6323a924cec34b94bffeb1601",
+                    "entropy_words_big_endian_uint32": [
+                        2666566672,
+                        943970562,
+                        286906726,
+                        2378071437,
+                        3654934198,
+                        842699340,
+                        3962878283,
+                        4293596673
+                    ],
+                    "primary_target_start": 28956,
+                    "primary_window_index": 1432
+                },
+                {
+                    "entropy_digest_hex": "38e34c759010860186926fe89e44e8bff438b661ed6942b6df4e87d2b1b3dd70",
+                    "entropy_words_big_endian_uint32": [
+                        954420341,
+                        2417001985,
+                        2257743848,
+                        2655316159,
+                        4097357409,
+                        3983098550,
+                        3746465746,
+                        2981354864
+                    ],
+                    "primary_target_start": 30701,
+                    "primary_window_index": 3156
+                },
+                {
+                    "entropy_digest_hex": "6042fa87c9d841131511713806b9092fb3513025d9428bbf5a4f85e411f3c39c",
+                    "entropy_words_big_endian_uint32": [
+                        1615002247,
+                        3386392851,
+                        353464632,
+                        112789807,
+                        3008442405,
+                        3645017023,
+                        1515161060,
+                        301187996
+                    ],
+                    "primary_target_start": 34260,
+                    "primary_window_index": 6312
+                }
+            ],
+            "temporal_tail_50pct_sensors_6steps": [
+                {
+                    "entropy_digest_hex": "a1f7de2aa2290320ca745257e87e9fde6aaad1548a0707843337ec957fc3e265",
+                    "entropy_words_big_endian_uint32": [
+                        2717376042,
+                        2720596768,
+                        3396620887,
+                        3900612574,
+                        1789579604,
+                        2315716484,
+                        859303061,
+                        2143543909
+                    ],
+                    "primary_target_start": 27417,
+                    "primary_window_index": 0
+                },
+                {
+                    "entropy_digest_hex": "02a5b769c076d16bec2eececa67eb6210be150dbcee870cdeba4680fdc1bad24",
+                    "entropy_words_big_endian_uint32": [
+                        44414825,
+                        3229012331,
+                        3962498284,
+                        2793322017,
+                        199315675,
+                        3471339725,
+                        3953420303,
+                        3692801316
+                    ],
+                    "primary_target_start": 27418,
+                    "primary_window_index": 1
+                },
+                {
+                    "entropy_digest_hex": "f122a9fea435a2256ff1317b4ed802eb98d6bd445155c2105169091d682f141a",
+                    "entropy_words_big_endian_uint32": [
+                        4045580798,
+                        2754978341,
+                        1878077819,
+                        1322779371,
+                        2564209988,
+                        1364574736,
+                        1365838109,
+                        1747915802
+                    ],
+                    "primary_target_start": 28956,
+                    "primary_window_index": 1432
+                },
+                {
+                    "entropy_digest_hex": "9819df1e7aec44ae121cb09901d8a972c13f736b4f110d3291b10dde210596df",
+                    "entropy_words_big_endian_uint32": [
+                        2551832350,
+                        2062304430,
+                        303870105,
+                        30976370,
+                        3242161003,
+                        1326517554,
+                        2444299742,
+                        554014431
+                    ],
+                    "primary_target_start": 30701,
+                    "primary_window_index": 3156
+                },
+                {
+                    "entropy_digest_hex": "b25db7f740127a278866c47392ed2dda4ae28f552519937dda647e473faa840f",
+                    "entropy_words_big_endian_uint32": [
+                        2992486391,
+                        1074952743,
+                        2288436339,
+                        2465017306,
+                        1256361813,
+                        622433149,
+                        3664019015,
+                        1068139535
+                    ],
+                    "primary_target_start": 34260,
+                    "primary_window_index": 6312
+                }
+            ],
+            "temporal_tail_75pct_sensors_12steps": [
+                {
+                    "entropy_digest_hex": "5d2bf1b27b1f7b4d7929dd6042d4b7900648fef628a244d3cba19a975ae58077",
+                    "entropy_words_big_endian_uint32": [
+                        1563161010,
+                        2065660749,
+                        2032786784,
+                        1121236880,
+                        105447158,
+                        681723091,
+                        3416365719,
+                        1524990071
+                    ],
+                    "primary_target_start": 27417,
+                    "primary_window_index": 0
+                },
+                {
+                    "entropy_digest_hex": "44102338b62173d9cb0adb62027f59ea01a3f1036d272715daf2c10eb45972ae",
+                    "entropy_words_big_endian_uint32": [
+                        1141908280,
+                        3055645657,
+                        3406486370,
+                        41900522,
+                        27521283,
+                        1831282453,
+                        3673342222,
+                        3025760942
+                    ],
+                    "primary_target_start": 27418,
+                    "primary_window_index": 1
+                },
+                {
+                    "entropy_digest_hex": "74aab41096a0aec52d163589f59f4455052143fe019e9e4bcb158882dc515282",
+                    "entropy_words_big_endian_uint32": [
+                        1957344272,
+                        2527112901,
+                        756430217,
+                        4120855637,
+                        86066174,
+                        27172427,
+                        3407186050,
+                        3696317058
+                    ],
+                    "primary_target_start": 28956,
+                    "primary_window_index": 1432
+                },
+                {
+                    "entropy_digest_hex": "c13478a477e1f70ca284de1f11b37fe9f75f355be6a6c5365f482ab396989964",
+                    "entropy_words_big_endian_uint32": [
+                        3241441444,
+                        2011297548,
+                        2726616607,
+                        296976361,
+                        4150211931,
+                        3869689142,
+                        1598565043,
+                        2526583140
+                    ],
+                    "primary_target_start": 30701,
+                    "primary_window_index": 3156
+                },
+                {
+                    "entropy_digest_hex": "77c4c043c3f2ff1ee1d57a83ac1ddfb423e7bcfc3abe55baf910f82f947d93a9",
+                    "entropy_words_big_endian_uint32": [
+                        2009382979,
+                        3287482142,
+                        3788864131,
+                        2887638964,
+                        602389756,
+                        985552314,
+                        4178638895,
+                        2491257769
+                    ],
+                    "primary_target_start": 34260,
+                    "primary_window_index": 6312
+                }
+            ]
+        },
+        "secondary_flags_for_primary_sha256": "477b8c47c14d4220915b23776c30a9aa8999bd1b36cca9d44011caf82ce20676",
+        "secondary_is_exact_ordered_primary_subset": true,
+        "secondary_target_starts_sha256": "a9882f24e3db66429f0c120cf675ddf81c40f1aecd72aa9e87e0f59cd94ff058",
+        "secondary_window_count": 4771
+    }
+}

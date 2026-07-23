@@ -1,0 +1,62 @@
+{
+ "architecture": {
+  "decoder_hidden_dimension": 64,
+  "dropout": 0.1,
+  "elapsed_gap_cap_steps": 288,
+  "forecast_log_scale_maximum": 3.0,
+  "forecast_log_scale_minimum": -6.0,
+  "graph_layers": 2,
+  "latent_dimension": 64,
+  "reliability_hidden_dimension": 32,
+  "sensor_embedding_dimension": 16,
+  "temporal_gru_layers": 1
+ },
+ "architecture_parity_policy": "The architecture is identical to the frozen METR-LA FAR-GF-RC configuration except for the required sensor-count change from 207 to 325.",
+ "config_identifier": "pems_bay_far_gf_rc_config_v1",
+ "dataset": "PEMS-BAY",
+ "derived_from_metr_la_config_path": "configs/metr_la_far_gf_rc_config_v1.json",
+ "derived_from_metr_la_config_sha256": "69af2663256a472a3aec6e63c9cd45e00d5bbeb0edcd4479e6d8109e2f67f883",
+ "description": "Failure-Aware Reliability-Calibrated Graph Forecaster with Robust Failure Curriculum.",
+ "future_calendar_feature_dimension": 4,
+ "future_calendar_feature_order": [
+  "time_of_day_sin",
+  "time_of_day_cos",
+  "day_of_week_sin",
+  "day_of_week_cos"
+ ],
+ "history_feature_dimension": 7,
+ "history_feature_order": [
+  "normalized_traffic_value",
+  "corrupted_observation_mask",
+  "corrupted_elapsed_gap_normalized",
+  "time_of_day_sin",
+  "time_of_day_cos",
+  "day_of_week_sin",
+  "day_of_week_cos"
+ ],
+ "input_steps": 12,
+ "method_components": [
+  "failure_aware_input_encoding",
+  "mask_and_elapsed_gap_reliability_estimation",
+  "physical_graph_message_passing",
+  "adaptive_functional_graph_message_passing",
+  "reliability_gated_graph_aggregation",
+  "multi_horizon_forecasting_head",
+  "history_reconstruction_head",
+  "forecast_scale_head_for_later_calibration"
+ ],
+ "model_name": "FAR-GF-RC",
+ "model_source_path": "src/models/far_gf_rc.py",
+ "model_source_sha256": "6dd6cc74f27cffd70cfef6e4dda89d31e5db16a31d66517a2da1ba2004070d25",
+ "num_sensors": 325,
+ "output_steps": 12,
+ "physical_graph_contract": {
+  "normalization": "No external row normalization. FAR-GF-RC normalizes the reliability-weighted adjacency internally.",
+  "path": "data/processed/pems_bay_geographic_knn4_self_tuning_gaussian_physical_graph_v1.npz",
+  "semantic_scope": "Coordinate-derived geographic affinity support, not a verified road-network-distance graph.",
+  "sha256": "0801aa7ccaae9ef6c8f695c8cf7d6f666cf0da67c11185faf3fe123962924de6"
+ },
+ "portability_note": "Paths rewritten project-root-relative from the frozen original in configs/frozen/.",
+ "training_status": "architecture_frozen_before_proposed_model_training",
+ "version": "v1"
+}

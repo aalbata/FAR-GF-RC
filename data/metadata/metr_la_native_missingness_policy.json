@@ -1,0 +1,101 @@
+{
+    "created_at": "2026-06-29T13:57:28",
+    "dataset_name": "METR-LA",
+    "raw_traffic_file_remains_unchanged": true,
+    "native_observation_definition": "A traffic reading is observed only when it is finite and strictly greater than zero.",
+    "native_missing_definition": "A traffic reading is considered native missing when it is zero, NaN, positive infinity, or negative infinity.",
+    "zero_value_policy": "Zero values are treated as native missing because Cell 5 identified whole-network all-zero periods and multi-day sensor-specific zero outages.",
+    "imputation_performed": false,
+    "scaling_performed": false,
+    "chronological_split_created": false,
+    "traffic_shape_timestamps_sensors": [
+        34272,
+        207
+    ],
+    "total_values": 7094304,
+    "observed_values": 6519002,
+    "native_missing_values": 575302,
+    "observed_percent": 91.89064917432351,
+    "native_missing_percent": 8.109350825676486,
+    "zero_values": 575302,
+    "nan_values": 0,
+    "infinite_values": 0,
+    "negative_values": 0,
+    "fully_missing_timestamps": 2148,
+    "timestamps_with_at_least_50_percent_missing": 2149,
+    "timestamps_with_at_least_75_percent_missing": 2148,
+    "top_10_sensors_by_native_missing_percent": [
+        {
+            "sensor_id": "718076",
+            "observed_count": 27382,
+            "missing_count": 6890,
+            "observed_percent": 79.89612511671336,
+            "missing_percent": 20.10387488328665
+        },
+        {
+            "sensor_id": "716939",
+            "observed_count": 27808,
+            "missing_count": 6464,
+            "observed_percent": 81.1391223155929,
+            "missing_percent": 18.860877684407097
+        },
+        {
+            "sensor_id": "760987",
+            "observed_count": 28740,
+            "missing_count": 5532,
+            "observed_percent": 83.85854341736695,
+            "missing_percent": 16.141456582633054
+        },
+        {
+            "sensor_id": "716955",
+            "observed_count": 28898,
+            "missing_count": 5374,
+            "observed_percent": 84.31956115779646,
+            "missing_percent": 15.680438842203548
+        },
+        {
+            "sensor_id": "769418",
+            "observed_count": 28923,
+            "missing_count": 5349,
+            "observed_percent": 84.39250700280112,
+            "missing_percent": 15.607492997198879
+        },
+        {
+            "sensor_id": "769405",
+            "observed_count": 28926,
+            "missing_count": 5346,
+            "observed_percent": 84.40126050420169,
+            "missing_percent": 15.59873949579832
+        },
+        {
+            "sensor_id": "717481",
+            "observed_count": 29109,
+            "missing_count": 5163,
+            "observed_percent": 84.93522408963585,
+            "missing_percent": 15.064775910364144
+        },
+        {
+            "sensor_id": "717510",
+            "observed_count": 29116,
+            "missing_count": 5156,
+            "observed_percent": 84.95564892623716,
+            "missing_percent": 15.044351073762838
+        },
+        {
+            "sensor_id": "717513",
+            "observed_count": 29453,
+            "missing_count": 4819,
+            "observed_percent": 85.9389589169001,
+            "missing_percent": 14.061041083099907
+        },
+        {
+            "sensor_id": "717576",
+            "observed_count": 29597,
+            "missing_count": 4675,
+            "observed_percent": 86.35912698412699,
+            "missing_percent": 13.640873015873014
+        }
+    ],
+    "mask_file": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\metr_la_native_observation_mask.npz",
+    "sensor_summary_file": "C:\\Users\\student\\traffic_robust_forecasting\\data\\metadata\\metr_la_native_missingness_sensor_summary.csv"
+}

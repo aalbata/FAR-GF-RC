@@ -1,0 +1,147 @@
+{
+    "created_at": "2026-06-30T17:25:32",
+    "dataset_name": "METR-LA",
+    "protocol": {
+        "input_steps": 12,
+        "output_steps": 12,
+        "time_interval_minutes": 5,
+        "test_start_index": 27417,
+        "test_end_index_exclusive": 34272,
+        "test_start_timestamp": "2012-06-04 04:45:00",
+        "test_end_timestamp": "2012-06-27 23:55:00",
+        "test_candidate_window_count": 6844,
+        "primary_window_rule": "At least one valid native future target label across the 12-step forecast horizon.",
+        "secondary_window_rule": "At least 95% valid historical input positions and at least 95% valid future target positions, independently across the 12-step x 207-sensor input and target blocks.",
+        "secondary_availability_threshold": 0.95,
+        "secondary_minimum_valid_positions_per_block": 2360,
+        "secondary_positions_per_input_block": 2484,
+        "secondary_positions_per_target_block": 2484,
+        "forecast_origin_day_count": 24,
+        "forecast_origin_days": [
+            "2012-06-04",
+            "2012-06-05",
+            "2012-06-06",
+            "2012-06-07",
+            "2012-06-08",
+            "2012-06-09",
+            "2012-06-10",
+            "2012-06-11",
+            "2012-06-12",
+            "2012-06-13",
+            "2012-06-14",
+            "2012-06-15",
+            "2012-06-16",
+            "2012-06-17",
+            "2012-06-18",
+            "2012-06-19",
+            "2012-06-20",
+            "2012-06-21",
+            "2012-06-22",
+            "2012-06-23",
+            "2012-06-24",
+            "2012-06-25",
+            "2012-06-26",
+            "2012-06-27"
+        ]
+    },
+    "native_mask_policy": {
+        "observed_rule": "finite raw traffic value and strictly greater than zero",
+        "mask_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\metr_la_native_observation_mask.npz",
+        "mask_key": "native_observation_mask",
+        "skipped_object_metadata_keys": [
+            "timestamps"
+        ],
+        "mask_sha256": "70e6684b434461d6388553add88ad17df2b59822926d01897087cd21d218069f",
+        "mask_matches_recomputed_policy": true
+    },
+    "train_only_scaler": {
+        "scaler_path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\processed\\metr_la_train_only_sensor_scaler.npz",
+        "scaler_sha256": "4ff888a7bdbbe843a3b30541bd5793b26269961dc8c21fe2d4d042d4aa19a111",
+        "mean_key": "means",
+        "std_key": "stds",
+        "live_state_match_verified": true
+    },
+    "cohorts": {
+        "primary_window_count": 6313,
+        "secondary_window_count": 4771,
+        "valid_target_counts": {
+            "primary": {
+                "overall": 14940228,
+                "15m": 1245040,
+                "30m": 1245022,
+                "60m": 1244986
+            },
+            "secondary": {
+                "overall": 11620432,
+                "15m": 968525,
+                "30m": 968439,
+                "60m": 968022
+            }
+        },
+        "minimum_input_availability_percent": 95.00805152979066,
+        "minimum_target_availability_percent": 95.00805152979066,
+        "manifest_hashes": {
+            "primary_target_starts_sha256": "3864b94ff381ff412d4eefb417f0935b79bfcd9e22a2d5c7145e587a6ac86fd4",
+            "secondary_target_starts_sha256": "a9882f24e3db66429f0c120cf675ddf81c40f1aecd72aa9e87e0f59cd94ff058",
+            "primary_day_indices_sha256": "9ac497d79a12432f0ec8dd0403e65511d780a0286d48ad28b2105a29fda0f5a3",
+            "secondary_flags_for_primary_sha256": "6773617fc6c0157c29aac60fb457bf0ba69b2adabf27d17dc1b9ae04357b2b1a"
+        }
+    },
+    "feature_reconstruction": {
+        "reconstruction_checks_passed": true,
+        "maximum_absolute_differences": {
+            "train_first": {
+                "history_features": 8.940696716308594e-08,
+                "future_calendar": 8.940696716308594e-08,
+                "target_values": 0.0,
+                "target_mask": 0.0
+            },
+            "train_middle": {
+                "history_features": 4.470348358154297e-07,
+                "future_calendar": 4.172325134277344e-07,
+                "target_values": 0.0,
+                "target_mask": 0.0
+            },
+            "selection_first": {
+                "history_features": 1.4901161193847656e-07,
+                "future_calendar": 1.7881393432617188e-07,
+                "target_values": 0.0,
+                "target_mask": 0.0
+            },
+            "selection_last": {
+                "history_features": 8.940696716308594e-08,
+                "future_calendar": 8.940696716308594e-08,
+                "target_values": 0.0,
+                "target_mask": 0.0
+            }
+        },
+        "historical_feature_order": [
+            "normalized_traffic",
+            "native_observation_mask",
+            "causal_elapsed_since_observed",
+            "daily_sin",
+            "daily_cos",
+            "weekday_sin",
+            "weekday_cos"
+        ],
+        "future_calendar_feature_order": [
+            "daily_sin",
+            "daily_cos",
+            "weekday_sin",
+            "weekday_cos"
+        ],
+        "elapsed_feature_policy": "Elapsed feature is updated at the current timestamp, capped at 288 five-minute steps, and divided by 288."
+    },
+    "raw_hdf": {
+        "path": "C:\\Users\\student\\traffic_robust_forecasting\\data\\raw\\METRLA\\metr-la.h5",
+        "sha256": "64784b76d6fb8ec9bff4b6decafb354da2bb37840468fdccee5044e511277c05",
+        "traffic_dataset_name": "df/block0_values",
+        "timestamp_dataset_name": "df/axis1",
+        "traffic_shape": [
+            34272,
+            207
+        ],
+        "first_timestamp": "2012-03-01 00:00:00",
+        "last_timestamp": "2012-06-27 23:55:00"
+    }
+}

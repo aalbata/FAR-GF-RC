@@ -1,0 +1,126 @@
+{
+    "created_at": "2026-07-01T09:15:56",
+    "dataset_name": "METR-LA",
+    "analysis_stage": "MS-TCN v2 end-to-end throughput validation",
+    "probe_only": true,
+    "final_training_performed": false,
+    "checkpoint_selection_performed": false,
+    "configuration_or_source_overwritten": false,
+    "calibration_data_loaded": false,
+    "test_data_loaded": false,
+    "backend": {
+        "implementation": "Parameter-equivalent Conv2d time-only backend",
+        "tensor_layout": "[batch, channels, sensors, time]",
+        "temporal_kernel_height": 1,
+        "sensor_isolated": true,
+        "graph_free": true,
+        "parameter_count": 105977,
+        "expected_parameter_count": 105977
+    },
+    "architecture": {
+        "tcn_channels": 64,
+        "kernel_size": 3,
+        "dilations": [
+            1,
+            2,
+            4,
+            8
+        ],
+        "dropout": 0.1,
+        "sensor_embedding_dim": 8,
+        "prediction_head_dim": 64
+    },
+    "data_pipeline": {
+        "train_windows": 22969,
+        "selection_windows": 1703,
+        "train_batch_size": 32,
+        "evaluation_batch_size": 256,
+        "probe_train_batches": 32,
+        "expected_train_batches_per_epoch": 718,
+        "expected_selection_batches_per_epoch": 7,
+        "selection_valid_target_entry_count": 4142008
+    },
+    "runtime_profile_seconds": {
+        "train_data_loading": {
+            "mean_seconds": 0.003473353117442457,
+            "median_seconds": 0.0035819499753415585,
+            "p95_seconds": 0.003874175006058067,
+            "minimum_seconds": 0.0029906000709161162,
+            "maximum_seconds": 0.004965799977071583,
+            "total_seconds": 0.11114729975815862
+        },
+        "train_host_to_device_transfer": {
+            "mean_seconds": 0.0003572624991647899,
+            "median_seconds": 0.00035369995748624206,
+            "p95_seconds": 0.0003714349819347262,
+            "minimum_seconds": 0.00034170004073530436,
+            "maximum_seconds": 0.0004412999842315912,
+            "total_seconds": 0.011432399973273277
+        },
+        "train_forward_backward_optimizer": {
+            "mean_seconds": 0.17852386875529191,
+            "median_seconds": 0.1777836999972351,
+            "p95_seconds": 0.18192544501507654,
+            "minimum_seconds": 0.1762698000529781,
+            "maximum_seconds": 0.18301769997924566,
+            "total_seconds": 5.712763800169341
+        },
+        "train_end_to_end": {
+            "mean_seconds": 0.18235635624660063,
+            "median_seconds": 0.1821611499763094,
+            "p95_seconds": 0.1859716900042258,
+            "minimum_seconds": 0.17997449997346848,
+            "maximum_seconds": 0.1863935999572277,
+            "total_seconds": 5.83540339989122
+        },
+        "selection_host_to_device_transfer": {
+            "mean_seconds": 0.0012870285759813019,
+            "median_seconds": 0.0013089000713080168,
+            "p95_seconds": 0.0014113099896349013,
+            "minimum_seconds": 0.0009567999513819814,
+            "maximum_seconds": 0.0014191999798640609,
+            "total_seconds": 0.009009200031869113
+        },
+        "selection_forward_metric_aggregation": {
+            "mean_seconds": 1.0424558999781897,
+            "median_seconds": 1.1050201000180095,
+            "p95_seconds": 1.1121367099462076,
+            "minimum_seconds": 0.7082055000355467,
+            "maximum_seconds": 1.1130235999589786,
+            "total_seconds": 7.297191299847327
+        },
+        "selection_end_to_end": {
+            "mean_seconds": 1.0437459857203066,
+            "median_seconds": 1.1063973000273108,
+            "p95_seconds": 1.1134536799625494,
+            "minimum_seconds": 0.7091652000090107,
+            "maximum_seconds": 1.114295299979858,
+            "total_seconds": 7.3062219000421464
+        },
+        "estimated_train_epoch_seconds": 130.93186378505925,
+        "estimated_selection_epoch_seconds": 7.3062219000421464,
+        "estimated_end_to_end_epoch_seconds": 138.2380856851014,
+        "estimated_end_to_end_epoch_minutes": 2.30396809475169
+    },
+    "throughput": {
+        "train_windows_processed": 1024,
+        "train_windows_per_second": 175.48058460175844,
+        "train_valid_targets_processed": 2478093,
+        "train_valid_targets_per_second": 424665.2425171146
+    },
+    "selection_probe_metrics_untrained_diagnostic_only": {
+        "MAE": 5.365426307119638,
+        "RMSE": 8.719450273847615,
+        "MAPE": 14.135007762992007,
+        "WMAPE": 9.010567303050221,
+        "negative_prediction_count_before_clipping": 0
+    },
+    "gpu_memory": {
+        "peak_allocated_mb": 938.6630859375,
+        "peak_reserved_mb": 2504.0
+    },
+    "decision_rule": {
+        "maximum_estimated_end_to_end_epoch_minutes": 5.0,
+        "feasibility_passed": true
+    }
+}
